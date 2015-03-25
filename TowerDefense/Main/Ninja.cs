@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using TowerDefense.Interfaces;
@@ -27,9 +28,8 @@ namespace TowerDefense.Main
         {
             get
             {
-                // Example
-                return new BitmapImage(new Uri(@"http://www.dekoracia.net/Resource/storage/product/2884/thumb_a140_nindja.png"));
-                //return new BitmapImage(new Uri(@"/TowerDefense.Main;component/images/download.jpg"));
+                // Example                
+                return new BitmapImage(new Uri(Path.Combine(Environment.CurrentDirectory,"..", ".." , "images", "download.jpg")));
             }
         }
     }

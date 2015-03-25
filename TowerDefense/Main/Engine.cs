@@ -41,6 +41,7 @@ namespace TowerDefense.Main
             this.AddMonster(new Ninja(new Point(50, 50)));
             this.AddMonster(new Ninja(new Point(150, 250)));
             this.AddMonster(new Ninja(new Point(250, 150)));
+            this.AddTower(new Tower1(new Point(0, 0)));
         }
 
         public void Start()

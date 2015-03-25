@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Struct Name="TowerDefense.Interfaces.Point" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Point.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="TowerDefense.Interfaces.ICanvas" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAABAAAAAAAIAAAAEAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ICanvas.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IDrawable" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAEAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>IDrawable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IMovable" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IMovable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IObjectCreator" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>IObjectCreator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IRoute" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRoute.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IShooter" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>IShooter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.ITarget" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>ITarget.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TowerDefense.Interfaces.Direction" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
