@@ -8,13 +8,13 @@
     {
         public MainWindow()
         {
-            InitializeComponent();
-            Engine engine = new Engine(this.canvas, new Route(this.path));
-            engine.Start();
+            //InitializeComponent();
+            //Engine engine = new Engine(this.canvas, new Route(this.path));
+            //engine.Start();
 
             InitializeComponent();
             Switcher.pageSwitcher = this;
-            //Switcher.Switch(new MainWindow());
+            Switcher.Switch(new GameStart());
         }
 
         public void Navigate(UserControl nextPage)
