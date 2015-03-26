@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media;
 using TowerDefense.Interfaces;
 using TowerDefense.Utils;
 
@@ -12,6 +9,7 @@ namespace TowerDefense.Main
         public Ninja(Point position)
             : base(position)
         {
+            // Example
             AsyncTimer.DelayedCall(5000, () =>
             {
                 this.Position = new Point(this.Position.X + 100, this.Position.Y + 100);
@@ -29,7 +27,7 @@ namespace TowerDefense.Main
             get
             {
                 // Example                
-                return new BitmapImage(new Uri(Path.Combine(Environment.CurrentDirectory,"..", ".." , "images", "download.jpg")));
+                return ImageFactory.CreateImage("download.jpg");
             }
         }
     }

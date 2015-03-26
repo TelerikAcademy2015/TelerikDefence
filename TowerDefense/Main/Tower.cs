@@ -1,45 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
     public abstract class Tower : GameObject, IShooter
     {
-        protected int range;
-        protected int damage;
-        protected int rate;
-        protected int price;
-        protected ITarget target;
+        public abstract int Range
+        {
+            get;
+        }
+
+        // in miliseconds
+        public abstract int Rate
+        {
+            get;
+        }
+
+        public abstract int Damage
+        {
+            get;
+        }
+
+        public abstract int Price
+        {
+            get;
+        }
 
         public Tower(Point position)
             : base(position)
         {
-        }
-
-        public int Range
-        {
-            get { return range; }
-        }
-
-        public int Damage
-        {
-            get { return damage; }
-        }
-
-        public int Rate
-        {
-            get { return rate; }
-        }
-
-        public int Price
-        {
-            get { return price; }
-        }
-
-        public ITarget Target
-        {
-            get { return target; }
         }
 
         public void Shoot(ITarget target)
@@ -49,31 +40,20 @@ namespace TowerDefense.Main
 
         public bool IsInRange(ITarget target)
         {
-
-            if (this.GetDistance(target) < this.Range)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.GetDistance(target) < this.Range;
         }
 
-        public void GetClosestMonster(ICollection<ITarget> monsters)
+        protected double GetDistance(ITarget target)
         {
-            target = null;
-            double minRange = range;
+            double deltaX = this.Position.X - target.Position.X;
+            double deltaY = this.Position.Y - target.Position.Y;
 
-            foreach (var monster in monsters)
-            {
-                if (this.GetDistance(monster) < minRange)
-                {
-                    minRange = this.GetDistance(monster);
-                    target = monster;
-                }
-            }
+            return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
         }
 
+        public ITarget GetClosestMonster(ICollection<ITarget> targets)
+        {
+            return targets.OrderBy(target => this.GetDistance(target)).FirstOrDefault();
+        }
     }
 }

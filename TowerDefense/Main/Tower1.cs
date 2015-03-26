@@ -11,20 +11,48 @@ namespace TowerDefense.Main
 {
     public class Tower1 : Tower
     {
-        public Tower1(Point position) 
-            : base(position)
+        public override int Range
         {
-            damage = 10;
-            rate = 100;
-            range = 40;
+            get
+            {
+                return 40;
+            }
+        }
+
+        public override int Rate
+        {
+            get
+            {
+                return 100;
+            }
+        }
+
+        public override int Damage
+        {
+            get
+            {
+                return 10;
+            }
+        }
+
+        public override int Price
+        {
+            get {
+                return 100;
+            }
         }
 
         public override ImageSource ImageSource
         {
-            get 
+            get
             {
-                return new BitmapImage(new Uri(Path.Combine(Environment.CurrentDirectory, "..", "..", "images", "cpp.png"))); 
+                return new BitmapImage(new Uri(Path.Combine(Environment.CurrentDirectory, "..", "..", "images", "cpp.png")));
             }
+        }
+
+        public Tower1(Point position)
+            : base(position)
+        {
         }
 
         public override void Update()
