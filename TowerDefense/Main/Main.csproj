@@ -58,6 +58,7 @@
     <Compile Include="Monster.cs" />
     <Compile Include="Ninja.cs" />
     <Compile Include="Route.cs" />
+    <Compile Include="Switcher.cs" />
     <Compile Include="Tower.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
