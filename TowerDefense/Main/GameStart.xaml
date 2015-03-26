@@ -13,8 +13,8 @@
             
             <ImageBrush ImageSource="C:\Users\c5218286\Documents\GitHub\melnelen\TelerikDefence\TowerDefense\Main\images\startscreenninja.png"/>
         </Grid.Background>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="130,117,0,0" TextWrapping="Wrap" Text="Enter your name" VerticalAlignment="Top" Width="225" Background="Black" BorderBrush="Black" Foreground="White" SelectionBrush="Yellow" FontFamily="Segoe UI Mono" FontSize="18" Opacity="0.7" AllowDrop="False" GotFocus="TextBox_GotFocus" />        
-        <Button Content="Start" HorizontalAlignment="Left" Margin="160,185,0,0" VerticalAlignment="Top" Width="160" Height="45" OpacityMask="Black" BorderBrush="Black" FontSize="20" FontFamily="Segoe UI Mono" Cursor="Hand" IsHitTestVisible="True" IsTabStop="False">
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="130,117,0,0" TextWrapping="Wrap" Text="Enter your name" VerticalAlignment="Top" Width="225" Background="Black" BorderBrush="Black" Foreground="White" SelectionBrush="Yellow" FontFamily="Segoe UI Mono" FontSize="18" Opacity="0.7" AllowDrop="False" GotFocus="TextBox_GotFocus" />
+        <Button Content="Start" HorizontalAlignment="Left" Margin="160,185,0,0" VerticalAlignment="Top" Width="160" Height="45" OpacityMask="Black" BorderBrush="Black" FontSize="20" FontFamily="Segoe UI Mono" Cursor="Hand" IsHitTestVisible="True" IsTabStop="False" IsDefault="True" Click="StartButton_Click">
         <Button.Style>
             <Style TargetType="{x:Type Button}">
                 <Setter Property="Background" Value="Black"/>
@@ -37,7 +37,7 @@
             </Style>
         </Button.Style>
         </Button>
-        <Button Content="High Score" HorizontalAlignment="Left" Margin="160,255,0,0" VerticalAlignment="Top" Width="160" Height="45" OpacityMask="Black" BorderBrush="Black" FontSize="20" FontFamily="Segoe UI Mono" Cursor="Hand" IsHitTestVisible="True" IsTabStop="False">
+        <Button Content="High Score" HorizontalAlignment="Left" Margin="160,255,0,0" VerticalAlignment="Top" Width="160" Height="45" OpacityMask="Black" BorderBrush="Black" FontSize="20" FontFamily="Segoe UI Mono" Cursor="Hand" IsHitTestVisible="True" IsTabStop="False" Click="ScoreButton_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Black"/>

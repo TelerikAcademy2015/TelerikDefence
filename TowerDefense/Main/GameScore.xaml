@@ -7,7 +7,7 @@
              d:DesignHeight="700" d:DesignWidth="500">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/images/endscreen.png"/>
+            <ImageBrush ImageSource="C:\Users\c5218286\Documents\GitHub\melnelen\TelerikDefence\TowerDefense\Main\images\endscreen.png"/>
         </Grid.Background>
 
     </Grid>
