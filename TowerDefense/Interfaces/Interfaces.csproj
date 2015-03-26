@@ -49,6 +49,7 @@
     <Compile Include="IObjectCreator.cs" />
     <Compile Include="IRoute.cs" />
     <Compile Include="IMovable.cs" />
+    <Compile Include="ISwitchable.cs" />
     <Compile Include="ITarget.cs" />
     <Compile Include="IShooter.cs" />
     <Compile Include="Point.cs" />
