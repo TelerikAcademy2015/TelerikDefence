@@ -9,6 +9,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\c5218286\Documents\GitHub\melnelen\TelerikDefence\TowerDefense\Main\images\endscreen.png"/>
         </Grid.Background>
+        <Label Content="High Score" HorizontalAlignment="Left" Margin="125,40,0,0" VerticalAlignment="Top" Height="70" Width="230" FontFamily="Segoe UI Mono" FontWeight="Bold" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="70,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="310" Width="320" FontFamily="Segoe UI Mono" FontWeight="Bold" FontSize="20" Text="1.  &#xD;&#xA;2.  &#xD;&#xA;3.  &#xD;&#xA;4.  &#xD;&#xA;5.  &#xD;&#xA;6.  &#xD;&#xA;7.  &#xD;&#xA;8.  &#xD;&#xA;9.  &#xD;&#xA;10."/>
 
     </Grid>
 </UserControl>
