@@ -6,36 +6,22 @@ using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
-    public class Route : IRoute, IDrawable // TODO: , IObjectCreator
+    public class Route : IRoute
     {
+        private List<Point> points;
         public Route(Path path)
         {
-            //throw new NotImplementedException();
+            PathGeometry p = path.Data
+            p.
+            this.points = new List<Point>() { }; 
         }
 
         public IEnumerable<Point> Points
         {
-            get { throw new NotImplementedException(); }
-        }
-
-        public int Id
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public Point Position
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public int Depth
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public ImageSource ImageSource
-        {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                return null;
+            }
         }
     }
 }

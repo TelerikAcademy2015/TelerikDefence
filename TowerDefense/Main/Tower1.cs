@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using TowerDefense.Interfaces;
+using TowerDefense.Utils;
 
 namespace TowerDefense.Main
 {
@@ -37,7 +33,8 @@ namespace TowerDefense.Main
 
         public override int Price
         {
-            get {
+            get
+            {
                 return 100;
             }
         }
@@ -46,7 +43,7 @@ namespace TowerDefense.Main
         {
             get
             {
-                return new BitmapImage(new Uri(Path.Combine(Environment.CurrentDirectory, "..", "..", "images", "cpp.png")));
+                return ImageFactory.CreateImage("cpp.png");
             }
         }
 

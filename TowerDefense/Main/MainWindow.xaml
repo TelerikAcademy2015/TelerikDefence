@@ -11,8 +11,14 @@
                 <!--<ImageBrush ImageSource=""/>-->
             </Custom:WPFCanvas.Background>
         </Custom:WPFCanvas>
-        <Path Name="path">
-            <!--TODO: Use as route for monsters -->
+        <Path Name="path" Stroke="Brown" StrokeThickness="10" Fill="Brown" >
+            <Path.Data>
+                <GeometryGroup>
+                    <LineGeometry StartPoint="0,30" EndPoint="50,10"/>
+                    <LineGeometry StartPoint="50,10" EndPoint="100,100"/>
+
+                </GeometryGroup>
+            </Path.Data>
         </Path>
     </Grid>
 </Window>
