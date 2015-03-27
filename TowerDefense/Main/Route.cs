@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Media;
 using System.Windows.Shapes;
 using TowerDefense.Interfaces;
 
@@ -10,22 +12,22 @@ namespace TowerDefense.Main
         public Route(Path path)
         {
             this.points = new List<Point>();
-
-            //var lines = path.RenderedGeometry.GetWidenedPathGeometry(new Pen()).Figures.OfType<PathFigure>();
-            ////var lines = path.BindingGroup.Items.OfType<LineGeometry>();
-            //var firstLine = lines.First();
-            //points.Add(new Point(firstLine.StartPoint.X, firstLine.StartPoint.Y));
-            //foreach (var line in lines)
-            //{
-            //    points.Add(new Point(line.EndPoint.X, line.EndPoint.Y));
-            //}
+            var figures = path.Data.GetFlattenedPathGeometry().Figures;
+            var lines = figures.Select(pathFigure => pathFigure.Segments.First()).Cast<LineSegment>();
+            var firstPoint = figures.First().StartPoint;
+            points.Add(new Point(firstPoint.X, firstPoint.Y));
+            foreach (var line in lines)
+            {
+                var endPoint = line.Point;
+                points.Add(new Point(endPoint.X, endPoint.Y));
+            }
         }
 
         public IEnumerable<Point> Points
         {
             get
             {
-                return null;
+                return points;
             }
         }
     }

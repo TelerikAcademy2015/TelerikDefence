@@ -6,20 +6,13 @@ namespace TowerDefense.Main
 {
     public class Ninja : Monster
     {
-        public Ninja(Point position)
-            : base(position)
+        public Ninja(IRoute route)
+            : base(route, 5, 100)
         {
-            // Example
-            AsyncTimer.DelayedCall(5000, () =>
-            {
-                this.Position = new Point(this.Position.X + 100, this.Position.Y + 100);
-            });
         }
 
         public override void Update()
         {
-            // Example
-            this.Position = new Point(this.Position.X + 1, this.Position.Y + 1);
         }
 
         public override ImageSource ImageSource

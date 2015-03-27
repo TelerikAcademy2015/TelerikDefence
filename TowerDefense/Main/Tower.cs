@@ -40,20 +40,12 @@ namespace TowerDefense.Main
 
         public bool IsInRange(ITarget target)
         {
-            return this.GetDistance(target) < this.Range;
-        }
-
-        protected double GetDistance(ITarget target)
-        {
-            double deltaX = this.Position.X - target.Position.X;
-            double deltaY = this.Position.Y - target.Position.Y;
-
-            return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+            return Point.DistanceBetween(this.Position, target.Position) < this.Range;
         }
 
         public ITarget GetClosestMonster(ICollection<ITarget> targets)
         {
-            return targets.OrderBy(target => this.GetDistance(target)).FirstOrDefault();
+            return targets.OrderBy(target => Point.DistanceBetween(this.Position, target.Position)).FirstOrDefault();
         }
     }
 }

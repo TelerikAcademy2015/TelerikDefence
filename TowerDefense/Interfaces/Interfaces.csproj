@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Direction.cs" />
+    <Compile Include="GameConstants.cs" />
     <Compile Include="ICanvas.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IObjectCreator.cs" />

@@ -1,9 +1,19 @@
-﻿namespace TowerDefense.Interfaces
+﻿using System;
+
+namespace TowerDefense.Interfaces
 {
     public struct Point
     {
         public readonly double X;
         public readonly double Y;
+
+        public static double DistanceBetween(Point first, Point second)
+        {
+            double deltaX = first.X - second.X;
+            double deltaY = first.Y - second.Y;
+
+            return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+        }
 
         public Point(double x, double y)
         {
