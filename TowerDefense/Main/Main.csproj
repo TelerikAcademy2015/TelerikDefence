@@ -54,44 +54,35 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Engine.cs" />
+    <Compile Include="GameField.xaml.cs">
+      <DependentUpon>GameField.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameObject.cs" />
-    <Compile Include="GamePlay.xaml.cs">
-      <DependentUpon>GamePlay.xaml</DependentUpon>
+    <Compile Include="Highscore.xaml.cs">
+      <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameScore.xaml.cs">
-      <DependentUpon>GameScore.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GameStart.xaml.cs">
-      <DependentUpon>GameStart.xaml</DependentUpon>
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Monster.cs" />
     <Compile Include="Ninja.cs" />
     <Compile Include="Route.cs" />
-    <Compile Include="Switcher.cs" />
     <Compile Include="Tower.cs" />
     <Compile Include="Tower1.cs" />
-    <Page Include="GamePlay.xaml">
+    <Page Include="GameField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GameScore.xaml">
+    <Page Include="Highscore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GameStart.xaml">
+    <Page Include="MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourceDictionary.xaml">
