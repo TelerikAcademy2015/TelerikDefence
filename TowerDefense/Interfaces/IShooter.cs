@@ -1,9 +1,11 @@
-﻿namespace TowerDefense.Interfaces
+﻿using System.Collections.Generic;
+
+namespace TowerDefense.Interfaces
 {
     public interface IShooter
     {
-        void Shoot(ITarget target);
-
         bool IsInRange(ITarget target);
+
+        void Shoot(ICollection<ITarget> targets);
     }
 }

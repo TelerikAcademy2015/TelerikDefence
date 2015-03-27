@@ -38,15 +38,15 @@ namespace TowerDefense.Main
             CompositionTarget.Rendering += this.RenderingHandler;
 
             // Example
-            this.AddMonster(new Ninja(new Point(50, 50)));
-            this.AddMonster(new Ninja(new Point(150, 250)));
-            this.AddMonster(new Ninja(new Point(250, 150)));
-            //this.AddTower(new Tower1(new Point(0, 0)));
+            this.AddMonster(new Ninja(new Point(300, 0)));
+            this.AddTower(new Tower1(new Point(0, 0)));
+
         }
 
         public void Start()
         {
-            AsyncTimer timer = new AsyncTimer(200, () =>
+
+            AsyncTimer timer = new AsyncTimer(100, () =>
                 {
                     foreach (var gameObject in this.gameObjects)
                     {
@@ -58,11 +58,7 @@ namespace TowerDefense.Main
                     }
                     foreach (var shooter in this.shooters)
                     {
-                        var firstTarget = this.targets.FirstOrDefault(target => shooter.IsInRange(target));
-                        if (firstTarget != null)
-                        {
-                            shooter.Shoot(firstTarget);
-                        }
+                        shooter.Shoot(targets);
                     }
 
                     // TODO: Clear dead

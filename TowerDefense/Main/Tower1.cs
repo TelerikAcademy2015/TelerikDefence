@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+using System.Timers;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using TowerDefense.Interfaces;
 using TowerDefense.Utils;
 
@@ -16,10 +13,10 @@ namespace TowerDefense.Main
         public Tower1(Point position)
             : base(position)
         {
-            this.Range = 40;
-            this.Rate = 100;
-            this.Damage = 10;
-            this.Price = 100;
+            this.range = 40000;
+            this.rate = 1000;
+            this.damage = 10;
+            this.price = 100;
         }
 
         public override ImageSource ImageSource
@@ -32,7 +29,28 @@ namespace TowerDefense.Main
 
         public override void Update()
         {
-            throw new NotImplementedException();
+            foreach (var projectile in projectiles)
+            {
+                projectile.Update();
+                projectile.Move();
+            }           
+        }
+
+        public override void Shoot(ICollection<ITarget> targetsSet)
+        {
+            base.Shoot(targetsSet);
+            if ( this.Target != null)
+            {
+                Projectile projectile = new Projectile(new Point(this.Position.X, this.Position.Y),
+                                                        this.Damage,
+                                                        10,
+                                                        this.Target);
+                //for testing purposes only 1 bullet
+                if (projectiles.Count < 1)
+                {
+                    projectiles.Add(projectile);
+                }
+            }
         }
     }
 }

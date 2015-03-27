@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System;
+using System.Windows.Media;
 using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
@@ -42,6 +43,14 @@ namespace TowerDefense.Main
         }
 
         public abstract void Update();
+
+        public double GetDistance(ITarget target)
+        {
+            double deltaX = this.Position.X - target.Position.X;
+            double deltaY = this.Position.Y - target.Position.Y;
+
+            return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+        }
 
         public static bool operator ==(GameObject first, GameObject second)
         {

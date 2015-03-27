@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Timers;
 using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
@@ -11,6 +12,9 @@ namespace TowerDefense.Main
         protected int rate;
         protected int damage;
         protected int price;
+        protected ITarget target;
+        protected int projectileTimerCounter;
+        protected ICollection<Projectile> projectiles = new HashSet<Projectile>();
 
         public Tower(Point position)
             : base(position)
@@ -20,33 +24,28 @@ namespace TowerDefense.Main
         public int Range
         {
             get {return range;}
-            protected set { range = value;}
         }
 
         // in miliseconds
         public int Rate
         {
             get { return rate; }
-            protected set { rate = value; }
         }
 
         public int Damage
         {
             get { return damage; }
-            protected set { damage = value; }
         }
-
-
 
         public int Price
         {
             get { return price; }
-            protected set { price = value; }
         }
 
-        public void Shoot(ITarget target)
+        public ITarget Target
         {
-            target.TakeDamage(this.Damage);
+            get { return target; }
+            protected set { target = value; }
         }
 
         public bool IsInRange(ITarget target)
@@ -54,17 +53,26 @@ namespace TowerDefense.Main
             return (this.GetDistance(target) < this.Range);
         }
 
-        protected double GetDistance(ITarget target)
+        public void GetClosestMonsterForTarget(ICollection<ITarget> targets)
         {
-            double deltaX = this.Position.X - target.Position.X;
-            double deltaY = this.Position.Y - target.Position.Y;
-
-            return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+            if (this.Target != null && !this.IsInRange(this.Target))
+            {
+                this.Target = null;
+            }
+            if (this.Target == null)
+            {
+                ITarget suspicious = targets.OrderBy(target => this.GetDistance(target)).FirstOrDefault();
+                //if suspicious target is in Range -> make it tower target, if not tower target -> null
+                if (this.IsInRange(suspicious))
+                {
+                    this.Target = suspicious;
+                }
+            }
         }
 
-        public ITarget GetClosestMonster(ICollection<ITarget> targets)
+        public virtual void Shoot(ICollection<ITarget> targetsSet)
         {
-            return targets.OrderBy(target => this.GetDistance(target)).FirstOrDefault();
+            this.GetClosestMonsterForTarget(targetsSet);
         }
     }
 }
