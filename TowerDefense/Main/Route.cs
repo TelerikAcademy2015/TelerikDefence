@@ -11,8 +11,6 @@ namespace TowerDefense.Main
         private List<Point> points;
         public Route(Path path)
         {
-            PathGeometry p = path.Data
-            p.
             this.points = new List<Point>() { }; 
         }
 

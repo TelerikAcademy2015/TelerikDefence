@@ -7,12 +7,11 @@
              d:DesignHeight="700" d:DesignWidth="500">
 
     <Grid>
-        <Grid.Background>
+        <!--<Grid.Background>
             
-            <!--Need to find out why adding an image doesn't work properly-->
-            
-            <ImageBrush ImageSource="C:\Users\c5218286\Documents\GitHub\melnelen\TelerikDefence\TowerDefense\Main\images\startscreenninja.png"/>
-        </Grid.Background>
+            --><!-- TODO: Need to find out why adding an image doesn't work properly-->
+            <!--<ImageBrush ImageSource="C:\Users\c5218286\Documents\GitHub\melnelen\TelerikDefence\TowerDefense\Main\images\startscreenninja.png"/>--><!--
+        </Grid.Background>-->
         <TextBox HorizontalAlignment="Left" Height="35" Margin="125,130,0,0" TextWrapping="Wrap" Text="Enter your name here.." VerticalAlignment="Top" Width="235" Background="Black" BorderBrush="Black" Foreground="White" SelectionBrush="Yellow" FontFamily="Segoe UI Mono" FontSize="16" Opacity="0.7" AllowDrop="False" GotFocus="TextBox_GotFocus" />
         <Button Content="Start" HorizontalAlignment="Left" Margin="160,195,0,0" VerticalAlignment="Top" Width="160" Height="45" OpacityMask="Black" BorderBrush="Black" FontSize="20" FontFamily="Segoe UI Mono" Cursor="Hand" IsHitTestVisible="True" IsTabStop="False" IsDefault="True" Click="StartButton_Click">
         <Button.Style>
