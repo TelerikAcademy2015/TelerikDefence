@@ -44,14 +44,6 @@ namespace TowerDefense.Main
 
         public abstract void Update();
 
-        public double GetDistance(ITarget target)
-        {
-            double deltaX = this.Position.X - target.Position.X;
-            double deltaY = this.Position.Y - target.Position.Y;
-
-            return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
-        }
-
         public static bool operator ==(GameObject first, GameObject second)
         {
             if (System.Object.ReferenceEquals(first, second))
