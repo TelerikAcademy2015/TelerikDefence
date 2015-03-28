@@ -11,6 +11,16 @@ namespace TowerDefense.Main
 {
     public class Projectile : GameObject, IMovable
     {
+        private int damage;
+        private ITarget target;
+
+        public Projectile(Point position,int damage,int speed, ITarget target) : base(position)
+        {
+            this.damage = damage;
+            this.Speed = speed;
+            this.target = target;
+        }
+
         public int Speed
         {
             get;
@@ -23,19 +33,14 @@ namespace TowerDefense.Main
             private set;
         }
 
-        private int damage;
-        private ITarget target;
-
-        public Projectile(Point position,int damage,int speed, ITarget target) : base(position)
-        {
-            this.damage = damage;
-            this.Speed = speed;
-            this.target = target;
-        }
-
         public int Damage
         {
-            get { return damage;}
+            get { return damage; }
+        }
+
+        public ITarget Target
+        {
+            get { return target; }
         }
 
         private Point NextPointFromTrajectory()

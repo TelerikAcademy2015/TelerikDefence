@@ -19,23 +19,44 @@ namespace TowerDefense.Main
 
         public override IEnumerable<IGameObject> ProducedObjects
         {
-            get
-            {
-                return projectiles;
-            }
+            get{ return projectilesToAdd; }
+        }
+
+        public override IEnumerable<IGameObject> DestructObjects
+        {
+            get { return deadProjectiles; }
         }
 
         public override ImageSource ImageSource
         {
-            get
-            {
-                return ImageFactory.CreateImage("cpp.png");
-            }
+            get{ return ImageFactory.CreateImage("cpp.png"); }
         }
 
         public override void Update()
         {
             projectileTimerCounter--;
+
+            //clear deadProjectiles from previous iteration
+            deadProjectiles.Clear();
+
+            //add projectiles for remove if it hits enemy
+            foreach (var projectile in allProjectiles)
+            {
+                if (Point.DistanceBetween(projectile.Position, projectile.Target.Position) < projectile.Speed)
+                {
+                    projectile.Target.TakeDamage(projectile.Damage);
+                    deadProjectiles.Add(projectile);
+                }
+            }
+
+            //remove every dead projectile from allProjectiles
+            foreach (var projectile in deadProjectiles)
+            {
+                allProjectiles.Remove(projectile);
+            }
+
+            //clear projectiles because they are added to gameObjects 
+            projectilesToAdd.Clear();
         }
 
         public override void Shoot(IEnumerable<ITarget> targetsSet)
@@ -48,7 +69,8 @@ namespace TowerDefense.Main
                                                         10,
                                                         this.Target);
                 projectileTimerCounter = rate / 100; //async timer value
-                projectiles.Add(projectile);
+                allProjectiles.Add(projectile);
+                projectilesToAdd.Add(projectile);
             }
         }
     }

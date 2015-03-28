@@ -49,8 +49,10 @@ namespace TowerDefense.Main
                     this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets));
 
                     this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
-                        objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x))
-                    );
+                        objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x)));
+
+                    this.gameObjects.OfType<IObjectDestructor>().ToList().ForEach(
+                        objectDestructor => objectDestructor.DestructObjects.ToList().ForEach(x => this.gameObjects.Remove(x)));
                 });
             timer.Start();
         }

@@ -4,7 +4,7 @@ using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
-    public abstract class Tower : GameObject, IShooter, IObjectCreator
+    public abstract class Tower : GameObject, IShooter, IObjectCreator, IObjectDestructor
     {
         protected int range;
         protected int rate;
@@ -12,7 +12,9 @@ namespace TowerDefense.Main
         protected int price;
         protected ITarget target;
         protected int projectileTimerCounter;
-        protected ICollection<Projectile> projectiles = new HashSet<Projectile>();
+        protected ICollection<Projectile> allProjectiles = new HashSet<Projectile>();
+        protected ICollection<Projectile> deadProjectiles = new HashSet<Projectile>();
+        protected ICollection<Projectile> projectilesToAdd = new HashSet<Projectile>();
 
         public Tower(Point position)
             : base(position)
@@ -47,6 +49,11 @@ namespace TowerDefense.Main
         }
 
         public abstract IEnumerable<IGameObject> ProducedObjects
+        {
+            get;
+        }
+
+        public abstract IEnumerable<IGameObject> DestructObjects
         {
             get;
         }
