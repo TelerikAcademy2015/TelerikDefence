@@ -21,48 +21,32 @@ namespace TowerDefense.Main
             private set;
         }
 
-        public ICollection<GameObject> gameObjects;
-        public ICollection<IMovable> movingObjects;
-        public ICollection<ITarget> targets;
-        public ICollection<IShooter> shooters;
+        private ICollection<GameObject> gameObjects;
 
         public Engine(ICanvas canvas, IRoute route)
         {
             this.Canvas = canvas;
             this.Route = route;
             this.gameObjects = new HashSet<GameObject>();
-            this.movingObjects = new HashSet<IMovable>();
-            this.targets = new HashSet<ITarget>();
-            this.shooters = new HashSet<IShooter>();
 
             CompositionTarget.Rendering += this.RenderingHandler;
 
             // Example
-            this.AddMonster(new Ninja(this.Route));
-            //this.AddTower(new Tower1(new Point(0, 0)));
+            this.AddGameObject(new Ninja(this.Route));
+            this.AddGameObject(new Tower1(new Point(500, 300)));
         }
 
         public void Start()
         {
-            AsyncTimer timer = new AsyncTimer(200, () =>
-                {
-                    foreach (var gameObject in this.gameObjects)
-                    {
-                        gameObject.Update();
-                    }
-                    foreach (var movingObject in this.movingObjects)
-                    {
-                        movingObject.Move();
-                    }
-                    foreach (var shooter in this.shooters)
-                    {
-                        var firstTarget = this.targets.FirstOrDefault(target => shooter.IsInRange(target));
-                        if (firstTarget != null)
-                        {
-                            shooter.Shoot(firstTarget);
-                        }
-                    }
 
+            AsyncTimer timer = new AsyncTimer(100, () =>
+                {
+                    gameObjects.ToList().ForEach(@object => @object.Update());
+
+                    gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
+
+                    var targets = gameObjects.OfType<ITarget>();
+                    gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject  => shootingObject.Shoot(targets));
                     // TODO: Clear dead
                 });
             timer.Start();
@@ -71,19 +55,6 @@ namespace TowerDefense.Main
         public void AddGameObject(GameObject gameObject)
         {
             this.gameObjects.Add(gameObject);
-        }
-
-        public void AddMonster(Monster monster)
-        {
-            this.AddGameObject(monster);
-            this.movingObjects.Add(monster);
-            this.targets.Add(monster);
-        }
-
-        public void AddTower(Tower tower)
-        {
-            this.AddGameObject(tower);
-            this.shooters.Add(tower);
         }
         // TODO: ... add more, implement remove when needed
 

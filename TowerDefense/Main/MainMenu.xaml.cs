@@ -10,11 +10,13 @@ namespace TowerDefense.Main
         public ICommand OpenGameFieldPage
         {
             get;
+            private set;
         }
 
         public ICommand OpenHighscorePage
         {
             get;
+            private set;
         }
 
         public MainMenu()

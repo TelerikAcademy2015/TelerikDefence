@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -70,6 +73,7 @@
     </Compile>
     <Compile Include="Monster.cs" />
     <Compile Include="Ninja.cs" />
+    <Compile Include="Projectile.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Tower.cs" />
     <Compile Include="Tower1.cs" />
