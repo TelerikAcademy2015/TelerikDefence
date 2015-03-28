@@ -19,7 +19,10 @@ namespace TowerDefense.Main
 
         public override IEnumerable<IGameObject> ProducedObjects
         {
-            get { System.Console.WriteLine( "projectile returned"); return projectiles; }
+            get
+            {
+                return projectiles;
+            }
         }
 
         public override ImageSource ImageSource
@@ -38,14 +41,14 @@ namespace TowerDefense.Main
         public override void Shoot(IEnumerable<ITarget> targetsSet)
         {
             base.Shoot(targetsSet);
-            if (this.Target != null && projectileTimerCounter < 0) 
+            if (this.Target != null && projectileTimerCounter < 0)
             {
                 Projectile projectile = new Projectile(new Point(this.Position.X, this.Position.Y),
                                                         this.Damage,
                                                         10,
                                                         this.Target);
                 projectileTimerCounter = rate / 100; //async timer value
-                projectiles.Add(projectile);                
+                projectiles.Add(projectile);
             }
         }
     }

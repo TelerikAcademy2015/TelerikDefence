@@ -45,7 +45,7 @@ namespace TowerDefense.Main
 
                     this.gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
 
-                    var targets = gameObjects.OfType<ITarget>().ToList();
+                    var targets = gameObjects.OfType<ITarget>();
                     this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets));
 
                     this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
@@ -63,7 +63,7 @@ namespace TowerDefense.Main
 
         private void RenderingHandler(object sender, EventArgs e)
         {
-            foreach (var gameObject in this.gameObjects)
+            foreach (var gameObject in this.gameObjects.ToArray())
             {
                 this.Canvas.UpdateObject(gameObject);
             }
