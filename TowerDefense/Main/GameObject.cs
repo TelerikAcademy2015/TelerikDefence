@@ -50,41 +50,5 @@ namespace TowerDefense.Main
         }
 
         public abstract void Update();
-
-        public static bool operator ==(GameObject first, GameObject second)
-        {
-            if (System.Object.ReferenceEquals(first, second))
-            {
-                return true;
-            }
-
-            if (((object)first == null) || ((object)second == null))
-            {
-                return false;
-            }
-
-            return first.id == second.id;
-        }
-
-        public static bool operator !=(GameObject first, GameObject second)
-        {
-            return !(first == second);
-        }
-
-        public override bool Equals(object obj)
-        {
-            GameObject other = obj as GameObject;
-            if (other == null)
-            {
-                return false;
-            }
-
-            return this == other;
-        }
-
-        public override int GetHashCode()
-        {
-            return this.id;
-        }
     }
 }
