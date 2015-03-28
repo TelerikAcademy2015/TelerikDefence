@@ -40,8 +40,8 @@ namespace TowerDefense.Main
 
         private Point NextPointFromTrajectory()
         {
-            int deltaX = (int) (Math.Abs(this.Position.X - target.Position.X) * speed / Point.DistanceBetween(this.Position, target.Position));
-            int deltaY = (int)(Math.Abs(this.Position.Y - target.Position.Y) * speed / Point.DistanceBetween(this.Position, target.Position));
+            int deltaX = (int) (Math.Abs(this.Position.X - target.Position.X) * Speed / Point.DistanceBetween(this.Position, target.Position));
+            int deltaY = (int)(Math.Abs(this.Position.Y - target.Position.Y) * Speed / Point.DistanceBetween(this.Position, target.Position));
             return new Point(deltaX, deltaY);
         }
 
