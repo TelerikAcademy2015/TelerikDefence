@@ -33,7 +33,7 @@ namespace TowerDefense.Main
 
             // Example
             this.AddGameObject(new Ninja(this.Route));
-            this.AddGameObject(new Tower1(new Point(500, 300)));
+            this.AddGameObject(new Tower1(new Point(300, 300)));
         }
 
         public void Start()
@@ -45,7 +45,7 @@ namespace TowerDefense.Main
 
                     this.gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
 
-                    var targets = gameObjects.OfType<ITarget>();
+                    var targets = gameObjects.OfType<ITarget>().ToList();
                     this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets));
 
                     this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(

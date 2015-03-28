@@ -42,6 +42,14 @@ namespace TowerDefense.Main
         {
             int deltaX = (int) (Math.Abs(this.Position.X - target.Position.X) * Speed / Point.DistanceBetween(this.Position, target.Position));
             int deltaY = (int)(Math.Abs(this.Position.Y - target.Position.Y) * Speed / Point.DistanceBetween(this.Position, target.Position));
+            if (this.Position.X > target.Position.X)
+            {
+                deltaX *= -1;
+            }
+            if (this.Position.Y > target.Position.Y)
+            {
+                deltaY *= -1;
+            }
             return new Point(deltaX, deltaY);
         }
 

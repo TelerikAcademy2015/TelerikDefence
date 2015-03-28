@@ -4,7 +4,7 @@ using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
-    public abstract class Tower : GameObject, IShooter
+    public abstract class Tower : GameObject, IShooter, IObjectCreator
     {
         protected int range;
         protected int rate;
@@ -46,6 +46,11 @@ namespace TowerDefense.Main
             protected set { target = value; }
         }
 
+        public abstract IEnumerable<IGameObject> ProducedObjects
+        {
+            get;
+        }
+
         public bool IsInRange(ITarget target)
         {
             return Point.DistanceBetween(this.Position, target.Position) < this.Range;
@@ -61,7 +66,7 @@ namespace TowerDefense.Main
             {
                 ITarget suspicious = targets.OrderBy(target => Point.DistanceBetween(this.Position, target.Position)).FirstOrDefault();
                 //if suspicious target is in Range -> make it tower target, if not tower target -> null
-                if (this.Target!=null && this.IsInRange(suspicious))
+                if (this.IsInRange(suspicious))
                 {
                     this.Target = suspicious;
                 }

@@ -10,7 +10,7 @@ namespace TowerDefense.Main
             : base(route, 5, 100)
         {
             // Example
-            AsyncTimer.DelayedCall(5000, () => this.IsDestroyed = true);
+            AsyncTimer.DelayedCall(10000, () => this.IsDestroyed = true);
         }
 
         public override void Update()
