@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
+using TowerDefense.WPFCustomControls;
 
 namespace TowerDefense.Main
 {
-    public partial class GameField : Page
+    public partial class GameField : PropertyChangedAwaredPage
     {
         public GameField()
         {

@@ -1,16 +1,17 @@
-﻿<Page x:Class="TowerDefense.Main.MainMenu"
+﻿<Custom:PropertyChangedAwaredPage x:Class="TowerDefense.Main.MainMenu"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Custom="clr-namespace:TowerDefense.WPFCustomControls;assembly=WPFCustomControls"
       mc:Ignorable="d" 
 	Title="Main Menu">
     <StackPanel>
         <TextBlock Margin="0,100,0,0" Width="280" FontFamily="Segoe UI Mono" FontSize="36" FontWeight="Bold">
             Telerik Defense
         </TextBlock>
-        <TextBox Margin="0,100,0,0" FontSize="30" Width="200" Background="Gray" Cursor="Pen"/>
-        <Button Content="Start" Margin="0,50,0,0" Width="150" FontSize="30" Cursor="Hand" Focusable="False" Command="{Binding OpenGameFieldPage}">
+        <TextBox Text="{Binding Path=Player.Name, Mode=TwoWay}" Margin="0,100,0,0" FontSize="30" Width="200" Background="Gray" Cursor="Pen"/>
+        <Button Content="Start" Margin="0,50,0,0" Width="150" FontSize="30" Cursor="Hand" Command="{Binding OpenGameFieldPage}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Black"/>
@@ -24,7 +25,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button Content="Highscore" Margin="0,50,0,0" Width="150" FontSize="30" Cursor="Hand" Focusable="False" Command="{Binding OpenHighscorePage}">
+        <Button Content="Highscore" Margin="0,50,0,0" Width="150" FontSize="30" Cursor="Hand" Command="{Binding OpenHighscorePage}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Black"/>
@@ -38,5 +39,6 @@
                 </Style>
             </Button.Style>
         </Button>
+        <TextBlock Text="{Binding ErrorMessage}" Margin="0,30,0,0" Width="280" FontFamily="Segoe UI Mono" FontSize="16" FontWeight="Bold"/>
     </StackPanel>
-</Page>
+</Custom:PropertyChangedAwaredPage>

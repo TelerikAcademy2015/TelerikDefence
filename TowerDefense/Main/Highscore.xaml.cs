@@ -1,8 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using TowerDefense.WPFCustomControls;
 
 namespace TowerDefense.Main
 {
-    public partial class Highscore : Page
+    public partial class Highscore : PropertyChangedAwaredPage
     {
         public Highscore()
         {

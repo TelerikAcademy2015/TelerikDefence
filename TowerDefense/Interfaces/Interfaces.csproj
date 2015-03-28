@@ -54,6 +54,7 @@
     <Compile Include="IMovable.cs" />
     <Compile Include="ITarget.cs" />
     <Compile Include="IShooter.cs" />
+    <Compile Include="IValidatable.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
