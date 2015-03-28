@@ -12,10 +12,17 @@ namespace TowerDefense.Main
         public Route(Path path)
         {
             this.points = new List<Point>();
+            this.Initialize(path);
+        }
+
+        private void Initialize(Path path)
+        {
             var figures = path.Data.GetFlattenedPathGeometry().Figures;
-            var lines = figures.Select(pathFigure => pathFigure.Segments.First()).Cast<LineSegment>();
+            
             var firstPoint = figures.First().StartPoint;
             points.Add(new Point(firstPoint.X, firstPoint.Y));
+
+            var lines = figures.Select(pathFigure => pathFigure.Segments.First()).Cast<LineSegment>();
             foreach (var line in lines)
             {
                 var endPoint = line.Point;
