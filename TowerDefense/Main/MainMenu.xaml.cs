@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -67,7 +68,8 @@ namespace TowerDefense.Main
 
         public bool IsValid()
         {
-            if (String.IsNullOrWhiteSpace(this.Player.Name))
+            
+            if (!Regex.IsMatch(this.Player.Name, "^\\w{3,}$"))
             {
                 this.ErrorMessage = INVALID_USERNAME_ERROR_MESSAGE;
                 return false;
