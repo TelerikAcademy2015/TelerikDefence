@@ -47,6 +47,8 @@
     <Compile Include="GameConstants.cs" />
     <Compile Include="ICanvas.cs" />
     <Compile Include="IDrawable.cs" />
+    <Compile Include="IGameObject.cs" />
+    <Compile Include="IMonster.cs" />
     <Compile Include="IObjectCreator.cs" />
     <Compile Include="IRoute.cs" />
     <Compile Include="IMovable.cs" />

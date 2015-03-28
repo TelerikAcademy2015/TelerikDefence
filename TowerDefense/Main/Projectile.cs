@@ -6,20 +6,30 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using TowerDefense.Interfaces;
 using TowerDefense.Utils;
-//using TowerDefense.Utils;
 
 namespace TowerDefense.Main
 {
     public class Projectile : GameObject, IMovable
     {
+        public int Speed
+        {
+            get;
+            private set;
+        }
+
+        public IRoute Route
+        {
+            get;
+            private set;
+        }
+
         private int damage;
-        private int speed;
         private ITarget target;
 
         public Projectile(Point position,int damage,int speed, ITarget target) : base(position)
         {
             this.damage = damage;
-            this.speed = speed;
+            this.Speed = speed;
             this.target = target;
         }
 

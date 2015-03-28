@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
-    public abstract class Monster : GameObject, IMovable, ITarget
+    public abstract class Monster : GameObject, IMonster
     {
         public int Speed
         {
@@ -14,12 +14,6 @@ namespace TowerDefense.Main
         }
 
         public int Health
-        {
-            get;
-            protected set;
-        }
-
-        public bool IsAlive
         {
             get;
             protected set;
@@ -40,7 +34,6 @@ namespace TowerDefense.Main
         {
             this.Speed = speed;
             this.Health = health;
-            this.IsAlive = true;
             this.Route = route;
             this.enumerator = route.Points.GetEnumerator();
             this.enumerator.MoveNext();
@@ -53,13 +46,13 @@ namespace TowerDefense.Main
             this.Health -= damage;
             if (this.Health <= 0)
             {
-                this.IsAlive = false;
+                this.IsDestroyed = true;
             }
         }
 
         public void Move()
         {
-            if(this.reachedEnd)
+            if (this.reachedEnd)
             {
                 return;
             }
@@ -68,7 +61,7 @@ namespace TowerDefense.Main
             TimeSpan timeElapsedSinceLastMove = now - this.lastMoved;
             double distanceRemainingToNextPoint = Point.DistanceBetween(this.Position, nextPoint);
             double distanceToTravel = this.Speed * timeElapsedSinceLastMove.TotalSeconds * GameConstants.DISTANCE_PER_SECOND;
-            if(distanceToTravel < distanceRemainingToNextPoint)
+            if (distanceToTravel < distanceRemainingToNextPoint)
             {
                 Point vector = new Point(nextPoint.X - this.Position.X, nextPoint.Y - this.Position.Y);
                 double proportion = distanceToTravel / distanceRemainingToNextPoint;
@@ -81,13 +74,22 @@ namespace TowerDefense.Main
                 double proportion = distanceRemainingToNextPoint / distanceToTravel;
                 TimeSpan timeElapsed = new TimeSpan(0, 0, 0, 0, (int)(timeElapsedSinceLastMove.Milliseconds * proportion));
                 this.lastMoved = this.lastMoved.Add(timeElapsed);
-                if(!this.enumerator.MoveNext())
+                if (!this.enumerator.MoveNext())
                 {
                     this.reachedEnd = true;
                     return;
                 }
                 this.Move();
             }
+        }
+
+        public override System.Windows.Media.ImageSource ImageSource
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public override void Update()
+        {
         }
     }
 }

@@ -4,7 +4,7 @@ using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
-    public abstract class GameObject : IDrawable
+    public abstract class GameObject : IGameObject
     {
         private static int nextId = 0;
 
@@ -36,10 +36,17 @@ namespace TowerDefense.Main
             }
         }
 
+        public bool IsDestroyed
+        {
+            get;
+            protected set;
+        }
+
         public GameObject(Point position)
         {
             this.id = GameObject.nextId++;
             this.Position = position;
+            this.IsDestroyed = false;
         }
 
         public abstract void Update();
