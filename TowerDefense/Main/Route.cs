@@ -1,14 +1,24 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+    using TowerDefense.Interfaces;
+
     public class Route : IRoute
     {
         private List<Point> points;
+
+        public IEnumerable<Point> Points
+        {
+            get
+            {
+                return points;
+            }
+        }
+
         public Route(Path path)
         {
             this.points = new List<Point>();
@@ -18,7 +28,12 @@ namespace TowerDefense.Main
         private void Initialize(Path path)
         {
             var figures = path.Data.GetFlattenedPathGeometry().Figures;
-            
+
+            if (!figures.Any())
+            {
+                throw new InvalidOperationException();
+            }
+
             var firstPoint = figures.First().StartPoint;
             points.Add(new Point(firstPoint.X, firstPoint.Y));
 
@@ -27,14 +42,6 @@ namespace TowerDefense.Main
             {
                 var endPoint = line.Point;
                 points.Add(new Point(endPoint.X, endPoint.Y));
-            }
-        }
-
-        public IEnumerable<Point> Points
-        {
-            get
-            {
-                return points;
             }
         }
     }
