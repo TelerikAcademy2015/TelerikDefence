@@ -12,10 +12,6 @@
             get;
         }
 
-        void AddObject(IDrawable drawableObject);
-
-        void RemoveObject(IDrawable drawableObject);
-
         void UpdateObject(IDrawable drawableObject);
     }
 }

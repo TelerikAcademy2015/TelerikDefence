@@ -9,6 +9,8 @@ namespace TowerDefense.Main
         public Ninja(IRoute route)
             : base(route, 5, 100)
         {
+            // Example
+            AsyncTimer.DelayedCall(5000, () => this.IsDestroyed = true);
         }
 
         public override void Update()

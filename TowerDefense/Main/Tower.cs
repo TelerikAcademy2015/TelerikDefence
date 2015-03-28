@@ -61,7 +61,7 @@ namespace TowerDefense.Main
             {
                 ITarget suspicious = targets.OrderBy(target => Point.DistanceBetween(this.Position, target.Position)).FirstOrDefault();
                 //if suspicious target is in Range -> make it tower target, if not tower target -> null
-                if (this.IsInRange(suspicious))
+                if (this.Target!=null && this.IsInRange(suspicious))
                 {
                     this.Target = suspicious;
                 }
@@ -71,6 +71,15 @@ namespace TowerDefense.Main
         public virtual void Shoot(IEnumerable<ITarget> targetsSet)
         {
             this.GetClosestMonsterForTarget(targetsSet);
+        }
+
+        public override System.Windows.Media.ImageSource ImageSource
+        {
+            get { throw new System.NotImplementedException(); }
+        }
+
+        public override void Update()
+        {
         }
     }
 }

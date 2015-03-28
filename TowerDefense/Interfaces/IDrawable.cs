@@ -22,5 +22,10 @@ namespace TowerDefense.Interfaces
         {
             get;
         }
+
+        bool IsDestroyed
+        {
+            get;
+        }
     }
 }

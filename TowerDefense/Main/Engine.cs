@@ -21,13 +21,13 @@ namespace TowerDefense.Main
             private set;
         }
 
-        private ICollection<GameObject> gameObjects;
+        private ICollection<IGameObject> gameObjects;
 
         public Engine(ICanvas canvas, IRoute route)
         {
             this.Canvas = canvas;
             this.Route = route;
-            this.gameObjects = new HashSet<GameObject>();
+            this.gameObjects = new HashSet<IGameObject>();
 
             CompositionTarget.Rendering += this.RenderingHandler;
 
@@ -41,18 +41,21 @@ namespace TowerDefense.Main
 
             AsyncTimer timer = new AsyncTimer(100, () =>
                 {
-                    gameObjects.ToList().ForEach(@object => @object.Update());
+                    this.gameObjects.ToList().ForEach(@object => @object.Update());
 
-                    gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
+                    this.gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
 
                     var targets = gameObjects.OfType<ITarget>();
-                    gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject  => shootingObject.Shoot(targets));
-                    // TODO: Clear dead
+                    this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets));
+
+                    this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
+                        objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x))
+                    );
                 });
             timer.Start();
         }
 
-        public void AddGameObject(GameObject gameObject)
+        public void AddGameObject(IGameObject gameObject)
         {
             this.gameObjects.Add(gameObject);
         }
