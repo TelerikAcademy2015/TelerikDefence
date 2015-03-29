@@ -50,7 +50,6 @@
     <Compile Include="IGameObject.cs" />
     <Compile Include="IMonster.cs" />
     <Compile Include="IObjectCreator.cs" />
-    <Compile Include="IObjectDestructor.cs" />
     <Compile Include="IRoute.cs" />
     <Compile Include="IMovable.cs" />
     <Compile Include="ITarget.cs" />
