@@ -21,7 +21,7 @@ namespace TowerDefense.Main
         {
             get
             {
-                // Example                
+                // Example
                 return ImageFactory.CreateImage("download.jpg");
             }
         }

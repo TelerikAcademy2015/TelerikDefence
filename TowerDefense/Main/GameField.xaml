@@ -4,23 +4,69 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:Custom="clr-namespace:TowerDefense.WPFCustomControls;assembly=WPFCustomControls"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"                                 
 	Title="Tower Defense">
     <Grid>
-        <Custom:WPFCanvas Name="canvas">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60px" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70px"/>
+                <ColumnDefinition Width="70px"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource=".\images\grey-texture.jpg" />
+            </Grid.Background>
+            <Button Width="60" Grid.Column="0">
+                <Image Source=".\images\play.png"/>
+            </Button>
+            <Button Width="60" Grid.Column="1">
+                <Image Source=".\images\pause.png"/>
+            </Button>
+            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Center" >
+                <Image Source=".\images\money.png"/>
+                <TextBlock  TextAlignment="Center" FontSize="45" >
+                200
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="3" HorizontalAlignment="Center" >
+                <Image Source=".\images\heart.png"/>
+                <TextBlock  TextAlignment="Center" FontSize="45">
+                10
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Center" >
+                <Image Source=".\images\target.png"/>
+                <TextBlock TextAlignment="Center" FontSize="45">
+                1
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="5" HorizontalAlignment="Center" >
+                
+                <TextBlock TextAlignment="Center" FontSize="45">
+                Score: 1200
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        <Custom:WPFCanvas Name="canvas" Grid.Row="1">
             <Custom:WPFCanvas.Background>
-                <SolidColorBrush Color="Green"/>
-                <!--TODO: Add background image-->
-                <!--<ImageBrush ImageSource=""/>-->
+                <ImageBrush ImageSource=".\images\grass.png" TileMode="Tile" 
+            Viewport="0,0,20,20" ViewportUnits="Absolute" />
             </Custom:WPFCanvas.Background>
+            <Path Name="path" Stroke="Brown" StrokeThickness="10" Fill="Brown" >
+                <Path.Data>
+                    <GeometryGroup>
+                        <LineGeometry StartPoint="0,30" EndPoint="50,10"/>
+                        <LineGeometry StartPoint="50,10" EndPoint="100,100"/>
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
         </Custom:WPFCanvas>
-        <Path Name="path" Stroke="Brown" StrokeThickness="10" Fill="Brown" >
-            <Path.Data>
-                <GeometryGroup>
-                    <LineGeometry StartPoint="0,30" EndPoint="50,10"/>
-                    <LineGeometry StartPoint="50,10" EndPoint="100,100"/>
-                </GeometryGroup>
-            </Path.Data>
-        </Path>
     </Grid>
 </Custom:PropertyChangedAwaredPage>

@@ -50,9 +50,6 @@ namespace TowerDefense.Main
 
                     this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
                         objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x)));
-
-                    this.gameObjects.OfType<IObjectDestructor>().ToList().ForEach(
-                        objectDestructor => objectDestructor.DestructObjects.ToList().ForEach(x => this.gameObjects.Remove(x)));
                 });
             timer.Start();
         }
@@ -61,14 +58,11 @@ namespace TowerDefense.Main
         {
             this.gameObjects.Add(gameObject);
         }
-        // TODO: ... add more, implement remove when needed
 
         private void RenderingHandler(object sender, EventArgs e)
         {
-            foreach (var gameObject in this.gameObjects.ToArray())
-            {
-                this.Canvas.UpdateObject(gameObject);
-            }
+            this.gameObjects.ToList().ForEach(gameObject => this.Canvas.UpdateObject(gameObject));
+            this.gameObjects.Where(x => x.IsDestroyed).ToList().ForEach(destroyedObject => this.gameObjects.Remove(destroyedObject));
         }
     }
 }
