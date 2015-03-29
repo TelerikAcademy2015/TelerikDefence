@@ -19,6 +19,16 @@ namespace TowerDefense.Main
             protected set;
         }
 
+        //TODO:
+        //add goldValue and when a monster dies it gives gold(different monsters different ammount of gold)
+
+        //private int goldValue;
+        //public int GoldValue
+        //{
+        //    get;
+        //    private set;
+        //}
+
         public IRoute Route
         {
             get;
@@ -29,11 +39,12 @@ namespace TowerDefense.Main
         private DateTime lastMoved;
         private bool reachedEnd;
 
-        public Monster(IRoute route, int speed, int health)
+        public Monster(IRoute route, int speed, int health) //int goldValue
             : base(route.Points.First())
         {
             this.Speed = speed;
             this.Health = health;
+            //this.GoldValue = goldValue;
             this.Route = route;
             this.enumerator = route.Points.GetEnumerator();
             this.enumerator.MoveNext();

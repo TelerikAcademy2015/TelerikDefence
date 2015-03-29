@@ -73,6 +73,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Monster.cs" />
+    <Compile Include="MonsterGreen.cs" />
     <Compile Include="Ninja.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
