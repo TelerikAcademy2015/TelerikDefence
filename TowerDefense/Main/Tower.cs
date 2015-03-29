@@ -12,8 +12,6 @@ namespace TowerDefense.Main
         protected int price;
         protected ITarget target;
         protected int projectileTimerCounter;
-        protected ICollection<Projectile> allProjectiles = new HashSet<Projectile>();
-        protected ICollection<Projectile> deadProjectiles = new HashSet<Projectile>();
         protected ICollection<Projectile> projectilesToAdd = new HashSet<Projectile>();
 
         public Tower(Point position)
@@ -49,12 +47,6 @@ namespace TowerDefense.Main
         }
 
         public abstract IEnumerable<IGameObject> ProducedObjects
-        {
-            get;
-        }
-
-        // TODO: This is not used anymore, IObjectDestructor removed
-        public abstract IEnumerable<IGameObject> DestructObjects
         {
             get;
         }

@@ -60,7 +60,11 @@ namespace TowerDefense.Main
 
         public override void Update()
         {
-                       
+            if (Point.DistanceBetween(this.Position, this.Target.Position) < this.Speed)
+            {
+                this.Target.TakeDamage(this.Damage);
+                this.IsDestroyed = true;
+            }           
         }
 
         public void Move()
