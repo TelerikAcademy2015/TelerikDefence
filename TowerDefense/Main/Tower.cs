@@ -9,7 +9,9 @@ namespace TowerDefense.Main
         protected int range;
         protected int rate;
         protected int damage;
+        protected int projectileSpeed;
         protected int price;
+        protected string projectilePicture;
         protected ITarget target;
         protected int projectileTimerCounter;
         protected ICollection<Projectile> projectilesToAdd = new HashSet<Projectile>();
@@ -22,6 +24,16 @@ namespace TowerDefense.Main
         public int Range
         {
             get { return range; }
+        }
+
+        public int ProjectileSpeed
+        {
+            get { return projectileSpeed; }
+        }
+
+        public string ProjectilePicture
+        {
+            get { return projectilePicture; }
         }
 
         // in miliseconds
@@ -46,9 +58,9 @@ namespace TowerDefense.Main
             protected set { target = value; }
         }
 
-        public abstract IEnumerable<IGameObject> ProducedObjects
+        public virtual IEnumerable<IGameObject> ProducedObjects
         {
-            get;
+            get { return projectilesToAdd; }
         }
 
         public bool IsInRange(ITarget target)
@@ -69,6 +81,7 @@ namespace TowerDefense.Main
                 if (this.IsInRange(suspicious))
                 {
                     this.Target = suspicious;
+                    projectileTimerCounter = -1;
                 }
             }
         }
@@ -76,6 +89,16 @@ namespace TowerDefense.Main
         public virtual void Shoot(IEnumerable<ITarget> targetsSet)
         {
             this.GetClosestMonsterForTarget(targetsSet);
+            if (this.Target != null && projectileTimerCounter < 0)
+            {
+                Projectile projectile = new Projectile(new Point(this.Position.X, this.Position.Y),
+                                                        this.Damage,
+                                                        this.ProjectileSpeed,
+                                                        this.Target,
+                                                        this.ProjectilePicture);
+                projectileTimerCounter = rate / 100; //async timer value
+                projectilesToAdd.Add(projectile);
+            }
         }
 
         public override System.Windows.Media.ImageSource ImageSource
@@ -85,6 +108,12 @@ namespace TowerDefense.Main
 
         public override void Update()
         {
+            projectileTimerCounter--;
+            projectilesToAdd.Clear();
+            if (this.Target != null && this.Target.IsDestroyed == true)
+            {
+                this.Target = null;
+            }
         }
     }
 }
