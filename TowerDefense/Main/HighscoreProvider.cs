@@ -30,8 +30,7 @@
                 this.highscoreEntries = new List<Player>();
                 if(!File.Exists(this.FilePath))
                 {
-                    File.Create(this.FilePath).Close();
-                    
+                    File.Create(this.FilePath).Close();                   
                 }
                 try
                 {
@@ -48,10 +47,7 @@
                 }
                 catch (IOException)
                 {
-                    // ignore the exception and show empty highscore
-                    System.Console.WriteLine("There was problem loading the highscore.");
                     return new List<Player>();
-                    //System.Environment.Exit(0);
                 }
             }
             set
