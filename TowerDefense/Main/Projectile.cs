@@ -14,11 +14,18 @@ namespace TowerDefense.Main
         private int damage;
         private ITarget target;
 
-        public Projectile(Point position,int damage,int speed, ITarget target) : base(position)
+        public Projectile(Point position,int damage,int speed, ITarget target, string picture) : base(position)
         {
             this.damage = damage;
             this.Speed = speed;
             this.target = target;
+            this.Picture = picture;
+        }
+
+        public string Picture
+        {
+            get;
+            private set;
         }
 
         public int Speed
@@ -64,7 +71,11 @@ namespace TowerDefense.Main
             {
                 this.Target.TakeDamage(this.Damage);
                 this.IsDestroyed = true;
-            }           
+            }
+            if (this.Target.IsDestroyed == true)
+            {
+                this.IsDestroyed = true;
+            }
         }
 
         public void Move()
@@ -76,7 +87,7 @@ namespace TowerDefense.Main
         {
             get 
             {
-                return ImageFactory.CreateImage("projectile.png"); 
+                return ImageFactory.CreateImage(this.Picture); 
             }
         }
     }

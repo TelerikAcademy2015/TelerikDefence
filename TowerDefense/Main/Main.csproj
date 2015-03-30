@@ -59,6 +59,7 @@
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="FastTower.cs" />
     <Compile Include="GameField.xaml.cs">
       <DependentUpon>GameField.xaml</DependentUpon>
     </Compile>
@@ -73,6 +74,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MegaTower.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="MonsterGirl.cs" />
     <Compile Include="MonsterGreen.cs" />
@@ -82,8 +84,9 @@
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
     <Compile Include="Route.cs" />
+    <Compile Include="SlowTower.cs" />
     <Compile Include="Tower.cs" />
-    <Compile Include="Tower1.cs" />
+    <Compile Include="NormalTower.cs" />
     <Page Include="GameField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
