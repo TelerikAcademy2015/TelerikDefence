@@ -7,7 +7,7 @@ namespace TowerDefense.Main
     public class Ninja : Monster
     {
         public Ninja(IRoute route)
-            : base(route, 5, 100)
+            : base(route, 5, 100, 100)
         {
             // Example
             AsyncTimer.DelayedCall(10000, () => this.IsDestroyed = true);

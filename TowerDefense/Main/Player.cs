@@ -2,24 +2,55 @@
 
 namespace TowerDefense.Main
 {
-    public class Player
+    public class Player : PropertyChangedAwaredObject
     {
         public string Name
         {
             get;
             set;
+
         }
 
+        private int score;
         public int Score
         {
-            get;
-            set;
+            get
+            {
+                return this.score;
+            }
+            set
+            {
+                this.score = value;
+                this.OnPropertyChanged("Score");
+            }
         }
 
+        private int money;
         public int Money
         {
-            get;
-            set;
+            get
+            {
+                return this.money;
+            }
+            set
+            {
+                this.money = value;
+                this.OnPropertyChanged("Money");
+            }
+        }
+
+        private int lives;
+        public int Lives
+        {
+            get
+            {
+                return this.lives;
+            }
+            set
+            {
+                this.lives = value;
+                this.OnPropertyChanged("Lives");
+            }
         }
 
         public Player()
@@ -27,6 +58,7 @@ namespace TowerDefense.Main
             this.Name = String.Empty;
             this.Score = 0;
             this.Money = 200;
+            this.Lives = 10;
         }
     }
 }

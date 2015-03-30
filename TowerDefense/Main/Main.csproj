@@ -81,9 +81,11 @@
     <Compile Include="Ninja.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
+    <Compile Include="PropertyChangedAwaredObject.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Tower.cs" />
     <Compile Include="Tower1.cs" />
+    <Compile Include="ScoreToLabelConverter.cs" />
     <Page Include="GameField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

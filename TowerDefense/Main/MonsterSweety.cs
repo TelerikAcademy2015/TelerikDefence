@@ -11,7 +11,7 @@ namespace TowerDefense.Main
     class MonsterSweety : Monster//, IMonster, IGameObject, IMovable, ITarget - Commented because of team rule.
     {
         public MonsterSweety(IRoute route)
-            : base(route, 60, 25)
+            : base(route, 60, 25, 100)
         {
             this.IsDestroyed = false;
             this.ChangeImage();

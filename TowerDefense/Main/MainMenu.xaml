@@ -10,7 +10,7 @@
         <TextBlock Margin="0,100,0,0" Width="280" FontFamily="Segoe UI Mono" FontSize="36" FontWeight="Bold">
             Telerik Defense
         </TextBlock>
-        <TextBox Text="{Binding Path=Player.Name, Mode=TwoWay}" Margin="0,100,0,0" FontSize="30" Width="200" Background="Gray" Cursor="Pen"/>
+        <TextBox Text="{Binding Player.Name}" Margin="0,100,0,0" FontSize="30" Width="200" Background="Gray" Cursor="Pen"/>
         <Button Content="Start" Margin="0,50,0,0" Width="150" FontSize="30" Cursor="Hand" Command="{Binding OpenGameFieldPage}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">

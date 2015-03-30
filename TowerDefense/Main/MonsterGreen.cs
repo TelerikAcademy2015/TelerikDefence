@@ -16,14 +16,15 @@ namespace TowerDefense.Main
         //{
         //  gold += goldvalue;
         //}
-        public MonsterGreen(IRoute route) : base(route, 20, 10)
+        public MonsterGreen(IRoute route)
+            : base(route, 20, 10, 100)
         {
             this.IsDestroyed = false;
         }
 
         public override ImageSource ImageSource
         {
-            get 
+            get
             {
                 return ImageFactory.CreateImage("MonsterGreen.png");
             }

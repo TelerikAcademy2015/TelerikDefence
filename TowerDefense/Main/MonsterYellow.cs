@@ -11,7 +11,7 @@ namespace TowerDefense.Main
     class MonsterYellow : Monster//, IMonster, IGameObject, IMovable, ITarget - Commented because of team rule.
     {
         public MonsterYellow(IRoute route)
-            : base(route, 20, 100)
+            : base(route, 20, 100, 100)
         {
             this.IsDestroyed = false;
             this.ChangeImage();

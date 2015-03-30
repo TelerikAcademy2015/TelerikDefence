@@ -3,9 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:l="clr-namespace:TowerDefense.Main"
       xmlns:Custom="clr-namespace:TowerDefense.WPFCustomControls;assembly=WPFCustomControls"
-      mc:Ignorable="d"                                 
+      mc:Ignorable="d"
 	Title="Tower Defense">
+    <Page.Resources>
+        <l:ScoreToLabelConverter x:Key="ScoreToLabelConverter" />
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60px" />
@@ -31,27 +35,21 @@
             </Button>
             <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Center" >
                 <Image Source=".\images\money.png"/>
-                <TextBlock  TextAlignment="Center" FontSize="45" >
-                200
-                </TextBlock>
+                <TextBlock Text="{Binding Player.Money}" TextAlignment="Center" FontSize="45" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="3" HorizontalAlignment="Center" >
                 <Image Source=".\images\heart.png"/>
-                <TextBlock  TextAlignment="Center" FontSize="45">
-                10
-                </TextBlock>
+                <TextBlock  Text="{Binding Player.Lives}" TextAlignment="Center" FontSize="45" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Center" >
                 <Image Source=".\images\target.png"/>
                 <TextBlock TextAlignment="Center" FontSize="45">
+                <!-- TODO: Waves count implement binding-->
                 1
                 </TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="5" HorizontalAlignment="Center" >
-                
-                <TextBlock TextAlignment="Center" FontSize="45">
-                Score: 1200
-                </TextBlock>
+                <TextBlock Text="{Binding Player.Score, Converter={StaticResource ScoreToLabelConverter}}" TextAlignment="Center" FontSize="45" />
             </StackPanel>
         </Grid>
         <Custom:WPFCanvas Name="canvas" Grid.Row="1">

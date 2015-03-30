@@ -11,7 +11,7 @@ namespace TowerDefense.Main
     class MonsterGirl : Monster//, IMonster, IGameObject, IMovable, ITarget - Commented because of team rule.
     {
         public MonsterGirl(IRoute route)
-            : base(route, 100, 10)
+            : base(route, 100, 10, 100)
         {
             this.IsDestroyed = false;
             this.ChangeImage();
