@@ -73,7 +73,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Monster.cs" />
+    <Compile Include="MonsterGirl.cs" />
     <Compile Include="MonsterGreen.cs" />
+    <Compile Include="MonsterSweety.cs" />
+    <Compile Include="MonsterYellow.cs" />
     <Compile Include="Ninja.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
@@ -143,9 +146,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\download.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\cpp.png" />
     <Resource Include="images\csharp.png" />
     <Resource Include="images\dotnet.png" />
@@ -173,6 +173,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\target.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\download.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

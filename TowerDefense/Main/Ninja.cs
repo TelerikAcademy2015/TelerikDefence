@@ -22,7 +22,7 @@ namespace TowerDefense.Main
             get
             {
                 // Example
-                return ImageFactory.CreateImage("download.jpg");
+                return ImageFactory.CreateImage("download.png");
             }
         }
     }

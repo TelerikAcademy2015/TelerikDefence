@@ -33,6 +33,10 @@ namespace TowerDefense.Main
 
             // Example
             this.AddGameObject(new Ninja(this.Route));
+            this.AddGameObject(new MonsterGirl(this.Route));
+            this.AddGameObject(new MonsterGreen(this.Route));
+            this.AddGameObject(new MonsterSweety(this.Route));
+            this.AddGameObject(new MonsterYellow(this.Route));
             this.AddGameObject(new Tower1(new Point(300, 300)));
         }
 
