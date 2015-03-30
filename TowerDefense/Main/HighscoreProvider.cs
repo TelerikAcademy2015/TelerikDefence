@@ -6,7 +6,7 @@ using TowerDefense.Main;
 
 namespace TowerDefense.Main
 {
-    public class Highscore
+    public class HighscoreProvider
     {
         private const int MAX_NUMBER_OF_ENTRIES = 5;
 
@@ -30,7 +30,7 @@ namespace TowerDefense.Main
             }
         }
 
-        public Highscore(string filePath)
+        public HighscoreProvider(string filePath)
         {
             this.FilePath = filePath;
         }
