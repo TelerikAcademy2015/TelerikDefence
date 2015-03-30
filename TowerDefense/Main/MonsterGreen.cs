@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace TowerDefense.Main
 {
-    public class MonsterGreen : Monster, IMonster, IGameObject, IMovable, ITarget
+    public class MonsterGreen : Monster
     {
         //For example: goldValue = 10;
         //if(this.IsDestroyed)

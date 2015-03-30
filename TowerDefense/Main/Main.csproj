@@ -63,6 +63,7 @@
       <DependentUpon>GameField.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameObject.cs" />
+    <Compile Include="Highscore.cs" />
     <Compile Include="Highscore.xaml.cs">
       <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
