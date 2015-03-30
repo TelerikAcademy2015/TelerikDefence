@@ -78,7 +78,7 @@ namespace TowerDefense.Main
             {
                 ITarget suspicious = targets.OrderBy(target => Point.DistanceBetween(this.Position, target.Position)).FirstOrDefault();
                 //if suspicious target is in Range -> make it tower target, if not tower target -> null
-                if (this.IsInRange(suspicious))
+                if (suspicious != null && this.IsInRange(suspicious))
                 {
                     this.Target = suspicious;
                     projectileTimerCounter = -1;
