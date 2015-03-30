@@ -18,50 +18,69 @@
         }
 
         private List<Player> highscoreEntries;
-        public IEnumerable<Player> HighscoreEntries
+        public List<Player> HighscoreEntries
         {
             get
             {
-                return this.highscoreEntries;
-            }
-            private set
-            {
-                if (value.Count() >= MAX_NUMBER_OF_ENTRIES)
+                if (this.highscoreEntries != null)
                 {
-                    //throw new ArgumentOutOfRangeException("Too much entries");
+                    return this.highscoreEntries;
                 }
-                this.highscoreEntries.AddRange(value);
+
+                this.highscoreEntries = new List<Player>();
+                if(!File.Exists(this.FilePath))
+                {
+                    File.Create(this.FilePath).Close();
+                    
+                }
+                try
+                {
+                    using (StreamReader reader = new StreamReader(this.FilePath))
+                    {
+                        string line = null;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            Player player = new Player();
+                            this.highscoreEntries.Add(player);
+                        }
+                        return this.highscoreEntries;
+                    }
+                }
+                catch (IOException)
+                {
+                    // ignore the exception and show empty highscore
+                    System.Console.WriteLine("There was problem loading the highscore.");
+                    return new List<Player>();
+                    //System.Environment.Exit(0);
+                }
+            }
+            set
+            {
+                this.highscoreEntries = value;
             }
         }
 
         public HighscoreProvider(string filePath)
         {
             this.FilePath = filePath;
-            this.highscoreEntries = new List<Player>();
         }
 
         public void AddHighscoreEntry(Player player)
         {
-            this.highscoreEntries.Add(player);
+            this.HighscoreEntries.Add(player);
+            this.HighscoreEntries.Sort((firstPlayer, secondPlayer) => (firstPlayer.Score > secondPlayer.Score) ? -1 : 1);
+            this.HighscoreEntries = this.HighscoreEntries.Take(MAX_NUMBER_OF_ENTRIES).ToList();
         }
 
         public void Persist()
         {
-            var writer = new StreamWriter(this.FilePath, false);
-            using (writer)
+            using (StreamWriter writer = new StreamWriter(this.FilePath))
             {
-                int counter = 1;
-                foreach (var highscore in this.HighscoreEntries)
+                foreach (Player entry in this.HighscoreEntries)
                 {
-                    writer.WriteLine(string.Format("{0}. {1,17}{2,-10}", counter, highscore.Name, highscore.Score));
-                    counter++;
+                    writer.WriteLine("{0, -15}{1, 10}", entry.Name, entry.Score);
                 }
-                counter = 1;
             }
-            // Format:
-            // 1. Dragan Ivanov                 670
-            // 2. Lelq mu                       630
-            // <----------20----------><----10---->
         }
     }
 }
