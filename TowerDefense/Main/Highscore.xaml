@@ -9,14 +9,32 @@
       Width="374"
       Height="424"
 	Title="Highscores">
-    <StackPanel>
+    <StackPanel Margin="0,0,0,-116">
         <TextBlock FontFamily="Segoe UI Mono" FontSize="36"
                    Margin="0,20,0,0"
                    FontWeight="Bold" Text="      Telerik Defense"/>
         <TextBlock FontFamily="Segoe UI Mono" FontSize="36"
                    Margin="0,20,0,20"
                    FontWeight="Bold" Text="         Highscores"/>
-        <Button Content="Back" Margin="0,180,0,0" Width="150" FontSize="30" Cursor="Hand" Command="{Binding OpenMainMenuPage}">
+        
+       
+            <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   1. Pesho    3210"/>
+
+            <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   2. Gosho    2210"/>
+            <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   3. Tosho    1210"/>
+        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   4. Tosho    1210"/>
+        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   5. Tosho    1210"/>
+        <Button Content="Back" Margin="112,180,112,0" Width="150" FontSize="30" Cursor="Hand" Command="{Binding OpenMainMenuPage}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Black"/>

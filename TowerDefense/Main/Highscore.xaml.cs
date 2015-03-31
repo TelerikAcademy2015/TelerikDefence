@@ -7,15 +7,22 @@
     using TowerDefense.WPFCustomControls;
     public partial class Highscore : PropertyChangedAwaredPage
     {
+       
+
+
         public Highscore()
         {
-            InitializeComponent();
+             
+
             this.OpenMainMenuPage = new DelegateCommand((Object parameter) =>
             {
                 this.OpenPage(new MainMenu());
             });
+
             this.DataContext = this;
-            PrintHighscore();
+            InitializeComponent();
+
+              
         }
         public ICommand OpenMainMenuPage
         {
