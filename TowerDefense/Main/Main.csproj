@@ -85,6 +85,7 @@
     <Compile Include="MonsterRedDemon.cs" />
     <Compile Include="MonsterSweety.cs" />
     <Compile Include="MonsterYellow.cs" />
+    <Compile Include="NegativeNumberException.cs" />
     <Compile Include="Ninja.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
