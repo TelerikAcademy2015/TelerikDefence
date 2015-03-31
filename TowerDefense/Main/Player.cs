@@ -4,11 +4,20 @@ namespace TowerDefense.Main
 {
     public class Player : PropertyChangedAwaredObject
     {
+        private string name;
+
         public string Name
         {
-            get;
-            set;
+            get { return this.name; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new InvalidNameException("Name cannot be null");
+                }
 
+                this.name = value;
+            }
         }
 
         private int score;
