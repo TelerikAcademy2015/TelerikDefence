@@ -4,7 +4,7 @@ using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
-    public abstract class Tower : GameObject, IShooter, IObjectCreator
+    public abstract class Tower : GameObject, ITower
     {
         protected int range;
         protected int rate;
