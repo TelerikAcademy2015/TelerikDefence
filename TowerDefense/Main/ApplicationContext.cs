@@ -1,9 +1,10 @@
 ﻿using System;
+using TowerDefense.Interfaces;
+
 namespace TowerDefense.Main
 {
     public class ApplicationContext
     {
-        private string HIGHSCORE_FILE_NAME = "highscore.txt";
         private static ApplicationContext instance = new ApplicationContext();
         public static ApplicationContext Instance
         {
@@ -51,7 +52,7 @@ namespace TowerDefense.Main
         private ApplicationContext()
         {
             this.Player = new Player();
-            this.HighscoreProvider = new HighscoreProvider(HIGHSCORE_FILE_NAME);
+            this.HighscoreProvider = new HighscoreProvider(GameConstants.HIGHSCORE_FILE_NAME);
         }
     }
 }
