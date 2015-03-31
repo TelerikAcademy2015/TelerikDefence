@@ -44,14 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Direction.cs" />
+    <Compile Include="GameConstants.cs" />
     <Compile Include="ICanvas.cs" />
     <Compile Include="IDrawable.cs" />
+    <Compile Include="IGameObject.cs" />
+    <Compile Include="IMonster.cs" />
     <Compile Include="IObjectCreator.cs" />
     <Compile Include="IRoute.cs" />
     <Compile Include="IMovable.cs" />
-    <Compile Include="ISwitchable.cs" />
     <Compile Include="ITarget.cs" />
     <Compile Include="IShooter.cs" />
+    <Compile Include="IValidatable.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

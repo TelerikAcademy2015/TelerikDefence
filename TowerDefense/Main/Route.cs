@@ -1,41 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
-    public class Route : IRoute, IDrawable // TODO: , IObjectCreator
-    {
-        public Route(Path path)
-        {
-            //throw new NotImplementedException();
-        }
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Shapes;
+    using TowerDefense.Interfaces;
 
+    public class Route : IRoute
+    {
         public IEnumerable<Point> Points
         {
-            get { throw new NotImplementedException(); }
+            get;
+            private set;
         }
 
-        public int Id
+        public Route(Polyline path)
         {
-            get { throw new NotImplementedException(); }
-        }
-
-        public Point Position
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public int Depth
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public ImageSource ImageSource
-        {
-            get { throw new NotImplementedException(); }
+            double offsetX = path.Margin.Left;
+            double offsetY = path.Margin.Top;
+            this.Points = path.Points.Select(point => new Point(point.X + offsetX, point.Y + offsetY)).ToArray();
         }
     }
 }

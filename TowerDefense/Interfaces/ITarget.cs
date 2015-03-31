@@ -1,6 +1,6 @@
 ﻿namespace TowerDefense.Interfaces
 {
-    public interface ITarget
+    public interface ITarget : IDrawable
     {
         Point Position
         {
