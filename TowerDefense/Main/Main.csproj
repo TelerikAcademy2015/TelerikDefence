@@ -68,6 +68,7 @@
     <Compile Include="Highscore.xaml.cs">
       <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
+    <Compile Include="iterator.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -76,8 +77,12 @@
     </Compile>
     <Compile Include="MegaTower.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="MonsterBabySkeleton.cs" />
+    <Compile Include="MonsterBlueHarvester.cs" />
+    <Compile Include="MonsterDarkGhost.cs" />
     <Compile Include="MonsterGirl.cs" />
     <Compile Include="MonsterGreen.cs" />
+    <Compile Include="MonsterRedDemon.cs" />
     <Compile Include="MonsterSweety.cs" />
     <Compile Include="MonsterYellow.cs" />
     <Compile Include="Ninja.cs" />

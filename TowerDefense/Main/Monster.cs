@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
+using TowerDefense.Utils;
 using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
     public abstract class Monster : GameObject, IMonster
     {
+        private List<string> imageFiles = new List<string>();
+        private int fileNum = 0;
+
         public int Speed
         {
             get;
@@ -30,6 +34,18 @@ namespace TowerDefense.Main
         {
             get;
             private set;
+        }
+
+        public List<string> ImageFIles
+        {
+            get { return this.imageFiles; }
+            protected set { this.imageFiles = value; }
+        }
+
+        public int FileNum
+        {
+            get { return this.fileNum; }
+            protected set { this.fileNum = value; }
         }
 
         private IEnumerator<Point> enumerator;
@@ -93,11 +109,16 @@ namespace TowerDefense.Main
 
         public override ImageSource ImageSource
         {
-            get { throw new NotImplementedException(); }
+            get { return ImageFactory.CreateImage(this.ImageFIles[this.FileNum]); }
         }
 
         public override void Update()
         {
+            if (this.FileNum < this.ImageFIles.Count - 1)
+            {
+                this.FileNum++;
+            }
+            else { this.FileNum = 0; }
         }
     }
 }

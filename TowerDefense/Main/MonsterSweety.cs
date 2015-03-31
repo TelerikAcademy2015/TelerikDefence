@@ -6,27 +6,19 @@ namespace TowerDefense.Main
     using TowerDefense.Interfaces;
     using System.Windows.Media;
     using TowerDefense.Utils;
+    using System.Collections.Generic;
 
 
     class MonsterSweety : Monster//, IMonster, IGameObject, IMovable, ITarget - Commented because of team rule.
     {
         public MonsterSweety(IRoute route)
-            : base(route, 60, 25, 100)
+            : base(route, 60, 25, 200)
         {
+            this.ImageFIles.Add("monsters/Sweety/MonsterSweety0.png");
+            this.ImageFIles.Add("monsters/Sweety/MonsterSweety1.png");
+            this.ImageFIles.Add("monsters/Sweety/MonsterSweety2.png");
+            this.ImageFIles.Add("monsters/Sweety/MonsterSweety1.png");
             this.IsDestroyed = false;
-            this.ChangeImage();
-        }
-        public override ImageSource ImageSource
-        {
-            get
-            {
-                return ImageFactory.CreateImage("MonsterSweety.png");
-            }
-        }
-
-        public void ChangeImage()
-        {
-
         }
     }
 }
