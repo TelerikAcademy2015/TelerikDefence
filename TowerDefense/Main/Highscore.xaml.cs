@@ -15,6 +15,7 @@
                 this.OpenPage(new MainMenu());
             });
             this.DataContext = this;
+            PrintHighscore();
         }
         public ICommand OpenMainMenuPage
         {
@@ -25,6 +26,16 @@
         private void OpenPage(Page page)
         {
             ((Window)this.Parent).Content = page;
+        }
+
+        private void PrintHighscore()
+        {
+            var highscores = ApplicationContext.Instance.HighscoreProvider.HighscoreEntries;
+            foreach (var highscore in highscores)
+            {
+                this.Content = highscore.Name;
+                //PRINT TO PAGE"{0, -15}{1, 10}", entry.Name, entry.Score);
+            }
         }
     }
 }

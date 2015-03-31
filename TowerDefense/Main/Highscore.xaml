@@ -8,15 +8,14 @@
       WindowTitle="HighScores"
       Width="374"
       Height="424"
-	Title="Highscore">
+	Title="Highscores">
     <StackPanel>
         <TextBlock FontFamily="Segoe UI Mono" FontSize="36"
                    Margin="0,20,0,0"
                    FontWeight="Bold" Text="      Telerik Defense"/>
         <TextBlock FontFamily="Segoe UI Mono" FontSize="36"
                    Margin="0,20,0,20"
-                   FontWeight="Bold" Text="          Highscore"/>
-
+                   FontWeight="Bold" Text="         Highscores"/>
         <Button Content="Back" Margin="0,180,0,0" Width="150" FontSize="30" Cursor="Hand" Command="{Binding OpenMainMenuPage}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
