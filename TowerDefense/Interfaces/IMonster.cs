@@ -11,5 +11,10 @@
         {
             get;
         }
+
+        int ScoreValue
+        {
+            get;
+        }
     }
 }

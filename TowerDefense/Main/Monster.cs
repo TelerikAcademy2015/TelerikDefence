@@ -30,6 +30,12 @@ namespace TowerDefense.Main
             private set;
         }
 
+        public int ScoreValue
+        {
+            get;
+            private set;
+        }
+
         public IRoute Route
         {
             get;
@@ -58,6 +64,7 @@ namespace TowerDefense.Main
             this.Speed = speed;
             this.Health = health;
             this.GoldValue = goldValue;
+            this.ScoreValue = goldValue; //we use goldValue as scoreValue too
             this.Route = route;
             this.enumerator = route.Points.GetEnumerator();
             this.enumerator.MoveNext();
