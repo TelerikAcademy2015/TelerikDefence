@@ -6,11 +6,10 @@
     using System.IO;
     using System.Linq;
     using TowerDefense.Main;
+    using TowerDefense.Interfaces;
 
     public class HighscoreProvider
     {
-        private const int MAX_NUMBER_OF_ENTRIES = 5;
-
         public string FilePath
         {
             get;
@@ -65,7 +64,7 @@
         {
             this.HighscoreEntries.Add(player);
             this.HighscoreEntries.Sort((firstPlayer, secondPlayer) => (firstPlayer.Score > secondPlayer.Score) ? -1 : 1);
-            this.HighscoreEntries = this.HighscoreEntries.Take(MAX_NUMBER_OF_ENTRIES).ToList();
+            this.HighscoreEntries = this.HighscoreEntries.Take(GameConstants.HIGHSCORE_MAX_NUMBER_OF_ENTRIES).ToList();
         }
 
         public void Persist()

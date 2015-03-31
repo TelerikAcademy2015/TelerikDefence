@@ -4,6 +4,7 @@
     {
         public const int DISTANCE_PER_SECOND = 1;
         public const string HIGHSCORE_FILE_NAME = "highscore.txt";
+        private const int HIGHSCORE_MAX_NUMBER_OF_ENTRIES = 5;
 
     }
 }
