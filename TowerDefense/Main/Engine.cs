@@ -44,10 +44,10 @@ namespace TowerDefense.Main
             this.AddGameObject(new MonsterBlueHarvester(this.Route));
             this.AddGameObject(new MonsterDarkGhost(this.Route));
             this.AddGameObject(new MonsterRedDemon(this.Route));
-            this.AddGameObject(new NormalTower(new Point(300, 300)));
-            this.AddGameObject(new SlowTower(new Point(300, 100)));
-            this.AddGameObject(new FastTower(new Point(200, 200)));
-            this.AddGameObject(new MegaTower(new Point(400, 100)));
+            this.AddGameObject(new NormalTower(new Point(600, 10)));
+            this.AddGameObject(new SlowTower(new Point(300, 50)));
+            this.AddGameObject(new FastTower(new Point(600, 300)));
+            this.AddGameObject(new MegaTower(new Point(1000, 100)));
         }
 
         public void Start()

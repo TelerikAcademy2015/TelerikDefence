@@ -10,7 +10,7 @@ namespace TowerDefense.Main
         public SlowTower(Point position)
             : base(position)
         {
-            this.range = 700;
+            this.range = 250;
             this.rate = 1500;
             this.damage = 60;
             this.price = 200;

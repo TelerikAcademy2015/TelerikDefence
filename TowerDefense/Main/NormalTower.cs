@@ -10,7 +10,7 @@ namespace TowerDefense.Main
         public NormalTower(Point position)
             : base(position)
         {
-            this.range = 500;
+            this.range = 200;
             this.rate = 500;
             this.damage = 10;
             this.price = 100;

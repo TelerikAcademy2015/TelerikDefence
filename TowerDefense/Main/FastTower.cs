@@ -10,12 +10,12 @@ namespace TowerDefense.Main
         public FastTower(Point position)
             : base(position)
         {
-            this.range = 1000;
+            this.range = 300;
             this.rate = 300;
             this.damage = 4;
             this.price = 130;
             this.projectileSpeed = 40;
-            this.projectilePicture = "projectile.png";
+            this.projectilePicture = "ball1.png";
         }
 
         public override ImageSource ImageSource
