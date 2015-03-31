@@ -6,5 +6,10 @@
         {
             get;
         }
+
+        int GoldValue
+        {
+            get;
+        }
     }
 }
