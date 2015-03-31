@@ -68,6 +68,7 @@
     <Compile Include="Highscore.xaml.cs">
       <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InvalidNameException.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -81,7 +82,6 @@
     <Compile Include="MonsterDarkGhost.cs" />
     <Compile Include="MonsterGirl.cs" />
     <Compile Include="MonsterGreen.cs" />
-    <Compile Include="MonsterNotFoundException.cs" />
     <Compile Include="MonsterRedDemon.cs" />
     <Compile Include="MonsterSweety.cs" />
     <Compile Include="MonsterYellow.cs" />

@@ -11,10 +11,7 @@ namespace TowerDefense.Main
             get { return this.name; }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new InvalidNameException("Name cannot be null");
-                }
+                
 
                 this.name = value;
             }
