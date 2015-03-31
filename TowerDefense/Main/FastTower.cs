@@ -15,12 +15,12 @@ namespace TowerDefense.Main
             this.damage = 4;
             this.price = 130;
             this.projectileSpeed = 40;
-            this.projectilePicture = "ball1.png";
+            this.projectilePicture = "ball4.png";
         }
 
         public override ImageSource ImageSource
         {
-            get { return ImageFactory.CreateImage("cpp.png"); }
+            get { return ImageFactory.CreateImage("tower4.png"); }
         }
 
     }

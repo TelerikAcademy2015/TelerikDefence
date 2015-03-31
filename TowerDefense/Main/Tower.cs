@@ -91,7 +91,7 @@ namespace TowerDefense.Main
             this.GetClosestMonsterForTarget(targetsSet);
             if (this.Target != null && projectileTimerCounter < 0)
             {
-                Projectile projectile = new Projectile(new Point(this.Position.X + 50, this.Position.Y + 30),
+                Projectile projectile = new Projectile(new Point(this.Position.X + 10, this.Position.Y + 30),
                                                         this.Damage,
                                                         this.ProjectileSpeed,
                                                         this.Target,

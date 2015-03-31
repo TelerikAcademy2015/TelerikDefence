@@ -20,7 +20,7 @@ namespace TowerDefense.Main
 
         public override ImageSource ImageSource
         {
-            get { return ImageFactory.CreateImage("ms.png"); }
+            get { return ImageFactory.CreateImage("tower2.png"); }
         }
 
     }
