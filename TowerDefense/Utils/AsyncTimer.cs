@@ -8,12 +8,12 @@ namespace TowerDefense.Utils
     {
         public static void DelayedCall(int miliseconds, AsyncTimerDelegate callback)
         {
-            Timer timer = new Timer(miliseconds);
-            timer.Elapsed += (Object source, ElapsedEventArgs e) =>
+            AsyncTimer timer = null;
+            timer = new AsyncTimer(miliseconds, () =>
             {
                 callback();
                 timer.Stop();
-            };
+            });
             timer.Start();
         }
 

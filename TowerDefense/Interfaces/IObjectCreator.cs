@@ -4,7 +4,7 @@ namespace TowerDefense.Interfaces
 {
     public interface IObjectCreator
     {
-        IEnumerable<IDrawable> ProducedObjects
+        IEnumerable<IGameObject> ProducedObjects
         {
             get;
         }

@@ -1,0 +1,56 @@
+﻿<Custom:PropertyChangedAwaredPage x:Class="TowerDefense.Main.Highscore"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Custom="clr-namespace:TowerDefense.WPFCustomControls;assembly=WPFCustomControls"
+      mc:Ignorable="d"
+      WindowTitle="HighScores"
+      Width="374"
+      Height="424"
+	Title="Highscores">
+    <StackPanel Margin="0,0,0,-116">
+        <TextBlock FontFamily="Segoe UI Mono" FontSize="36"
+                   Margin="0,20,0,0"
+                   FontWeight="Bold" Text="      Telerik Defense"/>
+        <TextBlock FontFamily="Segoe UI Mono" FontSize="36"
+                   Margin="0,20,0,20"
+                   FontWeight="Bold" Text="         Highscores"/>
+        
+       
+            <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   1. Pesho    3210"/>
+
+            <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   2. Gosho    2210"/>
+            <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   3. Tosho    1210"/>
+        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   4. Tosho    1210"/>
+        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
+                       Margin="100,0,0,5"
+                       FontWeight="Bold" Text="   5. Tosho    1210"/>
+        <Button Content="Back" Margin="112,180,112,0" Width="150" FontSize="30" Cursor="Hand" Command="{Binding OpenMainMenuPage}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </StackPanel>
+
+
+
+
+</Custom:PropertyChangedAwaredPage>

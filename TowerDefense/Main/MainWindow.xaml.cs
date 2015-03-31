@@ -7,8 +7,7 @@ namespace TowerDefense.Main
         public MainWindow()
         {
             InitializeComponent();
-            Engine engine = new Engine(this.canvas, new Route(this.path));
-            engine.Start();
+            this.Content = new MainMenu();
         }
     }
 }

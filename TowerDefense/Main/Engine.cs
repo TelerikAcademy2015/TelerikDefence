@@ -21,79 +21,72 @@ namespace TowerDefense.Main
             private set;
         }
 
-        public ICollection<GameObject> gameObjects;
-        public ICollection<IMovable> movingObjects;
-        public ICollection<ITarget> targets;
-        public ICollection<IShooter> shooters;
+        private Player Player;
+
+        private ICollection<IGameObject> gameObjects;
 
         public Engine(ICanvas canvas, IRoute route)
         {
             this.Canvas = canvas;
             this.Route = route;
-            this.gameObjects = new HashSet<GameObject>();
-            this.movingObjects = new HashSet<IMovable>();
-            this.targets = new HashSet<ITarget>();
-            this.shooters = new HashSet<IShooter>();
+            this.Player = ApplicationContext.Instance.Player;
+            this.gameObjects = new HashSet<IGameObject>();
 
             CompositionTarget.Rendering += this.RenderingHandler;
 
             // Example
-            this.AddMonster(new Ninja(new Point(50, 50)));
-            this.AddMonster(new Ninja(new Point(150, 250)));
-            this.AddMonster(new Ninja(new Point(250, 150)));
+            this.AddGameObject(new Ninja(this.Route));
+            this.AddGameObject(new MonsterGirl(this.Route));
+            this.AddGameObject(new MonsterGreen(this.Route));
+            this.AddGameObject(new MonsterSweety(this.Route));
+            this.AddGameObject(new MonsterYellow(this.Route));
+            this.AddGameObject(new MonsterBabySkeleton(this.Route));
+            this.AddGameObject(new MonsterBlueHarvester(this.Route));
+            this.AddGameObject(new MonsterDarkGhost(this.Route));
+            this.AddGameObject(new MonsterRedDemon(this.Route));
+            this.AddGameObject(new NormalTower(new Point(600, 10)));
+            this.AddGameObject(new SlowTower(new Point(300, 50)));
+            this.AddGameObject(new FastTower(new Point(600, 300)));
+            this.AddGameObject(new MegaTower(new Point(1000, 100)));
         }
 
         public void Start()
         {
-            AsyncTimer timer = new AsyncTimer(200, () =>
-                {
-                    foreach (var gameObject in this.gameObjects)
-                    {
-                        gameObject.Update();
-                    }
-                    foreach (var movingObject in this.movingObjects)
-                    {
-                        movingObject.Move();
-                    }
-                    foreach (var shooter in this.shooters)
-                    {
-                        var firstTarget = this.targets.FirstOrDefault(target => shooter.IsInRange(target));
-                        if (firstTarget != null)
-                        {
-                            shooter.Shoot(firstTarget);
-                        }
-                    }
 
-                    // TODO: Clear dead
+            AsyncTimer timer = new AsyncTimer(100, () =>
+                {
+                    this.gameObjects.ToList().ForEach(@object => @object.Update());
+
+                    this.gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
+
+                    var targets = gameObjects.OfType<ITarget>();
+                    this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets));
+
+                    this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
+                        objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x)));
                 });
             timer.Start();
         }
 
-        public void AddGameObject(GameObject gameObject)
+        public void AddGameObject(IGameObject gameObject)
         {
             this.gameObjects.Add(gameObject);
         }
 
-        public void AddMonster(Monster monster)
+        private void RemoveGameObject(IGameObject gameObject)
         {
-            this.AddGameObject(monster);
-            this.movingObjects.Add(monster);
-            this.targets.Add(monster);
-        }
+            if (gameObject is IMonster)
+            {
+                this.Player.Money += ((IMonster)gameObject).GoldValue;
+            }
 
-        public void AddTower(Tower tower)
-        {
-            this.AddGameObject(tower);
-            this.shooters.Add(tower);
+            this.gameObjects.Remove(gameObject);
         }
-        // TODO: ... add more, implement remove when needed
 
         private void RenderingHandler(object sender, EventArgs e)
         {
-            foreach (var gameObject in this.gameObjects)
-            {
-                this.Canvas.UpdateObject(gameObject);
-            }
+            this.gameObjects.ToList().ForEach(gameObject => this.Canvas.UpdateObject(gameObject));
+            this.gameObjects.Where(x => x.IsDestroyed).ToList().ForEach(destroyedObject => this.RemoveGameObject(destroyedObject));
         }
     }
 }

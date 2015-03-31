@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -53,25 +56,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApplicationContext.cs" />
+    <Compile Include="DelegateCommand.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="FastTower.cs" />
+    <Compile Include="GameField.xaml.cs">
+      <DependentUpon>GameField.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameObject.cs" />
+    <Compile Include="HighscoreProvider.cs" />
+    <Compile Include="Highscore.xaml.cs">
+      <DependentUpon>Highscore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InvalidNameException.cs" />
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MegaTower.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="MonsterBabySkeleton.cs" />
+    <Compile Include="MonsterBlueHarvester.cs" />
+    <Compile Include="MonsterDarkGhost.cs" />
+    <Compile Include="MonsterGirl.cs" />
+    <Compile Include="MonsterGreen.cs" />
+    <Compile Include="MonsterRedDemon.cs" />
+    <Compile Include="MonsterSweety.cs" />
+    <Compile Include="MonsterYellow.cs" />
     <Compile Include="Ninja.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Projectile.cs" />
+    <Compile Include="PropertyChangedAwaredObject.cs" />
     <Compile Include="Route.cs" />
+    <Compile Include="SlowTower.cs" />
     <Compile Include="Tower.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Compile Include="ScoreToLabelConverter.cs" />
+    <Compile Include="NormalTower.cs" />
+    <Page Include="GameField.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Highscore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="ResourceDictionary.xaml">
+    <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,7 +157,44 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\download.jpg" />
+    <Resource Include="images\endscreen.png" />
+    <Resource Include="images\grey-texture.jpg" />
+    <Resource Include="images\MonsterGreen.png" />
+    <Resource Include="images\startscreenninja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\grass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\target.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ground-texture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ball1.png" />
+    <Resource Include="images\ball2.png" />
+    <Resource Include="images\ball3.png" />
+    <Resource Include="images\ball4.png" />
+    <Resource Include="images\Tower1.png" />
+    <Resource Include="images\tower2.png" />
+    <Resource Include="images\tower3.png" />
+    <Resource Include="images\tower4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
