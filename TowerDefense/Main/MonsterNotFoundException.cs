@@ -2,18 +2,18 @@
 {
     using System;
 
-    public class CreepNotFoundException : Exception
+    public class MonsterNotFoundException : Exception
     {
-        public CreepNotFoundException()
+        public MonsterNotFoundException()
         {
         }
 
-        public CreepNotFoundException(string message)
+        public MonsterNotFoundException(string message)
             : base(message)
         {
         }
 
-        public CreepNotFoundException(string message, Exception inner)
+        public MonsterNotFoundException(string message, Exception inner)
             : base(message, inner)
         {
         }
