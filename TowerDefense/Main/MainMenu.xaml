@@ -5,13 +5,29 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:Custom="clr-namespace:TowerDefense.WPFCustomControls;assembly=WPFCustomControls"
       mc:Ignorable="d" 
+                                  
 	Title="Main Menu">
+    
     <StackPanel Width="850" Height="850">
         <StackPanel.Background>
             <ImageBrush ImageSource=".\images\startscreenninja.png"/>
         </StackPanel.Background>
-        <TextBlock Margin="199,30,199,0" FontFamily="Segoe UI Mono" FontSize="50" FontWeight="Bold" Height="70"><Run Text="Telerik Defense"/></TextBlock>
-        <TextBox Text="{Binding Player.Name}" Margin="253,50,253,0" FontSize="30" Background="Black" Cursor="Pen" Opacity="0.75" SpellCheck.IsEnabled="True" BorderBrush="Black" Foreground="White" SelectionBrush="Yellow" Height="60"/>
+        <TextBlock Margin="199,30,199,0" FontFamily="Segoe UI Mono" FontSize="50" Height="70" FontWeight="Bold"><Run Text="Telerik Defense"/></TextBlock>
+        <TextBox Text="{Binding Player.Name}" Margin="253,50,253,0" FontSize="30" Background="Black" Cursor="Pen" Opacity="0.75" SpellCheck.IsEnabled="True" BorderBrush="Black" Foreground="White" SelectionBrush="Yellow" Height="60">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BitmapEffect">
+                                <Setter.Value>
+                                    <OuterGlowBitmapEffect GlowColor="Yellow" GlowSize="5" Noise="0.05"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
         <TextBlock Text="{Binding ErrorMessage}" Margin="285,10,285,0" Width="280" FontFamily="Segoe UI Mono" FontSize="20" FontWeight="Bold"/>
         <Button Content="Start" Margin="0,20,0,0" Width="200" FontSize="30" Cursor="Hand" Command="{Binding OpenGameFieldPage}" BorderBrush="Black" FontFamily="Segoe UI Mono" IsDefault="True" Height="50">
             <Button.Style>
