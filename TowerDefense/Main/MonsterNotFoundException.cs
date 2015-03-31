@@ -17,5 +17,13 @@
             : base(message, inner)
         {
         }
+
+        public override string Message
+        {
+            get
+            {
+                return "Monster not found!";
+            }
+        }
     }
 }
