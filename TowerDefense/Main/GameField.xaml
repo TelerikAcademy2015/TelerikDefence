@@ -52,19 +52,25 @@
                 <TextBlock Text="{Binding Player.Score, Converter={StaticResource ScoreToLabelConverter}}" TextAlignment="Center" FontSize="45" />
             </StackPanel>
         </Grid>
-        <Custom:WPFCanvas Name="canvas" Grid.Row="1">
+        <Custom:WPFCanvas Name="canvas" Grid.Row="1" ClipToBounds="True">
             <Custom:WPFCanvas.Background>
                 <ImageBrush ImageSource=".\images\grass.png" TileMode="Tile" 
             Viewport="0,0,20,20" ViewportUnits="Absolute" />
             </Custom:WPFCanvas.Background>
-            <Path Name="path" Stroke="Brown" StrokeThickness="10" Fill="Brown" >
-                <Path.Data>
-                    <GeometryGroup>
-                        <LineGeometry StartPoint="0,30" EndPoint="50,10"/>
-                        <LineGeometry StartPoint="50,10" EndPoint="100,100"/>
-                    </GeometryGroup>
-                </Path.Data>
-            </Path>
+            <Polyline Name="path" Grid.Row="1" StrokeThickness="40" StrokeLineJoin="Round" HorizontalAlignment="Center" Width="800" Height="800">
+                <Polyline.Stroke>
+                    <ImageBrush ImageSource=".\images\ground-texture.jpg"/>
+                </Polyline.Stroke>
+                <Polyline.Points>
+                    <Point X="12" Y="120"/>
+                    <Point X="150" Y="20"/>
+                    <Point X="650" Y="420"/>
+                    <Point X="400" Y="620"/>
+                    <Point X="150" Y="420"/>
+                    <Point X="650" Y="20"/>
+                    <Point X="788" Y="120"/>
+                </Polyline.Points>
+            </Polyline>
         </Custom:WPFCanvas>
     </Grid>
 </Custom:PropertyChangedAwaredPage>

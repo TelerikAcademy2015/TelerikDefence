@@ -68,7 +68,6 @@
     <Compile Include="Highscore.xaml.cs">
       <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
-    <Compile Include="iterator.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -188,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ground-texture.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

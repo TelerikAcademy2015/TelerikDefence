@@ -22,6 +22,8 @@ namespace TowerDefense.Main
 
             this.Loaded += (Object sender, RoutedEventArgs e) =>
             {
+                var margin = this.path.Margin;
+                this.path.Margin = new Thickness((this.canvas.ActualWidth - this.path.Width) / 2, margin.Top, margin.Right, margin.Bottom);
                 Engine engine = new Engine(this.canvas, new Route(this.path));
                 ApplicationContext.Instance.Engine = engine;
                 engine.Start();
