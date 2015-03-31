@@ -53,7 +53,7 @@ namespace TowerDefense.Main
         public void Start()
         {
 
-            AsyncTimer timer = new AsyncTimer(100, () =>
+            AsyncTimer timer = new AsyncTimer(70, () =>
                 {
                     this.gameObjects.ToList().ForEach(@object => @object.Update());
 
