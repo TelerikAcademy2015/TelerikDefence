@@ -10,17 +10,17 @@ namespace TowerDefense.Main
         public NormalTower(Point position)
             : base(position)
         {
-            this.range = 500;
+            this.range = 200;
             this.rate = 500;
             this.damage = 10;
             this.price = 100;
             this.projectileSpeed = 30;
-            this.projectilePicture = "projectile.png";
+            this.projectilePicture = "ball3.png";
         }
 
         public override ImageSource ImageSource
         {
-            get{ return ImageFactory.CreateImage("csharp.png"); }
+            get{ return ImageFactory.CreateImage("tower3.png"); }
         }
 
     }

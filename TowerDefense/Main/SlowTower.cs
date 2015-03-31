@@ -10,17 +10,17 @@ namespace TowerDefense.Main
         public SlowTower(Point position)
             : base(position)
         {
-            this.range = 700;
+            this.range = 250;
             this.rate = 1500;
             this.damage = 60;
             this.price = 200;
             this.projectileSpeed = 15;
-            this.projectilePicture = "projectile.png";
+            this.projectilePicture = "ball1.png";
         }
 
         public override ImageSource ImageSource
         {
-            get { return ImageFactory.CreateImage("dotnet.png"); }
+            get { return ImageFactory.CreateImage("tower1.png"); }
         }
 
     }

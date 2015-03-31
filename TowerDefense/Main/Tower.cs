@@ -4,7 +4,7 @@ using TowerDefense.Interfaces;
 
 namespace TowerDefense.Main
 {
-    public abstract class Tower : GameObject, IShooter, IObjectCreator
+    public abstract class Tower : GameObject, ITower
     {
         protected int range;
         protected int rate;
@@ -91,7 +91,7 @@ namespace TowerDefense.Main
             this.GetClosestMonsterForTarget(targetsSet);
             if (this.Target != null && projectileTimerCounter < 0)
             {
-                Projectile projectile = new Projectile(new Point(this.Position.X, this.Position.Y),
+                Projectile projectile = new Projectile(new Point(this.Position.X + 10, this.Position.Y + 30),
                                                         this.Damage,
                                                         this.ProjectileSpeed,
                                                         this.Target,

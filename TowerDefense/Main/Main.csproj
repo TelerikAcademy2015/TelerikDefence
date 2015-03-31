@@ -68,6 +68,7 @@
     <Compile Include="Highscore.xaml.cs">
       <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InvalidNameException.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -81,7 +82,6 @@
     <Compile Include="MonsterDarkGhost.cs" />
     <Compile Include="MonsterGirl.cs" />
     <Compile Include="MonsterGreen.cs" />
-    <Compile Include="MonsterNotFoundException.cs" />
     <Compile Include="MonsterRedDemon.cs" />
     <Compile Include="MonsterSweety.cs" />
     <Compile Include="MonsterYellow.cs" />
@@ -157,14 +157,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\cpp.png" />
-    <Resource Include="images\csharp.png" />
-    <Resource Include="images\dotnet.png" />
     <Resource Include="images\endscreen.png" />
     <Resource Include="images\grey-texture.jpg" />
     <Resource Include="images\MonsterGreen.png" />
-    <Resource Include="images\ms.png" />
-    <Resource Include="images\projectile.png" />
     <Resource Include="images\startscreenninja.png" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +185,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\ground-texture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ball1.png" />
+    <Resource Include="images\ball2.png" />
+    <Resource Include="images\ball3.png" />
+    <Resource Include="images\ball4.png" />
+    <Resource Include="images\Tower1.png" />
+    <Resource Include="images\tower2.png" />
+    <Resource Include="images\tower3.png" />
+    <Resource Include="images\tower4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

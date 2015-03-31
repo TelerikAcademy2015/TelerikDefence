@@ -10,17 +10,17 @@ namespace TowerDefense.Main
         public MegaTower(Point position)
             : base(position)
         {
-            this.range = 1300;
+            this.range = 500;
             this.rate = 600;
             this.damage = 35;
             this.price = 350;
             this.projectileSpeed = 25;
-            this.projectilePicture = "projectile.png";
+            this.projectilePicture = "ball2.png";
         }
 
         public override ImageSource ImageSource
         {
-            get { return ImageFactory.CreateImage("ms.png"); }
+            get { return ImageFactory.CreateImage("tower2.png"); }
         }
 
     }

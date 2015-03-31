@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using TowerDefense.Interfaces;
 using TowerDefense.Utils;
@@ -11,8 +8,8 @@ namespace TowerDefense.Main
 {
     public class Projectile : GameObject, IMovable
     {
-        private int damage;
-        private ITarget target;
+        private readonly int damage;
+        private readonly ITarget target;
 
         public Projectile(Point position,int damage,int speed, ITarget target, string picture) : base(position)
         {
@@ -40,16 +37,6 @@ namespace TowerDefense.Main
             private set;
         }
 
-        public int Damage
-        {
-            get { return damage; }
-        }
-
-        public ITarget Target
-        {
-            get { return target; }
-        }
-
         private Point NextPointFromTrajectory()
         {
             int deltaX = (int) (Math.Abs(this.Position.X - target.Position.X) * Speed / Point.DistanceBetween(this.Position, target.Position));
@@ -67,12 +54,12 @@ namespace TowerDefense.Main
 
         public override void Update()
         {
-            if (Point.DistanceBetween(this.Position, this.Target.Position) < this.Speed)
+            if (Point.DistanceBetween(this.Position, this.target.Position) < this.Speed)
             {
-                this.Target.TakeDamage(this.Damage);
+                this.target.TakeDamage(this.damage);
                 this.IsDestroyed = true;
             }
-            if (this.Target.IsDestroyed == true)
+            if (this.target.IsDestroyed == true)
             {
                 this.IsDestroyed = true;
             }

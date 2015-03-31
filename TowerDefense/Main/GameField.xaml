@@ -15,7 +15,7 @@
             <RowDefinition Height="60px" />
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70px"/>
                 <ColumnDefinition Width="70px"/>
@@ -48,11 +48,27 @@
                 1
                 </TextBlock>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Column="5" HorizontalAlignment="Center" >
-                <TextBlock Text="{Binding Player.Score, Converter={StaticResource ScoreToLabelConverter}}" TextAlignment="Center" FontSize="45" />
-            </StackPanel>
+                <TextBlock Grid.Column="5" Text="{Binding Player.Score, Converter={StaticResource ScoreToLabelConverter}}" TextAlignment="Center" FontSize="45" />
         </Grid>
-        <Custom:WPFCanvas Name="canvas" Grid.Row="1" ClipToBounds="True">
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60px" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70px"/>
+                <RowDefinition Height="70px"/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource=".\images\grey-texture.jpg" />
+            </Grid.Background>
+            <Button Height="70" Grid.Row="0" Grid.Column="0">
+                hhh
+            </Button>
+            <Button Height="70" Grid.Row="1" Grid.Column="0">
+                jj
+            </Button>
+        </Grid>
+        <Custom:WPFCanvas Name="canvas" Grid.Row="1" Grid.Column="1">
             <Custom:WPFCanvas.Background>
                 <ImageBrush ImageSource=".\images\grass.png" TileMode="Tile" 
             Viewport="0,0,20,20" ViewportUnits="Absolute" />
