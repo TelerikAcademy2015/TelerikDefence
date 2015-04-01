@@ -1,6 +1,6 @@
 ﻿namespace TowerDefense.Interfaces
 {
-    public interface ITower : IObjectCreator, IShooter
+    public interface ITower : IGameObject, IObjectCreator, IShooter
     {
         int Price
         {

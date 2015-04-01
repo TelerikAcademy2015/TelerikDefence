@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:l="clr-namespace:TowerDefense.Main"
+      xmlns:t="clr-namespace:TowerDefense.Main.Towers"
       xmlns:Custom="clr-namespace:TowerDefense.WPFCustomControls;assembly=WPFCustomControls"
       mc:Ignorable="d"
 	Title="Tower Defense">
@@ -12,21 +13,25 @@
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60px" />
+            <RowDefinition Height="60" />
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="..\images\grey-texture.jpg" />
+        </Grid.Background>
         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70px"/>
-                <ColumnDefinition Width="70px"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Grid.Background>
-                <ImageBrush ImageSource="..\images\grey-texture.jpg" />
-            </Grid.Background>
             <Button Width="60" Grid.Column="0">
                 <Image Source="..\images\play.png"/>
             </Button>
@@ -48,24 +53,28 @@
                 1
                 </TextBlock>
             </StackPanel>
-                <TextBlock Grid.Column="5" Text="{Binding Player.Score, Converter={StaticResource ScoreToLabelConverter}}" TextAlignment="Center" FontSize="45" />
+            <TextBlock Grid.Column="5" Text="{Binding Player.Score, Converter={StaticResource ScoreToLabelConverter}}" TextAlignment="Center" FontSize="45" />
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60px" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="70px"/>
-                <RowDefinition Height="70px"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-            <Grid.Background>
-                <ImageBrush ImageSource="..\images\grey-texture.jpg" />
-            </Grid.Background>
-            <Button Height="70" Grid.Row="0" Grid.Column="0">
-                hhh
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding PlaceTowerCommand}" CommandParameter="{x:Type t:SlowTower}">
+                <Image Source="..\images\tower1.png"/>
             </Button>
-            <Button Height="70" Grid.Row="1" Grid.Column="0">
-                jj
+            <Button Grid.Row="0" Grid.Column="1" Command="{Binding PlaceTowerCommand}" CommandParameter="{x:Type t:MegaTower}">
+                <Image Source="..\images\tower2.png"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="0" Command="{Binding PlaceTowerCommand}" CommandParameter="{x:Type t:NormalTower}">
+                <Image Source="..\images\tower3.png"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" Command="{Binding PlaceTowerCommand}" CommandParameter="{x:Type t:FastTower}">
+                <Image Source="..\images\tower4.png"/>
             </Button>
         </Grid>
         <Custom:WPFCanvas Name="canvas" Grid.Row="1" Grid.Column="1">

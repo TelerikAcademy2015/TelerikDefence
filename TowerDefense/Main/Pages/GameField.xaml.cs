@@ -1,7 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
-using TowerDefense.Utils;
+using System.Windows.Input;
+using TowerDefense.Main.Commands;
 using TowerDefense.WPFCustomControls;
 
 namespace TowerDefense.Main
@@ -14,11 +14,18 @@ namespace TowerDefense.Main
             private set;
         }
 
+        public ICommand PlaceTowerCommand
+        {
+            get;
+            private set;
+        }
+
         public GameField()
         {
             InitializeComponent();
             this.DataContext = this;
             this.Player = ApplicationContext.Instance.Player;
+            this.PlaceTowerCommand = new PlaceTowerCommand();
 
             this.Loaded += (Object sender, RoutedEventArgs e) =>
             {

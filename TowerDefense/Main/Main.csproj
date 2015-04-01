@@ -57,7 +57,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationContext.cs" />
-    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Commands\PlaceTowerCommand.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Towers\FastTower.cs" />
     <Compile Include="Pages\GameField.xaml.cs">
