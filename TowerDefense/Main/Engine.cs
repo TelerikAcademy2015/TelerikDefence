@@ -77,8 +77,15 @@ namespace TowerDefense.Main
         {
             if (gameObject is IMonster)
             {
-                this.Player.Money += ((IMonster)gameObject).GoldValue;
-                this.Player.Score += ((IMonster)gameObject).ScoreValue;
+                if (((Monster)gameObject).ReachedEnd)
+                {
+                    --this.Player.Lives;
+                }
+                else
+                {
+                    this.Player.Money += ((IMonster)gameObject).GoldValue;
+                    this.Player.Score += ((IMonster)gameObject).ScoreValue;
+                }
             }
 
             this.gameObjects.Remove(gameObject);

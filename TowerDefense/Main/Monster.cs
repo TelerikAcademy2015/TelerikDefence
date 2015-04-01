@@ -42,6 +42,14 @@ namespace TowerDefense.Main
             private set;
         }
 
+        public bool ReachedEnd
+        {
+            get
+            {
+                return this.reachedEnd;
+            }
+        }
+
         public List<string> ImageFIles
         {
             get { return this.imageFiles; }
@@ -108,6 +116,7 @@ namespace TowerDefense.Main
                 if (!this.enumerator.MoveNext())
                 {
                     this.reachedEnd = true;
+                    this.IsDestroyed = true;
                     return;
                 }
                 this.Move();
