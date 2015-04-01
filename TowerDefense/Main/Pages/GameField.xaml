@@ -25,24 +25,24 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.Background>
-                <ImageBrush ImageSource=".\images\grey-texture.jpg" />
+                <ImageBrush ImageSource="..\images\grey-texture.jpg" />
             </Grid.Background>
             <Button Width="60" Grid.Column="0">
-                <Image Source=".\images\play.png"/>
+                <Image Source="..\images\play.png"/>
             </Button>
             <Button Width="60" Grid.Column="1">
-                <Image Source=".\images\pause.png"/>
+                <Image Source="..\images\pause.png"/>
             </Button>
             <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Center" >
-                <Image Source=".\images\money.png"/>
+                <Image Source="..\images\money.png"/>
                 <TextBlock Text="{Binding Player.Money}" TextAlignment="Center" FontSize="45" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="3" HorizontalAlignment="Center" >
-                <Image Source=".\images\heart.png"/>
+                <Image Source="..\images\heart.png"/>
                 <TextBlock  Text="{Binding Player.Lives}" TextAlignment="Center" FontSize="45" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Center" >
-                <Image Source=".\images\target.png"/>
+                <Image Source="..\images\target.png"/>
                 <TextBlock TextAlignment="Center" FontSize="45">
                 <!-- TODO: Waves count implement binding-->
                 1
@@ -59,7 +59,7 @@
                 <RowDefinition Height="70px"/>
             </Grid.RowDefinitions>
             <Grid.Background>
-                <ImageBrush ImageSource=".\images\grey-texture.jpg" />
+                <ImageBrush ImageSource="..\images\grey-texture.jpg" />
             </Grid.Background>
             <Button Height="70" Grid.Row="0" Grid.Column="0">
                 hhh
@@ -70,12 +70,12 @@
         </Grid>
         <Custom:WPFCanvas Name="canvas" Grid.Row="1" Grid.Column="1">
             <Custom:WPFCanvas.Background>
-                <ImageBrush ImageSource=".\images\grass.png" TileMode="Tile" 
+                <ImageBrush ImageSource="..\images\grass.png" TileMode="Tile" 
             Viewport="0,0,20,20" ViewportUnits="Absolute" />
             </Custom:WPFCanvas.Background>
             <Polyline Name="path" Grid.Row="1" StrokeThickness="40" StrokeLineJoin="Round" HorizontalAlignment="Center" Width="800" Height="800">
                 <Polyline.Stroke>
-                    <ImageBrush ImageSource=".\images\ground-texture.jpg"/>
+                    <ImageBrush ImageSource="..\images\ground-texture.jpg"/>
                 </Polyline.Stroke>
                 <Polyline.Points>
                     <Point X="12" Y="120"/>

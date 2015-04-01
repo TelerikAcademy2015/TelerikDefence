@@ -52,7 +52,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Pages\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
@@ -60,16 +60,16 @@
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Towers\FastTower.cs" />
-    <Compile Include="GameField.xaml.cs">
+    <Compile Include="Pages\GameField.xaml.cs">
       <DependentUpon>GameField.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameObject.cs" />
-    <Compile Include="HighScore\HighscoreProvider.cs" />
-    <Compile Include="HighScore\Highscore.xaml.cs">
+    <Compile Include="HighscoreProvider.cs" />
+    <Compile Include="Pages\Highscore.xaml.cs">
       <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
     <Compile Include="InvalidNameException.cs" />
-    <Compile Include="MainMenu.xaml.cs">
+    <Compile Include="Pages\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -87,26 +87,26 @@
     <Compile Include="Monsters\MonsterYellow.cs" />
     <Compile Include="Monsters\Ninja.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Projectile.cs" />
+    <Compile Include="Towers\Projectile.cs" />
     <Compile Include="PropertyChangedAwaredObject.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Towers\SlowTower.cs" />
     <Compile Include="Towers\Tower.cs" />
-    <Compile Include="HighScore\ScoreToLabelConverter.cs" />
+    <Compile Include="Converters\ScoreToLabelConverter.cs" />
     <Compile Include="Towers\NormalTower.cs" />
-    <Page Include="GameField.xaml">
+    <Page Include="Pages\GameField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HighScore\Highscore.xaml">
+    <Page Include="Pages\Highscore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu.xaml">
+    <Page Include="Pages\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Pages\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

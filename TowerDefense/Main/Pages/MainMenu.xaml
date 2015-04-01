@@ -10,7 +10,7 @@
 
     <StackPanel Width="1000" Height="800">
         <StackPanel.Background>
-            <ImageBrush ImageSource=".\images\startscreenninja.png"/>
+            <ImageBrush ImageSource="..\images\startscreenninja.png"/>
         </StackPanel.Background>
         <TextBlock Margin="275,20,275,0" FontFamily="Segoe UI Mono" FontSize="50" Height="70" FontWeight="Bold"><Run Text="Telerik Defense"/></TextBlock>
         <TextBox Text="{Binding Player.Name}" Margin="253,30,253,0" FontSize="30" Background="Black" Cursor="Pen" Opacity="0.75" SpellCheck.IsEnabled="True" BorderBrush="Black" Foreground="White" SelectionBrush="Yellow" Height="60">
