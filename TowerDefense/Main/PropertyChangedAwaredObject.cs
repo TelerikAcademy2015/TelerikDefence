@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System.ComponentModel;
+
     public abstract class PropertyChangedAwaredObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

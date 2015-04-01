@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.WPFCustomControls
+﻿namespace TowerDefense.WPFCustomControls
 {
+    using System.Collections.Generic;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+    using TowerDefense.Interfaces;
+
     public class WPFCanvas : Canvas, ICanvas
     {
         private IDictionary<IDrawable, Rectangle> gameToUIObjects;

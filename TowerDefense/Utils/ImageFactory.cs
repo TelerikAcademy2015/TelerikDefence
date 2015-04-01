@@ -1,10 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-
-namespace TowerDefense.Utils
+﻿namespace TowerDefense.Utils
 {
+    using System;
+    using System.IO;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+
     public static class ImageFactory
     {
         public static ImageSource CreateImage(string fileName)

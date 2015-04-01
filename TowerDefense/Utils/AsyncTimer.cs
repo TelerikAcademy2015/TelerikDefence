@@ -1,8 +1,9 @@
-﻿using System;
-using System.Timers;
-
-namespace TowerDefense.Utils
+﻿namespace TowerDefense.Utils
 {
+    using System;
+    using System.Timers;
+
+
     public delegate void AsyncTimerDelegate();
     public class AsyncTimer
     {

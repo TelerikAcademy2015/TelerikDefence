@@ -59,13 +59,13 @@
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Engine.cs" />
-    <Compile Include="FastTower.cs" />
+    <Compile Include="Towers\FastTower.cs" />
     <Compile Include="GameField.xaml.cs">
       <DependentUpon>GameField.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameObject.cs" />
-    <Compile Include="HighscoreProvider.cs" />
-    <Compile Include="Highscore.xaml.cs">
+    <Compile Include="HighScore\HighscoreProvider.cs" />
+    <Compile Include="HighScore\Highscore.xaml.cs">
       <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
     <Compile Include="InvalidNameException.cs" />
@@ -75,30 +75,30 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MegaTower.cs" />
-    <Compile Include="Monster.cs" />
-    <Compile Include="MonsterBabySkeleton.cs" />
-    <Compile Include="MonsterBlueHarvester.cs" />
-    <Compile Include="MonsterDarkGhost.cs" />
-    <Compile Include="MonsterGirl.cs" />
-    <Compile Include="MonsterGreen.cs" />
-    <Compile Include="MonsterRedDemon.cs" />
-    <Compile Include="MonsterSweety.cs" />
-    <Compile Include="MonsterYellow.cs" />
-    <Compile Include="Ninja.cs" />
+    <Compile Include="Towers\MegaTower.cs" />
+    <Compile Include="Monsters\Monster.cs" />
+    <Compile Include="Monsters\MonsterBabySkeleton.cs" />
+    <Compile Include="Monsters\MonsterBlueHarvester.cs" />
+    <Compile Include="Monsters\MonsterDarkGhost.cs" />
+    <Compile Include="Monsters\MonsterGirl.cs" />
+    <Compile Include="Monsters\MonsterGreen.cs" />
+    <Compile Include="Monsters\MonsterRedDemon.cs" />
+    <Compile Include="Monsters\MonsterSweety.cs" />
+    <Compile Include="Monsters\MonsterYellow.cs" />
+    <Compile Include="Monsters\Ninja.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
     <Compile Include="PropertyChangedAwaredObject.cs" />
     <Compile Include="Route.cs" />
-    <Compile Include="SlowTower.cs" />
-    <Compile Include="Tower.cs" />
-    <Compile Include="ScoreToLabelConverter.cs" />
-    <Compile Include="NormalTower.cs" />
+    <Compile Include="Towers\SlowTower.cs" />
+    <Compile Include="Towers\Tower.cs" />
+    <Compile Include="HighScore\ScoreToLabelConverter.cs" />
+    <Compile Include="Towers\NormalTower.cs" />
     <Page Include="GameField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Highscore.xaml">
+    <Page Include="HighScore\Highscore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,6 +196,7 @@
     <Resource Include="images\tower3.png" />
     <Resource Include="images\tower4.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Windows.Media;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System;
+    using System.Windows.Media;
+    using TowerDefense.Interfaces;
+
     public abstract class GameObject : IGameObject
     {
         private static int nextId = 0;

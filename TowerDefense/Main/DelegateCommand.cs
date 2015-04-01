@@ -1,8 +1,9 @@
-﻿using System;
-using System.Windows.Input;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System;
+    using System.Windows.Input;
+
+
     public delegate void ExecuteCommandDelegate(object parameter);
     public delegate bool CanExecuteCommandDelegate(object parameter);
     public delegate void ExecuteCommandDelegate<T>(T parameter);

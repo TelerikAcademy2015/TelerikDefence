@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Media;
-using TowerDefense.Utils;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main.Monsters
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Media;
+    using TowerDefense.Utils;
+    using TowerDefense.Interfaces;
+
     public abstract class Monster : GameObject, IMonster
     {
         private List<string> imageFiles = new List<string>();

@@ -1,9 +1,9 @@
-﻿using System.Windows.Media;
-using TowerDefense.Interfaces;
-using TowerDefense.Utils;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main.Monsters
 {
+    using System.Windows.Media;
+    using TowerDefense.Interfaces;
+    using TowerDefense.Utils;
+
     public class Ninja : Monster
     {
         public Ninja(IRoute route)

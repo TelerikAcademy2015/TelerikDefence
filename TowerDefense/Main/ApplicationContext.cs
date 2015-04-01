@@ -1,8 +1,8 @@
-﻿using System;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System;
+    using TowerDefense.Interfaces;
+
     public class ApplicationContext
     {
         private static ApplicationContext instance = new ApplicationContext();

@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Media;
-using TowerDefense.Interfaces;
-using TowerDefense.Utils;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Media;
+    using TowerDefense.Interfaces;
+    using TowerDefense.Utils;
+    using TowerDefense.Main.Monsters;
+    using TowerDefense.Main.Towers;
+
     public class Engine
     {
         public ICanvas Canvas

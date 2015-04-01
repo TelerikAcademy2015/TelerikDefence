@@ -1,9 +1,9 @@
-﻿using System.Windows.Media;
-using TowerDefense.Interfaces;
-using TowerDefense.Utils;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main.Towers
 {
+    using System.Windows.Media;
+    using TowerDefense.Interfaces;
+    using TowerDefense.Utils;
+
     public class NormalTower : Tower
     {
 

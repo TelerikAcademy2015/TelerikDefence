@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System;
+
     public class Player : PropertyChangedAwaredObject
     {
         private string name;

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main.Towers
 {
+    using System.Linq;
+    using System.Collections.Generic;
+    using TowerDefense.Interfaces;
+
     public abstract class Tower : GameObject, ITower
     {
         protected int range;

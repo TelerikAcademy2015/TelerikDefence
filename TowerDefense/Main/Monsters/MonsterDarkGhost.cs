@@ -1,12 +1,11 @@
-﻿namespace TowerDefense.Main
+﻿namespace TowerDefense.Main.Monsters
 {
     using System;
     using System.Linq;
-    using TowerDefense.Interfaces;
     using System.Windows.Media;
+    using TowerDefense.Interfaces;
     using TowerDefense.Utils;
-
-
+    
     class MonsterDarkGhost : Monster//, IMonster, IGameObject, IMovable, ITarget - Commented because of team rule.
     {
         public MonsterDarkGhost(IRoute route)

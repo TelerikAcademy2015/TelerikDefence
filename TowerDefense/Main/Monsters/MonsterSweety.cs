@@ -1,5 +1,5 @@
 //Monster Sweety - average speed monster with with average helth.
-namespace TowerDefense.Main
+namespace TowerDefense.Main.Monsters
 {
     using System;
     using System.Linq;
@@ -7,7 +7,6 @@ namespace TowerDefense.Main
     using System.Windows.Media;
     using TowerDefense.Utils;
     using System.Collections.Generic;
-
 
     class MonsterSweety : Monster//, IMonster, IGameObject, IMovable, ITarget - Commented because of team rule.
     {

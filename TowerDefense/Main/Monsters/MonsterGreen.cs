@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TowerDefense.Interfaces;
-using TowerDefense.Utils;
-using System.Windows.Media;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main.Monsters
 {
+    using System;
+    using System.Text;
+    using System.Linq;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using System.Windows.Media;
+    using TowerDefense.Interfaces;
+    using TowerDefense.Utils;
+
     public class MonsterGreen : Monster
     {
         //For example: goldValue = 10;
