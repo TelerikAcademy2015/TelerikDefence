@@ -7,13 +7,13 @@
       mc:Ignorable="d" 
                                   
 	Title="Main Menu">
-    
-    <StackPanel Width="850" Height="850">
+
+    <StackPanel Width="1000" Height="800">
         <StackPanel.Background>
             <ImageBrush ImageSource=".\images\startscreenninja.png"/>
         </StackPanel.Background>
-        <TextBlock Margin="199,30,199,0" FontFamily="Segoe UI Mono" FontSize="50" Height="70" FontWeight="Bold"><Run Text="Telerik Defense"/></TextBlock>
-        <TextBox Text="{Binding Player.Name}" Margin="253,50,253,0" FontSize="30" Background="Black" Cursor="Pen" Opacity="0.75" SpellCheck.IsEnabled="True" BorderBrush="Black" Foreground="White" SelectionBrush="Yellow" Height="60">
+        <TextBlock Margin="275,20,275,0" FontFamily="Segoe UI Mono" FontSize="50" Height="70" FontWeight="Bold"><Run Text="Telerik Defense"/></TextBlock>
+        <TextBox Text="{Binding Player.Name}" Margin="253,30,253,0" FontSize="30" Background="Black" Cursor="Pen" Opacity="0.75" SpellCheck.IsEnabled="True" BorderBrush="Black" Foreground="White" SelectionBrush="Yellow" Height="60">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Style.Triggers>
@@ -52,7 +52,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button Content="High Score" Margin="0,50,0,0" Width="200" FontSize="30" Cursor="Hand" Command="{Binding OpenHighscorePage}" Height="50" FontFamily="Segoe UI Mono" BorderBrush="Black">
+        <Button Content="High Score" Margin="0,40,0,0" Width="200" FontSize="30" Cursor="Hand" Command="{Binding OpenHighscorePage}" Height="50" FontFamily="Segoe UI Mono" BorderBrush="Black">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Black"/>
