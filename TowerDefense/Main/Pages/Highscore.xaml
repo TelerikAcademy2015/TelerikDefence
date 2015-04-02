@@ -10,7 +10,7 @@
 
     <StackPanel Width="1000" Height="800">
         <StackPanel.Background>
-            <ImageBrush ImageSource=".\images\endscreen.png"/>
+            <ImageBrush ImageSource="..\images\endscreen.png"/>
         </StackPanel.Background>
         <TextBlock FontFamily="Segoe UI Mono" FontSize="50"
                    Margin="275,20,275,0"
