@@ -32,10 +32,10 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Width="60" Grid.Column="0">
+            <Button Width="60" Grid.Column="0" Command="{Binding StartCommand}">
                 <Image Source="..\images\play.png"/>
             </Button>
-            <Button Width="60" Grid.Column="1">
+            <Button Width="60" Grid.Column="1" Command="{Binding StopCommand}">
                 <Image Source="..\images\pause.png"/>
             </Button>
             <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Center" >

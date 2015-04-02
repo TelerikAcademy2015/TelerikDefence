@@ -24,7 +24,7 @@
         }
 
         private Player Player;
-
+        private AsyncTimer timer;
         private ICollection<IGameObject> gameObjects;
 
         public Engine(ICanvas canvas, IRoute route)
@@ -33,6 +33,18 @@
             this.Route = route;
             this.Player = ApplicationContext.Instance.Player;
             this.gameObjects = new HashSet<IGameObject>();
+            this.timer = new AsyncTimer(50, () =>
+            {
+                this.gameObjects.ToList().ForEach(@object => @object.Update());
+
+                this.gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
+
+                var targets = gameObjects.OfType<ITarget>();
+                this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets));
+
+                this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
+                    objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x)));
+            });
 
             CompositionTarget.Rendering += this.RenderingHandler;
 
@@ -46,28 +58,16 @@
             this.AddGameObject(new MonsterBlueHarvester(this.Route));
             this.AddGameObject(new MonsterDarkGhost(this.Route));
             this.AddGameObject(new MonsterRedDemon(this.Route));
-            this.AddGameObject(new NormalTower(new Point(600, 10)));
-            this.AddGameObject(new SlowTower(new Point(300, 50)));
-            this.AddGameObject(new FastTower(new Point(600, 300)));
-            this.AddGameObject(new MegaTower(new Point(1000, 100)));
         }
 
         public void Start()
         {
+            this.timer.Start();
+        }
 
-            AsyncTimer timer = new AsyncTimer(70, () =>
-                {
-                    this.gameObjects.ToList().ForEach(@object => @object.Update());
-
-                    this.gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
-
-                    var targets = gameObjects.OfType<ITarget>();
-                    this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets));
-
-                    this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
-                        objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x)));
-                });
-            timer.Start();
+        public void Stop()
+        {
+            this.timer.Stop();
         }
 
         public void AddGameObject(IGameObject gameObject)
@@ -75,13 +75,73 @@
             this.gameObjects.Add(gameObject);
         }
 
+        public bool TryAddTower(ITower tower)
+        {
+            if (this.CanPlaceTower(tower))
+            {
+                this.AddGameObject(tower);
+                this.Player.Money -= tower.Price;
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool CanPlaceTower(ITower tower)
+        {
+            if (this.Player.Money < tower.Price)
+            {
+                return false;
+            }
+
+            Point center = tower.Center;
+            double radius = (tower.ImageSource.Width + this.Route.Width) * 0.5;
+            if (center.X - radius < 0 || center.X + radius >= this.Canvas.Width || center.Y - radius < 0 || center.Y + radius >= this.Canvas.Height)
+            {
+                // outside of field
+                return false;
+            }
+
+            Point firstPoint = this.Route.Points.First();
+            var restPoints = this.Route.Points.Skip(1);
+            foreach (var secondPoint in restPoints)
+            {
+                double distanceToFirstPoint = Point.DistanceBetween(firstPoint, center) - radius;
+                double distanceToSecondPoint = Point.DistanceBetween(secondPoint, center) - radius;
+                if (distanceToFirstPoint < 0 || distanceToSecondPoint < 0)
+                {
+                    return false;
+                }
+
+                double segmentLength = Point.DistanceBetween(firstPoint, secondPoint);
+                if (distanceToSecondPoint >= segmentLength || distanceToFirstPoint >= segmentLength)
+                {
+                    firstPoint = secondPoint;
+                    continue;
+                }
+
+                double deltaX = secondPoint.X - firstPoint.X;
+                double deltaY = secondPoint.Y - firstPoint.Y;
+                double distanceBetweenSegmentAndPoint = (Math.Abs((deltaY * center.X - deltaX * center.Y + secondPoint.X * firstPoint.Y - secondPoint.Y * firstPoint.X)) / segmentLength) - radius;
+                if (distanceBetweenSegmentAndPoint < 0)
+                {
+                    return false;
+                }
+
+                firstPoint = secondPoint;
+            }
+
+            return true;
+        }
+
         private void RemoveGameObject(IGameObject gameObject)
         {
             if (gameObject is IMonster)
             {
-                if (((Monster)gameObject).ReachedEnd)
+                if (((IMonster)gameObject).ReachedEnd)
                 {
-                    --this.Player.Lives;
+                    this.Player.Lives--;
+                    // TODO: check for lives count == 0;
                 }
                 else
                 {

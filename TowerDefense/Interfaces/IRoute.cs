@@ -8,5 +8,10 @@ namespace TowerDefense.Interfaces
         {
             get;
         }
+
+        double Width
+        {
+            get;
+        }
     }
 }

@@ -16,9 +16,12 @@
         protected int projectileTimerCounter;
         protected ICollection<Projectile> projectilesToAdd = new HashSet<Projectile>();
 
-        public Tower(Point position)
-            : base(position)
+        public override Point Center
         {
+            get
+            {
+                return new Point(Position.X + this.ImageSource.Width * 0.5, Position.Y + this.ImageSource.Height * 0.75);
+            }
         }
 
         public int Range
@@ -61,6 +64,11 @@
         public virtual IEnumerable<IGameObject> ProducedObjects
         {
             get { return projectilesToAdd; }
+        }
+
+        public Tower(Point position)
+            : base(position)
+        {
         }
 
         public bool IsInRange(ITarget target)

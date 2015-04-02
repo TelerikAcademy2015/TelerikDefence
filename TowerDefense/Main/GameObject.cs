@@ -23,6 +23,14 @@
             protected set;
         }
 
+        public virtual Point Center
+        {
+            get
+            {
+                return new Point(Position.X + this.ImageSource.Width * 0.5, Position.Y + this.ImageSource.Height * 0.5);
+            }
+        }
+
         public abstract ImageSource ImageSource
         {
             get;

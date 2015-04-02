@@ -16,5 +16,10 @@
         {
             get;
         }
+
+        bool ReachedEnd
+        {
+            get;
+        }
     }
 }

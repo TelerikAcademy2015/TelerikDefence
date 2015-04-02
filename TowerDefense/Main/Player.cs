@@ -61,7 +61,7 @@
         {
             this.Name = String.Empty;
             this.Score = 0;
-            this.Money = 200;
+            this.Money = 20000;
             this.Lives = 10;
         }
     }

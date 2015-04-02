@@ -44,10 +44,8 @@
 
         public bool ReachedEnd
         {
-            get
-            {
-                return this.reachedEnd;
-            }
+            get;
+            private set;
         }
 
         public List<string> ImageFIles
@@ -64,7 +62,6 @@
 
         private IEnumerator<Point> enumerator;
         private DateTime lastMoved;
-        private bool reachedEnd;
 
         public Monster(IRoute route, int speed, int health, int goldValue)
             : base(route.Points.First())
@@ -77,7 +74,7 @@
             this.enumerator = route.Points.GetEnumerator();
             this.enumerator.MoveNext();
             this.lastMoved = DateTime.Now;
-            this.reachedEnd = false;
+            this.ReachedEnd = false;
         }
 
         public void TakeDamage(int damage)
@@ -91,7 +88,7 @@
 
         public void Move()
         {
-            if (this.reachedEnd)
+            if (this.ReachedEnd)
             {
                 return;
             }
@@ -115,7 +112,7 @@
                 this.lastMoved = this.lastMoved.Add(timeElapsed);
                 if (!this.enumerator.MoveNext())
                 {
-                    this.reachedEnd = true;
+                    this.ReachedEnd = true;
                     this.IsDestroyed = true;
                     return;
                 }

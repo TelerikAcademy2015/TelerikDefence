@@ -20,12 +20,26 @@ namespace TowerDefense.Main
             private set;
         }
 
+        public ICommand StartCommand
+        {
+            get;
+            private set;
+        }
+
+        public ICommand StopCommand
+        {
+            get;
+            private set;
+        }
+
         public GameField()
         {
             InitializeComponent();
             this.DataContext = this;
             this.Player = ApplicationContext.Instance.Player;
             this.PlaceTowerCommand = new PlaceTowerCommand();
+            this.StartCommand = new DelegateCommand((Object parameter) => ApplicationContext.Instance.Engine.Start());
+            this.StopCommand = new DelegateCommand((Object parameter) => ApplicationContext.Instance.Engine.Stop());
 
             this.Loaded += (Object sender, RoutedEventArgs e) =>
             {

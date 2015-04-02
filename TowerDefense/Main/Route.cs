@@ -13,11 +13,18 @@
             private set;
         }
 
+        public double Width
+        {
+            get;
+            private set;
+        }
+
         public Route(Polyline path)
         {
             double offsetX = path.Margin.Left;
             double offsetY = path.Margin.Top;
             this.Points = path.Points.Select(point => new Point(point.X + offsetX, point.Y + offsetY)).ToArray();
+            this.Width = path.StrokeThickness;
         }
     }
 }
