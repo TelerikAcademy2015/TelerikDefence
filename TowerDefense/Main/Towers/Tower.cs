@@ -19,6 +19,8 @@
         public Tower(Point position)
             : base(position)
         {
+            Point offset = new Point(-25, -100);
+            this.Position += offset;
         }
 
         public int Range
