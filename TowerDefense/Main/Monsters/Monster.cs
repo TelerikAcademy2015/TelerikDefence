@@ -10,7 +10,6 @@
     public abstract class Monster : GameObject, IMonster
     {
         private List<string> imageFiles = new List<string>();
-        private Point position = new Point();
         private int fileNum = 0;
 
         public int Speed
@@ -47,19 +46,6 @@
         {
             get;
             private set;
-        }
-
-        public Point Position
-        {
-            get { return this.position; }
-            set
-            {
-                if (this.position.X == 0 && this.position.Y == 0)
-                {
-                    value = this.Route.Points.Select(p => p = new Point(p.X - this.ImageSource.Width, p.Y - this.ImageSource.Height)).First();
-                }
-                this.position = new Point(value.X - this.ImageSource.Width / this.ImageSource.Width, value.Y - this.ImageSource.Height / this.ImageSource.Width);
-            }
         }
 
         public List<string> ImageFIles
