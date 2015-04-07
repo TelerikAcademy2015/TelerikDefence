@@ -4,38 +4,35 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:Custom="clr-namespace:TowerDefense.WPFCustomControls;assembly=WPFCustomControls"
-	  mc:Ignorable="d" 
-                                  
-    Title="HighScore">
+	  mc:Ignorable="d"
+      Title="Highscore">
+
 
     <StackPanel Width="1000" Height="800">
         <StackPanel.Background>
             <ImageBrush ImageSource="..\images\endscreen.png"/>
         </StackPanel.Background>
         <TextBlock FontFamily="Segoe UI Mono" FontSize="50"
-                   Margin="275,20,275,0"
+                   Margin="320,20,275,0"
                    FontWeight="Bold" Text="Telerik Defense"/>
         <TextBlock FontFamily="Segoe UI Mono" FontSize="36"
-                   Margin="390,20,390,20"
-                   FontWeight="Bold" Text="High Score"/>
+                   Margin="400,20,390,20"
+                   FontWeight="Bold" Text="High Score" Height="66"/>
 
+        <Grid x:Name="LayoutGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="204"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        </Grid>
 
-        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
-                       Margin="100,30,0,5"
-                       FontWeight="Bold" Text="   1. Pesho    3210"/>
-
-        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
-                       Margin="100,0,0,5"
-                       FontWeight="Bold" Text="   2. Gosho    2210"/>
-        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
-                       Margin="100,0,0,5"
-                       FontWeight="Bold" Text="   3. Tosho    1210"/>
-        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
-                       Margin="100,0,0,5"
-                       FontWeight="Bold" Text="   4. Tosho    1210"/>
-        <TextBlock FontFamily="Segoe UI Mono" FontSize="18"
-                       Margin="100,0,0,5"
-                       FontWeight="Bold" Text="   5. Tosho    1210"/>
         <Button Content="Back" Margin="112,100,112,0" Width="200" FontSize="30" Cursor="Hand" Command="{Binding OpenMainMenuPage}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
