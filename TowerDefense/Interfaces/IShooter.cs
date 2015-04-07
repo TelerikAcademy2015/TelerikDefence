@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-
-namespace TowerDefense.Interfaces
+﻿namespace TowerDefense.Interfaces
 {
+    using System;
+    using System.Collections.Generic;
+
     public interface IShooter
     {
-        bool IsInRange(ITarget target);
-
-        void Shoot(IEnumerable<ITarget> targets);
+        void Shoot(IEnumerable<ITarget> targets, TimeSpan elapsedTime);
     }
 }

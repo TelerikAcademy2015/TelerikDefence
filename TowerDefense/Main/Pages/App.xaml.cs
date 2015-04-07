@@ -1,7 +1,7 @@
-﻿using System.Windows;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System.Windows;
+
     public partial class App : Application
     {
     }

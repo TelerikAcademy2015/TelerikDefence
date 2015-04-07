@@ -1,27 +1,56 @@
 ﻿namespace TowerDefense.Main.Towers
 {
-    using System.Windows.Media;
+    using System;
+    using System.Windows.Media.Imaging;
     using TowerDefense.Interfaces;
+    using TowerDefense.Main.Towers.Projectiles;
     using TowerDefense.Utils;
 
     public class NormalTower : Tower
     {
 
-        public NormalTower(Point position)
-            : base(position)
+        public override BitmapSource BitmapSource
         {
-            this.range = 200;
-            this.rate = 500;
-            this.damage = 10;
-            this.price = 100;
-            this.projectileSpeed = 30;
-            this.projectilePicture = "ball3.png";
+            get
+            {
+                return ImageFactory.CreateImage("tower3.png");
+            }
         }
 
-        public override ImageSource ImageSource
+        public override int Price
         {
-            get{ return ImageFactory.CreateImage("tower3.png"); }
+            get
+            {
+                return 100;
+            }
         }
 
+        public override int Range
+        {
+            get
+            {
+                return 100;
+            }
+        }
+
+        public override TimeSpan Rate
+        {
+            get
+            {
+                return new TimeSpan(0, 0, 0, 0, 1500);
+            }
+        }
+
+        public NormalTower(Point center)
+            : base(center)
+        {
+        }
+
+        public override IProjectile CreateProjectile(ITarget target, TimeSpan elapsedTime)
+        {
+            IProjectile projectile = new NormalTowerProjectile(this.Center, target);
+            projectile.Move(elapsedTime);
+            return projectile;
+        }
     }
 }

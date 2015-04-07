@@ -1,48 +1,37 @@
 ﻿namespace TowerDefense.Main
 {
     using System;
+    using System.Collections.Generic;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
+    using TowerDefense.Interfaces;
     using TowerDefense.WPFCustomControls;
-    public partial class Highscore : PropertyChangedAwaredPage
+
+    public partial class Highscore : NavigationPage
     {
-       
-
-
-        public Highscore()
+        public IEnumerable<IPlayer> HighscoreEntries
         {
-             
-
-            this.OpenMainMenuPage = new DelegateCommand((Object parameter) =>
+            get
             {
-                this.OpenPage(new MainMenu());
-            });
-
-            this.DataContext = this;
-            InitializeComponent();
-
-              
+                return ApplicationContext.Instance.HighscoreProvider.HighscoreEntries;
+            }
         }
+
         public ICommand OpenMainMenuPage
         {
             get;
             private set;
         }
 
-        private void OpenPage(Page page)
+        public Highscore()
         {
-            ((Window)this.Parent).Content = page;
-        }
-
-        private void PrintHighscore()
-        {
-            var highscores = ApplicationContext.Instance.HighscoreProvider.HighscoreEntries;
-            foreach (var highscore in highscores)
+            InitializeComponent();
+            this.DataContext = this;
+            this.OpenMainMenuPage = new DelegateCommand((Object parameter) =>
             {
-                this.Content = highscore.Name;
-                //PRINT TO PAGE"{0, -15}{1, 10}", entry.Name, entry.Score);
-            }
+                this.NavigateToPage(new MainMenu());
+            });
         }
     }
 }

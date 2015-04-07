@@ -1,28 +1,57 @@
 ﻿namespace TowerDefense.Main.Towers
 {
-    using System.Windows.Media;
+    using System;
+    using System.Windows.Media.Imaging;
     using TowerDefense.Interfaces;
+    using TowerDefense.Main.Towers.Projectiles;
     using TowerDefense.Utils;
 
     public class MegaTower : Tower
     {
 
-        public MegaTower(Point position)
-            : base(position)
+        public override BitmapSource BitmapSource
         {
-            this.range = 500;
-            this.rate = 600;
-            this.damage = 35;
-            this.price = 350;
-            this.projectileSpeed = 25;
-            this.projectilePicture = "ball2.png";
+            get
+            {
+                return ImageFactory.CreateImage("tower2.png");
+            }
         }
 
-        public override ImageSource ImageSource
+        public override int Price
         {
-            get { return ImageFactory.CreateImage("tower2.png"); }
+            get
+            {
+                return 100;
+            }
         }
 
+        public override int Range
+        {
+            get
+            {
+                return 100;
+            }
+        }
+
+        public override TimeSpan Rate
+        {
+            get
+            {
+                return new TimeSpan(0, 0, 0, 0, 1500);
+            }
+        }
+
+        public MegaTower(Point center)
+            : base(center)
+        {
+        }
+
+        public override IProjectile CreateProjectile(ITarget target, TimeSpan elapsedTime)
+        {
+            IProjectile projectile = new MegaTowerProjectile(this.Center, target);
+            projectile.Move(elapsedTime);
+            return projectile;
+        }
     }
 }
 

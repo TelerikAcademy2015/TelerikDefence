@@ -5,9 +5,7 @@
     using System.Linq;
     using System.Windows.Media;
     using TowerDefense.Interfaces;
-    using TowerDefense.Utils;
-    using TowerDefense.Main.Monsters;
-    using TowerDefense.Main.Towers;
+    using TowerDefense.Main.Monsters.Waves;
 
     public class Engine
     {
@@ -23,56 +21,67 @@
             private set;
         }
 
-        private Player Player;
-        private AsyncTimer timer;
+        private IPlayer Player
+        {
+            get
+            {
+                return ApplicationContext.Instance.Player;
+            }
+        }
+
+        public IMonsterWave MonsterWave
+        {
+            get
+            {
+                return ApplicationContext.Instance.MonsterWave;
+            }
+        }
+
+        private bool gameStarted;
+        private DateTime lastRendered;
         private ICollection<IGameObject> gameObjects;
+
 
         public Engine(ICanvas canvas, IRoute route)
         {
             this.Canvas = canvas;
             this.Route = route;
-            this.Player = ApplicationContext.Instance.Player;
             this.gameObjects = new HashSet<IGameObject>();
-            this.timer = new AsyncTimer(50, () =>
-            {
-                this.gameObjects.ToList().ForEach(@object => @object.Update());
+            this.gameStarted = false;
 
-                this.gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move());
-
-                var targets = gameObjects.OfType<ITarget>();
-                this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets));
-
-                this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
-                    objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x)));
-            });
-
-            CompositionTarget.Rendering += this.RenderingHandler;
-
-            // Example
-            this.AddGameObject(new Ninja(this.Route));
-            this.AddGameObject(new MonsterGirl(this.Route));
-            this.AddGameObject(new MonsterGreen(this.Route));
-            this.AddGameObject(new MonsterSweety(this.Route));
-            this.AddGameObject(new MonsterYellow(this.Route));
-            this.AddGameObject(new MonsterBabySkeleton(this.Route));
-            this.AddGameObject(new MonsterBlueHarvester(this.Route));
-            this.AddGameObject(new MonsterDarkGhost(this.Route));
-            this.AddGameObject(new MonsterRedDemon(this.Route));
+            ApplicationContext.Instance.MonsterWave = new InitialMonsterWave(new TimeSpan(0, 0, GameConstants.MONSTER_GROUPS_SPAWN_TIME), new MonsterFactory(route));
         }
 
         public void Start()
         {
-            this.timer.Start();
+            if (!this.gameStarted)
+            {
+                this.gameStarted = true;
+                this.lastRendered = DateTime.Now;
+                CompositionTarget.Rendering += this.RenderingHandler;
+            }
         }
 
         public void Stop()
         {
-            this.timer.Stop();
+            if (this.gameStarted)
+            {
+                this.gameStarted = false;
+                CompositionTarget.Rendering -= this.RenderingHandler;
+                if (this.IsGameOver())
+                {
+                    IHighscoreProvider highscoreProvider = ApplicationContext.Instance.HighscoreProvider;
+                    highscoreProvider.AddHighscoreEntry(this.Player);
+                    highscoreProvider.Persist();
+                }
+
+            }
         }
 
-        public void AddGameObject(IGameObject gameObject)
+        private void AddGameObject(IGameObject gameObject)
         {
             this.gameObjects.Add(gameObject);
+            this.Canvas.AddObject(gameObject);
         }
 
         public bool TryAddTower(ITower tower)
@@ -95,7 +104,7 @@
             }
 
             Point center = tower.Center;
-            double radius = (tower.ImageSource.Width + this.Route.Width) * 0.5;
+            double radius = (tower.BitmapSource.Width + this.Route.Width) * 0.5;
             if (center.X - radius < 0 || center.X + radius >= this.Canvas.Width || center.Y - radius < 0 || center.Y + radius >= this.Canvas.Height)
             {
                 // outside of field
@@ -141,7 +150,10 @@
                 if (((IMonster)gameObject).ReachedEnd)
                 {
                     this.Player.Lives--;
-                    // TODO: check for lives count == 0;
+                    if (this.IsGameOver())
+                    {
+                        this.Stop();
+                    }
                 }
                 else
                 {
@@ -151,12 +163,44 @@
             }
 
             this.gameObjects.Remove(gameObject);
+            this.Canvas.RemoveObject(gameObject);
         }
 
         private void RenderingHandler(object sender, EventArgs e)
         {
-            this.gameObjects.ToList().ForEach(gameObject => this.Canvas.UpdateObject(gameObject));
+            DateTime now = DateTime.Now;
+            TimeSpan timeElapsedSinceLastUpdate = now - this.lastRendered;
+            this.lastRendered = now;
+
+            this.MonsterWave.GetProducedObjects(timeElapsedSinceLastUpdate).ToList().ForEach(monster => this.AddGameObject(monster));
+
+            this.gameObjects.ToList().ForEach(@object => @object.Update(timeElapsedSinceLastUpdate));
+
+            this.gameObjects.OfType<IMovable>().ToList().ForEach(movingObject => movingObject.Move(timeElapsedSinceLastUpdate));
+
+            var targets = gameObjects.OfType<ITarget>();
+            this.gameObjects.OfType<IShooter>().ToList().ForEach(shootingObject => shootingObject.Shoot(targets, timeElapsedSinceLastUpdate));
+
+            this.gameObjects.OfType<IObjectCreator>().ToList().ForEach(
+                objectCreator => objectCreator.GetProducedObjects(timeElapsedSinceLastUpdate).Cast<IGameObject>().ToList().ForEach(x => this.AddGameObject(x)));
+
+            if (this.MonsterWave.Finished && !this.gameObjects.OfType<IMonster>().Any())
+            {
+                this.NextWave();
+            }
+
             this.gameObjects.Where(x => x.IsDestroyed).ToList().ForEach(destroyedObject => this.RemoveGameObject(destroyedObject));
+            this.gameObjects.ToList().ForEach(gameObject => this.Canvas.UpdateObject(gameObject));
+        }
+
+        private void NextWave()
+        {
+            this.MonsterWave.NextLevel();
+        }
+
+        private bool IsGameOver()
+        {
+            return this.Player.Lives <= 0;
         }
     }
 }

@@ -1,28 +1,56 @@
 ﻿namespace TowerDefense.Main.Towers
 {
-    using System.Windows.Media;
+    using System;
+    using System.Windows.Media.Imaging;
     using TowerDefense.Interfaces;
+    using TowerDefense.Main.Towers.Projectiles;
     using TowerDefense.Utils;
 
     public class SlowTower : Tower
     {
-
-        public SlowTower(Point position)
-            : base(position)
+        public override BitmapSource BitmapSource
         {
-            this.range = 250;
-            this.rate = 1500;
-            this.damage = 60;
-            this.price = 200;
-            this.projectileSpeed = 15;
-            this.projectilePicture = "ball1.png";
+            get
+            {
+                return ImageFactory.CreateImage("tower1.png");
+            }
         }
 
-        public override ImageSource ImageSource
+        public override int Price
         {
-            get { return ImageFactory.CreateImage("tower1.png"); }
+            get
+            {
+                return 200;
+            }
         }
 
+        public override int Range
+        {
+            get
+            {
+                return 250;
+            }
+        }
+
+        public override TimeSpan Rate
+        {
+            get
+            {
+                return new TimeSpan(0, 0, 0, 0, 1500);
+            }
+        }
+
+        public SlowTower(Point center)
+            : base(center)
+        {
+        }
+
+        public override IProjectile CreateProjectile(ITarget target, TimeSpan elapsedTime)
+        {
+            IProjectile projectile = new SlowTowerProjectile(this.Center, target);
+            projectile.Move(elapsedTime);
+            return projectile;
+        }
     }
 }
 

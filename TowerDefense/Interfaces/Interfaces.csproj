@@ -48,14 +48,22 @@
     <Compile Include="ICanvas.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IGameObject.cs" />
+    <Compile Include="IHighscoreProvider.cs" />
     <Compile Include="IMonster.cs" />
+    <Compile Include="IMonsterCreator.cs" />
+    <Compile Include="IMonsterFactory.cs" />
+    <Compile Include="IMonsterGroup.cs" />
     <Compile Include="IObjectCreator.cs" />
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="IProjectile.cs" />
     <Compile Include="IRoute.cs" />
     <Compile Include="IMovable.cs" />
     <Compile Include="ITarget.cs" />
     <Compile Include="IShooter.cs" />
     <Compile Include="ITower.cs" />
     <Compile Include="IValidatable.cs" />
+    <Compile Include="IMonsterWave.cs" />
+    <Compile Include="MonsterType.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

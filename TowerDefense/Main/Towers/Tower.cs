@@ -1,127 +1,87 @@
 ﻿namespace TowerDefense.Main.Towers
 {
-    using System.Linq;
+    using System;
+    using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using TowerDefense.Interfaces;
 
     public abstract class Tower : GameObject, ITower
     {
-        protected int range;
-        protected int rate;
-        protected int damage;
-        protected int projectileSpeed;
-        protected int price;
-        protected string projectilePicture;
-        protected ITarget target;
-        protected int projectileTimerCounter;
-        protected ICollection<Projectile> projectilesToAdd = new HashSet<Projectile>();
-
-        public override Point Center
+        public override Point Position
         {
             get
             {
-                return new Point(Position.X + this.ImageSource.Width * 0.5, Position.Y + this.ImageSource.Height * 0.75);
+                return new Point(this.Center.X - this.BitmapSource.Width * 0.5, this.Center.Y - this.BitmapSource.Height * 0.75);
             }
         }
 
-        public int Range
+        public abstract int Price
         {
-            get { return range; }
+            get;
         }
 
-        public int ProjectileSpeed
+        public abstract int Range
         {
-            get { return projectileSpeed; }
+            get;
         }
 
-        public string ProjectilePicture
+        public abstract TimeSpan Rate
         {
-            get { return projectilePicture; }
+            get;
         }
 
-        // in miliseconds
-        public int Rate
+        private TimeSpan timeElapsedSinceLastShot;
+        private IList<IProjectile> projectilesProduced;
+
+        public Tower(Point center)
+            : base(center)
         {
-            get { return rate; }
+            this.timeElapsedSinceLastShot = this.Rate;
+            this.projectilesProduced = new List<IProjectile>();
         }
 
-        public int Damage
+        public void Shoot(IEnumerable<ITarget> targets, TimeSpan elapsedTime)
         {
-            get { return damage; }
+            TimeSpan totalTime = this.timeElapsedSinceLastShot + elapsedTime;
+            if (totalTime < this.Rate)
+            {
+                this.timeElapsedSinceLastShot = totalTime;
+                return;
+            }
+
+            ITarget closestTarget = targets.OrderBy(target => Point.DistanceBetween(this.Center, target.Center)).FirstOrDefault();
+            if (closestTarget == null || this.IsInRange(closestTarget))
+            {
+                this.timeElapsedSinceLastShot = this.Rate;
+                return;
+            }
+
+            this.timeElapsedSinceLastShot = totalTime - this.Rate;
+            this.projectilesProduced.Add(this.CreateProjectile(closestTarget, timeElapsedSinceLastShot));
         }
 
-        public int Price
+        public IEnumerable<IProjectile> GetProducedObjects(System.TimeSpan elapsedTime)
         {
-            get { return price; }
+            IEnumerable<IProjectile> producedObjects = this.projectilesProduced.ToArray();
+            this.projectilesProduced.Clear();
+            return producedObjects;
         }
 
-        public ITarget Target
-        {
-            get { return target; }
-            protected set { target = value; }
-        }
+        public abstract IProjectile CreateProjectile(ITarget target, TimeSpan elapsedTime);
 
-        public virtual IEnumerable<IGameObject> ProducedObjects
-        {
-            get { return projectilesToAdd; }
-        }
-
-        public Tower(Point position)
-            : base(position)
-        {
-        }
-
-        public bool IsInRange(ITarget target)
+        private bool IsInRange(ITarget target)
         {
             return Point.DistanceBetween(this.Position, target.Position) < this.Range;
         }
 
-        public void GetClosestMonsterForTarget(IEnumerable<ITarget> targets)
+        public override void Update(TimeSpan elapsedTime)
         {
-            if (this.Target != null && !this.IsInRange(this.Target))
-            {
-                this.Target = null;
-            }
-            if (this.Target == null)
-            {
-                ITarget suspicious = targets.OrderBy(target => Point.DistanceBetween(this.Position, target.Position)).FirstOrDefault();
-                //if suspicious target is in Range -> make it tower target, if not tower target -> null
-                if (suspicious != null && this.IsInRange(suspicious))
-                {
-                    this.Target = suspicious;
-                    projectileTimerCounter = -1;
-                }
-            }
         }
 
-        public virtual void Shoot(IEnumerable<ITarget> targetsSet)
+        IEnumerable IObjectCreator.GetProducedObjects(TimeSpan elapsedTime)
         {
-            this.GetClosestMonsterForTarget(targetsSet);
-            if (this.Target != null && projectileTimerCounter < 0)
-            {
-                Projectile projectile = new Projectile(new Point(this.Position.X + 10, this.Position.Y + 30),
-                                                        this.Damage,
-                                                        this.ProjectileSpeed,
-                                                        this.Target,
-                                                        this.ProjectilePicture);
-                projectileTimerCounter = rate / 100; //async timer value
-                projectilesToAdd.Add(projectile);
-            }
-        }
-
-        public override System.Windows.Media.ImageSource ImageSource
-        {
-            get { throw new System.NotImplementedException(); }
-        }
-
-        public override void Update()
-        {
-            projectileTimerCounter--;
-            projectilesToAdd.Clear();
-            if (this.Target != null && this.Target.IsDestroyed == true)
-            {
-                this.Target = null;
-            }
+            return this.GetProducedObjects(elapsedTime);
         }
     }
 }

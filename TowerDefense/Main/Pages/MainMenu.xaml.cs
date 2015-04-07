@@ -1,16 +1,15 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using TowerDefense.Interfaces;
-using TowerDefense.WPFCustomControls;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
-    public partial class MainMenu : PropertyChangedAwaredPage, IValidatable
+    using System;
+    using System.Text.RegularExpressions;
+    using System.Windows.Input;
+    using TowerDefense.Interfaces;
+    using TowerDefense.WPFCustomControls;
+
+    public partial class MainMenu : NavigationPage, IValidatable
     {
         public const string INVALID_USERNAME_ERROR_MESSAGE = "Invalid username!";
+
         public ICommand OpenGameFieldPage
         {
             get;
@@ -23,33 +22,35 @@ namespace TowerDefense.Main
             private set;
         }
 
-        public Player Player
+        public IPlayer Player
         {
-            get;
-            private set;
+            get
+            {
+                return ApplicationContext.Instance.Player;
+            }
         }
 
         public MainMenu()
         {
             InitializeComponent();
-            this.Player = ApplicationContext.Instance.Player;
+
+            ApplicationContext.Instance.Player = new Player();
+            ApplicationContext.Instance.HighscoreProvider = new HighscoreProvider(GameConstants.HIGHSCORE_FILE_NAME);
+
             this.OpenGameFieldPage = new DelegateCommand((Object parameter) =>
                 {
                     if (this.IsValid())
                     {
-                        this.OpenPage(new GameField());
+                        this.NavigateToPage(new GameField());
                     }
                 });
+
             this.OpenHighscorePage = new DelegateCommand((Object parameter) =>
             {
-                this.OpenPage(new Highscore());
+                this.NavigateToPage(new Highscore());
             });
-            this.DataContext = this;
-        }
 
-        private void OpenPage(Page page)
-        {
-            ((Window)this.Parent).Content = page;
+            this.DataContext = this;
         }
 
         private string errorMessage;
@@ -68,8 +69,8 @@ namespace TowerDefense.Main
 
         public bool IsValid()
         {
-            
-            if (!Regex.IsMatch(this.Player.Name, "^\\w{3,}$"))
+
+            if (!Regex.IsMatch(this.Player.Name, @"^\w{3,}$"))
             {
                 this.ErrorMessage = INVALID_USERNAME_ERROR_MESSAGE;
                 return false;

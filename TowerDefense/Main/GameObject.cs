@@ -1,7 +1,7 @@
 ﻿namespace TowerDefense.Main
 {
     using System;
-    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
     using TowerDefense.Interfaces;
 
     public abstract class GameObject : IGameObject
@@ -17,21 +17,21 @@
             }
         }
 
-        public Point Position
+        public virtual Point Position
+        {
+            get
+            {
+                return new Point(this.Center.X - this.BitmapSource.Width * 0.5, this.Center.Y - this.BitmapSource.Height * 0.5);
+            }
+        }
+
+        public virtual Point Center
         {
             get;
             protected set;
         }
 
-        public virtual Point Center
-        {
-            get
-            {
-                return new Point(Position.X + this.ImageSource.Width * 0.5, Position.Y + this.ImageSource.Height * 0.5);
-            }
-        }
-
-        public abstract ImageSource ImageSource
+        public abstract BitmapSource BitmapSource
         {
             get;
         }
@@ -50,13 +50,13 @@
             protected set;
         }
 
-        public GameObject(Point position)
+        public GameObject(Point center)
         {
             this.id = GameObject.nextId++;
-            this.Position = position;
+            this.Center = center;
             this.IsDestroyed = false;
         }
 
-        public abstract void Update();
+        public abstract void Update(TimeSpan elapsedTime);
     }
 }

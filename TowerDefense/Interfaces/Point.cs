@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace TowerDefense.Interfaces
+﻿namespace TowerDefense.Interfaces
 {
+    using System;
+
     public struct Point
     {
         public readonly double X;

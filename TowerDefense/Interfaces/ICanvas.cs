@@ -13,5 +13,9 @@
         }
 
         void UpdateObject(IDrawable drawableObject);
+
+        void AddObject(IDrawable drawableObject);
+
+        void RemoveObject(IDrawable drawableObject);
     }
 }

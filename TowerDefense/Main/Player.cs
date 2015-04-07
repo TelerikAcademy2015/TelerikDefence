@@ -1,8 +1,9 @@
 ﻿namespace TowerDefense.Main
 {
     using System;
+    using TowerDefense.Interfaces;
 
-    public class Player : PropertyChangedAwaredObject
+    public class Player : PropertyChangedAwaredObject, IPlayer
     {
         private string name;
 

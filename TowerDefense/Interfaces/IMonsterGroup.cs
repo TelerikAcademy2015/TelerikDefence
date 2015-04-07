@@ -1,29 +1,30 @@
 ﻿namespace TowerDefense.Interfaces
 {
-    using System.Windows.Media.Imaging;
+    using System;
 
-    public interface IDrawable
+    public interface IMonsterGroup : IMonsterCreator
     {
-        int Id
-        {
-            get;
-        }
-        Point Position
+        TimeSpan SpawnTime
         {
             get;
         }
 
-        int Depth
+        MonsterType MonsterType
         {
             get;
         }
 
-        BitmapSource BitmapSource
+        int Count
         {
             get;
         }
 
-        bool IsDestroyed
+        bool Started
+        {
+            get;
+        }
+
+        bool Finished
         {
             get;
         }

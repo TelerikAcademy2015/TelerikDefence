@@ -1,28 +1,57 @@
 ﻿namespace TowerDefense.Main.Towers
 {
-    using System.Windows.Media;
+    using System;
+    using System.Windows.Media.Imaging;
     using TowerDefense.Interfaces;
+    using TowerDefense.Main.Towers.Projectiles;
     using TowerDefense.Utils;
 
     public class FastTower : Tower
     {
 
-        public FastTower(Point position)
-            : base(position)
+        public override BitmapSource BitmapSource
         {
-            this.range = 300;
-            this.rate = 300;
-            this.damage = 4;
-            this.price = 130;
-            this.projectileSpeed = 40;
-            this.projectilePicture = "ball4.png";
+            get
+            {
+                return ImageFactory.CreateImage("tower4.png");
+            }
         }
 
-        public override ImageSource ImageSource
+        public override int Price
         {
-            get { return ImageFactory.CreateImage("tower4.png"); }
+            get
+            {
+                return 200;
+            }
         }
 
+        public override int Range
+        {
+            get
+            {
+                return 100;
+            }
+        }
+
+        public override TimeSpan Rate
+        {
+            get
+            {
+                return new TimeSpan(0, 0, 0, 0, 1500);
+            }
+        }
+
+        public FastTower(Point center)
+            : base(center)
+        {
+        }
+
+        public override IProjectile CreateProjectile(ITarget target, TimeSpan elapsedTime)
+        {
+            IProjectile projectile = new FastTowerProjectile(this.Center, target);
+            projectile.Move(elapsedTime);
+            return projectile;
+        }
     }
 }
 

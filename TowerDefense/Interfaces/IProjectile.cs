@@ -1,15 +1,13 @@
 ﻿namespace TowerDefense.Interfaces
 {
-    using System.Collections.Generic;
-
-    public interface IRoute
+    public interface IProjectile : IGameObject, IMovable
     {
-        IEnumerable<Point> Points
+        int Damage
         {
             get;
         }
 
-        double Width
+        ITarget Target
         {
             get;
         }
