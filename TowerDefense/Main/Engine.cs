@@ -26,6 +26,7 @@
         private Player Player;
         private AsyncTimer timer;
         private ICollection<IGameObject> gameObjects;
+        //private ICollection<ICollection<IGameObject>> waves;
 
         public Engine(ICanvas canvas, IRoute route)
         {
@@ -33,7 +34,9 @@
             this.Route = route;
             this.Player = ApplicationContext.Instance.Player;
             this.gameObjects = new HashSet<IGameObject>();
-            this.timer = new AsyncTimer(50, () =>
+            //this.waves = new List<ICollection<IGameObject>>();
+            //this.CreateWaves();
+            this.timer = new AsyncTimer(70, () =>
             {
                 this.gameObjects.ToList().ForEach(@object => @object.Update());
 
@@ -46,23 +49,14 @@
                     objectCreator => objectCreator.ProducedObjects.ToList().ForEach(x => this.gameObjects.Add(x)));
             });
 
-            CompositionTarget.Rendering += this.RenderingHandler;
-
-            // Example
-            this.AddGameObject(new Ninja(this.Route));
-            this.AddGameObject(new MonsterGirl(this.Route));
-            this.AddGameObject(new MonsterGreen(this.Route));
-            this.AddGameObject(new MonsterSweety(this.Route));
-            this.AddGameObject(new MonsterYellow(this.Route));
-            this.AddGameObject(new MonsterBabySkeleton(this.Route));
-            this.AddGameObject(new MonsterBlueHarvester(this.Route));
-            this.AddGameObject(new MonsterDarkGhost(this.Route));
-            this.AddGameObject(new MonsterRedDemon(this.Route));
+            CompositionTarget.Rendering += this.RenderingHandler;         
         }
 
         public void Start()
         {
             this.timer.Start();
+            // TODO: create a new button "new wave" to GameField and bind this method to it
+            this.StartWave();
         }
 
         public void Stop()
@@ -74,6 +68,48 @@
         {
             this.gameObjects.Add(gameObject);
         }
+
+        //public ICollection<IGameObject> GetNextWave()
+        //{
+        //    foreach (var wave in this.waves)
+        //    {
+        //        yield return wave;
+        //    }
+        //}
+
+        public void StartWave()
+        {
+            ICollection<IGameObject> wave = new HashSet<IGameObject>();
+            wave.Add(new MonsterBabySkeleton(this.Route));
+            wave.Add(new MonsterGirl(this.Route));
+            wave.Add(new MonsterGreen(this.Route));
+            wave.Add(new MonsterSweety(this.Route));
+            wave.Add(new MonsterYellow(this.Route));
+            wave.Add(new MonsterBlueHarvester(this.Route));
+            wave.Add(new MonsterDarkGhost(this.Route));
+            wave.Add(new MonsterRedDemon(this.Route));
+            //add monsters from wave to gameObjects
+            foreach (var monster in wave)
+            {
+                this.gameObjects.Add(monster);
+            }
+        }
+
+        //public void CreateWaves()
+        //{
+        //    ICollection<IGameObject> wave1 = new HashSet<IGameObject>();
+        //    wave1.Add(new MonsterGirl(this.Route));
+        //    wave1.Add(new MonsterGreen(this.Route));
+        //    wave1.Add(new MonsterSweety(this.Route));
+        //    wave1.Add(new MonsterBlueHarvester(this.Route));
+        //    this.waves.Add(wave1);
+        //    ICollection<IGameObject> wave2 = new HashSet<IGameObject>();
+        //    wave2.Add(new MonsterGirl(this.Route));
+        //    wave2.Add(new MonsterGreen(this.Route));
+        //    wave2.Add(new MonsterSweety(this.Route));
+        //    wave2.Add(new MonsterBlueHarvester(this.Route));
+        //    this.waves.Add(wave2);
+        //}
 
         public bool TryAddTower(ITower tower)
         {
@@ -140,8 +176,7 @@
             {
                 if (((IMonster)gameObject).ReachedEnd)
                 {
-                    this.Player.Lives--;
-                    // TODO: check for lives count == 0;
+                    this.Player.RemoveLive();
                 }
                 else
                 {
