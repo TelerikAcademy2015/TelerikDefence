@@ -64,5 +64,22 @@
             this.Money = 20000;
             this.Lives = 10;
         }
+
+        public void RemoveLive()
+        {
+            if (this.Lives > 1)
+            {
+                this.Lives--;
+            }
+            else if (this.Lives == 1)
+            {
+                this.Lives--;
+                // TODO: call final screen
+            }
+            else
+            {
+                throw new ArgumentException("Lives cannot be less than 0");
+            }
+        }
     }
 }
