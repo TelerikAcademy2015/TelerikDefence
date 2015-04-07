@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Windows.Documents;
 
 namespace TowerDefense.Main
 {
@@ -15,8 +16,8 @@ namespace TowerDefense.Main
         public Highscore()
         {
             InitializeComponent();
-            
-            
+
+
             this.OpenMainMenuPage = new DelegateCommand((Object parameter) =>
             {
                 this.OpenPage(new MainMenu());
@@ -37,27 +38,44 @@ namespace TowerDefense.Main
             ((Window)this.Parent).Content = page;
         }
 
-        private void PrintHighscore()
+        private List<Player> GetHighscore()
         {
             var highscores = ApplicationContext.Instance.HighscoreProvider.HighscoreEntries;
+
+            return highscores;
         }
 
         private void PrintResults()
         {
-            var results = GetResults();
+            var results = GetHighscore();
 
-            var i = 0;
-
-            foreach (var result in results)
+            if (results.Count > 0)
+            {
+                var i = 0;
+                foreach (var result in results)
+                {
+                    TextBlock HelloWorldTextBlock = new TextBlock();
+                    HelloWorldTextBlock.FontSize = 24;
+                    HelloWorldTextBlock.Text = "[" + (i + 1) + "]" + result.Name + ": " + result.Score;
+                    HelloWorldTextBlock.FontFamily = new FontFamily("Segoe UI Mono");
+                        
+                    LayoutGrid.Children.Add(HelloWorldTextBlock);
+                    LayoutGrid.VerticalAlignment = VerticalAlignment.Center;
+                    LayoutGrid.HorizontalAlignment = HorizontalAlignment.Center;
+                    Grid.SetRow(HelloWorldTextBlock, i++);
+                    Grid.SetColumn(HelloWorldTextBlock, 2);
+                }
+            }
+            else
             {
                 TextBlock HelloWorldTextBlock = new TextBlock();
                 HelloWorldTextBlock.FontSize = 24;
 
-                HelloWorldTextBlock.Text = "[" + (i + 1) + "]" + result.Key + ": " + result.Value;
+                HelloWorldTextBlock.Text = "[no results]";
 
                 LayoutGrid.Children.Add(HelloWorldTextBlock);
-                Grid.SetRow(HelloWorldTextBlock, i++);
-                Grid.SetColumn(HelloWorldTextBlock, 2);
+                Grid.SetRow(HelloWorldTextBlock, 1);
+                Grid.SetColumn(HelloWorldTextBlock, 1);
             }
         }
 
@@ -70,6 +88,6 @@ namespace TowerDefense.Main
             results.Add("Tosho", 300);
 
             return results;
-        }  
+        }
     }
 }
