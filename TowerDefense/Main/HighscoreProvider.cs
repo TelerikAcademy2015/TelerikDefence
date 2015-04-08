@@ -62,7 +62,7 @@
                     while ((line = reader.ReadLine()) != null)
                     {
                         Player player = new Player();
-                        Match match = Regex.Match(line, @"^(\w{0,})\s+(\d+)$");
+                        Match match = Regex.Match(line, @"^(\w{3,})\s+(\d+)$");
                         player.Name = match.Groups[1].Value;
                         player.Score = Convert.ToInt32(match.Groups[2].Value);
                         this.highscoreEntries.Add(player);
