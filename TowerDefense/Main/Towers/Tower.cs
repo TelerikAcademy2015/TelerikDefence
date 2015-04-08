@@ -57,7 +57,7 @@
                 return;
             }
 
-            this.timeElapsedSinceLastShot =totalTime - this.Rate;
+            this.timeElapsedSinceLastShot = totalTime - this.Rate;
             this.projectilesProduced.Add(this.CreateProjectile(closestTarget, timeElapsedSinceLastShot));
         }
 

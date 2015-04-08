@@ -29,8 +29,7 @@
         {
             get
             {
-                //for testing purposes, otherwise 250
-                return 800;
+                return 250;
             }
         }
 
@@ -38,8 +37,7 @@
         {
             get
             {
-                //for testing purposes, otherwise 500
-                return new TimeSpan(0, 0, 0, 0, 1500);
+                return new TimeSpan(0, 0, 0, 0, 500);
             }
         }
 
