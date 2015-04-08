@@ -41,7 +41,6 @@
         private DateTime lastRendered;
         private ICollection<IGameObject> gameObjects;
 
-
         public Engine(ICanvas canvas, IRoute route)
         {
             this.Canvas = canvas;
