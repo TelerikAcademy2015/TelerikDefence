@@ -61,11 +61,14 @@
     <Compile Include="Commands\PlaceTowerCommand.cs" />
     <Compile Include="Converters\ScoreToGameOverTextConverter.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="Monsters\Bat.cs" />
+    <Compile Include="Monsters\Bird.cs" />
     <Compile Include="Monsters\Deamon.cs" />
     <Compile Include="Monsters\MonsterFactory.cs" />
     <Compile Include="Monsters\Waves\MonsterGroup.cs" />
     <Compile Include="Monsters\Waves\InitialMonsterWave.cs" />
     <Compile Include="Monsters\Waves\MonsterWave.cs" />
+    <Compile Include="Monsters\Witch.cs" />
     <Compile Include="Towers\FastTower.cs" />
     <Compile Include="Pages\GameField.xaml.cs">
       <DependentUpon>GameField.xaml</DependentUpon>
@@ -199,6 +202,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\deamon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bird.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\vampire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\devil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\witch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

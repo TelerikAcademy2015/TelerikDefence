@@ -20,6 +20,13 @@
             directionToRow[Direction.UP] = 3;
         }
 
+        public override Point Position
+        {
+            get
+            {
+                return new Point(this.Center.X - this.BitmapSource.Width * 0.5, this.Center.Y - this.BitmapSource.Height * 1.0);
+            }
+        }
 
         public int Speed
         {

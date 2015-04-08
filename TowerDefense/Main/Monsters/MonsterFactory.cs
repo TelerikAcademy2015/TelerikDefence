@@ -21,6 +21,18 @@
                     {
                         return new Deamon(this.route);
                     }
+                case MonsterType.Bat:
+                    {
+                        return new Bat(this.route);
+                    }
+                case MonsterType.Witch:
+                    {
+                        return new Witch(this.route);
+                    }
+                case MonsterType.Bird:
+                    {
+                        return new Bird(this.route);
+                    }
                 default:
                     {
                         throw new NotSupportedException();

@@ -26,7 +26,7 @@
 
         public static CroppedBitmap CreateCroppedImage(BitmapSource source, int rows, int columns, int row, int column)
         {
-            if (croppedCache.ContainsKey(source))
+            if(croppedCache.ContainsKey(source))
             {
                 return croppedCache[source][row, column];
             }
@@ -36,7 +36,7 @@
             int height = (int)source.Height / rows;
             for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < columns; j++)
+                for(int j = 0; j < columns; j++)
                 {
                     int x = j * width;
                     int y = i * height;
