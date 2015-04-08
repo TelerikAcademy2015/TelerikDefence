@@ -64,6 +64,7 @@
     <Compile Include="Monsters\Bat.cs" />
     <Compile Include="Monsters\Bird.cs" />
     <Compile Include="Monsters\Deamon.cs" />
+    <Compile Include="Monsters\Dragon.cs" />
     <Compile Include="Monsters\MonsterFactory.cs" />
     <Compile Include="Monsters\Waves\MonsterGroup.cs" />
     <Compile Include="Monsters\Waves\InitialMonsterWave.cs" />
@@ -217,6 +218,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\witch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\dragon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

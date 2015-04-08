@@ -33,6 +33,10 @@
                     {
                         return new Bird(this.route);
                     }
+                case MonsterType.Dragon:
+                    {
+                        return new Dragon(this.route);
+                    }
                 default:
                     {
                         throw new NotSupportedException();

@@ -51,13 +51,13 @@
             }
 
             ITarget closestTarget = targets.OrderBy(target => Point.DistanceBetween(this.Center, target.Center)).FirstOrDefault();
-            if (closestTarget == null || this.IsInRange(closestTarget))
+            if (closestTarget == null || !this.IsInRange(closestTarget))
             {
                 this.timeElapsedSinceLastShot = this.Rate;
                 return;
             }
 
-            this.timeElapsedSinceLastShot = totalTime - this.Rate;
+            this.timeElapsedSinceLastShot =totalTime - this.Rate;
             this.projectilesProduced.Add(this.CreateProjectile(closestTarget, timeElapsedSinceLastShot));
         }
 
