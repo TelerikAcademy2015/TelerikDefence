@@ -17,5 +17,10 @@
             : base(message, inner)
         {
         }
+
+        public override string Message
+        {
+            get { return "something wrong happened"; }
+        }
     }
 }
