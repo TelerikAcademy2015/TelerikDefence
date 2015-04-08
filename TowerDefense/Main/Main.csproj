@@ -138,12 +138,14 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="TowerDefenseDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -212,9 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\vampire.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\devil.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\witch.png" />

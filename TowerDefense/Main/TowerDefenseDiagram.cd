@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TowerDefense.Interfaces.GameConstants" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TowerDefense.Main.DelegateCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.DelegateCommand&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.InvalidNameException" Collapsed="true">
+    <Position X="30.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\InvalidNameException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.MonsterFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Monsters\MonsterFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.Projectile" Collapsed="true">
+    <Position X="14" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAIAAAAAAAAAAACABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Towers\Projectiles\Projectile.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.Main.ApplicationContext" Collapsed="true">
+    <Position X="29" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKAAAAAAAAAAAAAAAAAAAAABAAAABTAAAAQQAAAg=</HashCode>
+      <FileName>ApplicationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Engine" Collapsed="true">
+    <Position X="34.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABgAAAAACAABBAAAEIAIIAAAAAAAAAAIAAAAQCEAAg=</HashCode>
+      <FileName>Engine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.GameObject" Collapsed="true">
+    <Position X="14" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAAAwABAAAAAAAQAAAAAgAAAAAAAIAgA=</HashCode>
+      <FileName>GameObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.Main.HighscoreProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAQAAAAQAAAAIAAAAAAAAAAQBAAAAAAAA=</HashCode>
+      <FileName>HighscoreProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.Player" Collapsed="true">
+    <Position X="0.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAgAAAAIAAQAAAIEAAACAAAAAAAAEAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.Main.PropertyChangedAwaredObject" Collapsed="true">
+    <Position X="1.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PropertyChangedAwaredObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.Main.Route" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Route.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.Commands.PlaceTowerCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAACAAQAAEAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\PlaceTowerCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.Converters.ScoreToGameOverTextConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ScoreToGameOverTextConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.Converters.ScoreToLabelConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ScoreToLabelConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.Monsters.Waves.InitialMonsterWave" Collapsed="true">
+    <Position X="2.75" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Monsters\Waves\InitialMonsterWave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Monsters.MonsterGroup" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAQAQAAkAAAAAAQAEAQAAAIAAAAAAAQAAAgABAA=</HashCode>
+      <FileName>Monsters\Waves\MonsterGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerDefense.Main.Monsters.MonsterWave" Collapsed="true">
+    <Position X="2.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEAEAAAggAAAAAQAAAAAAAEAAAABAAQAAAgABAQ=</HashCode>
+      <FileName>Monsters\Waves\MonsterWave.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.Main.Monsters.Bat" Collapsed="true">
+    <Position X="6.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Monsters\Bat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Monsters.Bird" Collapsed="true">
+    <Position X="8.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Monsters\Bird.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Monsters.Deamon" Collapsed="true">
+    <Position X="1.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Monsters\Deamon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Monsters.Monster" Collapsed="true">
+    <Position X="5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUQACAAIAIAACAAgAAAIAgJBgQAAAAAAAAAAgABCAQA=</HashCode>
+      <FileName>Monsters\Monster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.Main.Monsters.Witch" Collapsed="true">
+    <Position X="4" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Monsters\Witch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.Projectiles.FastTowerProjectile" Collapsed="true">
+    <Position X="13" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Towers\Projectiles\FastTowerProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.Projectiles.MegaTowerProjectile" Collapsed="true">
+    <Position X="15.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Towers\Projectiles\MegaTowerProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.Projectiles.NormalTowerProjectile" Collapsed="true">
+    <Position X="17.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Towers\Projectiles\NormalTowerProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.Projectiles.SlowTowerProjectile" Collapsed="true">
+    <Position X="10.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Towers\Projectiles\SlowTowerProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.FastTower" Collapsed="true">
+    <Position X="19.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAACAAAAAAAAAAAAQAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Towers\FastTower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.NormalTower" Collapsed="true">
+    <Position X="22" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAACAAAAAAAAAAAAQAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Towers\NormalTower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.MegaTower" Collapsed="true">
+    <Position X="24.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAACAAAAAAAAAAAAQAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Towers\MegaTower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.SlowTower" Collapsed="true">
+    <Position X="26.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAACAAAAAAAAAAAAQAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Towers\SlowTower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerDefense.Main.Towers.Tower" Collapsed="true">
+    <Position X="23" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAgCAAAQAADAAgAAAAAAAAAAAAAAAAAAAAAAgABCg=</HashCode>
+      <FileName>Towers\Tower.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.Utils.AsyncTimer" Collapsed="true">
+    <Position X="20.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TowerDefense.Utils.ImageFactory" Collapsed="true">
+    <Position X="22" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TowerDefense.WPFCustomControls.NavigationPage" Collapsed="true">
+    <Position X="20.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TowerDefense.WPFCustomControls.PropertyChangedAwaredPage" Collapsed="true">
+    <Position X="20.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TowerDefense.WPFCustomControls.WPFCanvas" Collapsed="true">
+    <Position X="22.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="TowerDefense.Interfaces.Point" Collapsed="true">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Struct>
+  <Interface Name="TowerDefense.Interfaces.ICanvas" Collapsed="true">
+    <Position X="13.25" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IDrawable" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IGameObject" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IHighscoreProvider" Collapsed="true">
+    <Position X="15" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IMonster" Collapsed="true">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IMonsterCreator" Collapsed="true">
+    <Position X="8.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IMonsterFactory" Collapsed="true">
+    <Position X="16.75" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IMonsterGroup" Collapsed="true">
+    <Position X="8.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IMonsterWave" Collapsed="true">
+    <Position X="8.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IMovable" Collapsed="true">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IObjectCreator" Collapsed="true">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IObjectCreator&lt;T&gt;" Collapsed="true">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IPlayer" Collapsed="true">
+    <Position X="13.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IProjectile" Collapsed="true">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IRoute" Collapsed="true">
+    <Position X="15" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IShooter" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.ITarget" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.ITower" Collapsed="true">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TowerDefense.Interfaces.IValidatable" Collapsed="true">
+    <Position X="16.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Enum Name="TowerDefense.Interfaces.Direction" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Enum Name="TowerDefense.Interfaces.MonsterType" Collapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Delegate Name="TowerDefense.Main.ExecuteCommandDelegate" Collapsed="true">
+    <Position X="32.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="TowerDefense.Main.CanExecuteCommandDelegate" Collapsed="true">
+    <Position X="29" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="TowerDefense.Main.ExecuteCommandDelegate&lt;T&gt;" Collapsed="true">
+    <Position X="34.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="TowerDefense.Main.CanExecuteCommandDelegate&lt;T&gt;" Collapsed="true">
+    <Position X="30.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="TowerDefense.Utils.AsyncTimerDelegate" Collapsed="true">
+    <Position X="20.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

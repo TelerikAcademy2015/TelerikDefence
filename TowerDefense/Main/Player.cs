@@ -12,6 +12,10 @@
             get { return this.name; }
             set
             {
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new InvalidNameException("Player name is null or whitespace.");
+                }
                 this.name = value;
             }
         }
@@ -60,7 +64,7 @@
 
         public Player()
         {
-            this.Name = String.Empty;
+            this.name = String.Empty;
             this.Score = 0;
             this.Money = 20000;
             this.Lives = 10;
