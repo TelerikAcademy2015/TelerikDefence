@@ -2,6 +2,6 @@
 {
     public enum MonsterType
     {
-        Bird, Bat, Deamon, Witch, 
+        Bird, Bat, Deamon, Witch, Dragon, 
     }
 }

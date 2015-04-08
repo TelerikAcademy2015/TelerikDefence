@@ -26,6 +26,7 @@
         {
             get
             {
+                //for testing purposes, otherwise 20
                 return 50;
             }
         }

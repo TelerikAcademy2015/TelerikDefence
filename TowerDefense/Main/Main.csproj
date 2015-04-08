@@ -64,6 +64,7 @@
     <Compile Include="Monsters\Bat.cs" />
     <Compile Include="Monsters\Bird.cs" />
     <Compile Include="Monsters\Deamon.cs" />
+    <Compile Include="Monsters\Dragon.cs" />
     <Compile Include="Monsters\MonsterFactory.cs" />
     <Compile Include="Monsters\Waves\MonsterGroup.cs" />
     <Compile Include="Monsters\Waves\InitialMonsterWave.cs" />

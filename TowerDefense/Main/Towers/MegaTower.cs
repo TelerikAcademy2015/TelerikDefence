@@ -21,7 +21,7 @@
         {
             get
             {
-                return 100;
+                return 500;
             }
         }
 
@@ -29,7 +29,7 @@
         {
             get
             {
-                return 100;
+                return 330;
             }
         }
 
@@ -37,7 +37,7 @@
         {
             get
             {
-                return new TimeSpan(0, 0, 0, 0, 1500);
+                return new TimeSpan(0, 0, 0, 0, 800);
             }
         }
 
