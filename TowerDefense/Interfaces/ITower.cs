@@ -1,10 +1,24 @@
 ﻿namespace TowerDefense.Interfaces
 {
-    public interface ITower : IObjectCreator, IShooter
+    using System;
+
+    public interface ITower : IGameObject, IShooter, IObjectCreator<IProjectile>
     {
         int Price
         {
             get;
         }
+
+        int Range
+        {
+            get;
+        }
+
+        TimeSpan Rate
+        {
+            get;
+        }
+
+        IProjectile CreateProjectile(ITarget target, TimeSpan elapsedTime);
     }
 }

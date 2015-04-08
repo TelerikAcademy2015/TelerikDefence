@@ -1,12 +1,7 @@
 ﻿namespace TowerDefense.Interfaces
 {
-    public interface ITarget : IDrawable
+    public interface ITarget : IGameObject
     {
-        Point Position
-        {
-            get;
-        }
-
         void TakeDamage(int damage);
     }
 }

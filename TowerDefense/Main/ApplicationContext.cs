@@ -1,11 +1,13 @@
-﻿using System;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.Main
+﻿namespace TowerDefense.Main
 {
+    using System;
+    using TowerDefense.Interfaces;
+    using TowerDefense.Main.Monsters.Waves;
+
     public class ApplicationContext
     {
         private static ApplicationContext instance = new ApplicationContext();
+
         public static ApplicationContext Instance
         {
             get
@@ -14,10 +16,27 @@ namespace TowerDefense.Main
             }
         }
 
-        public Player Player
+        private IPlayer player;
+        public IPlayer Player
         {
-            get;
-            private set;
+            get
+            {
+                if (this.player == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                return this.player;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                this.player = value;
+            }
         }
 
         private Engine engine;
@@ -43,16 +62,54 @@ namespace TowerDefense.Main
             }
         }
 
+        private IMonsterWave monsterWave;
+        public IMonsterWave MonsterWave
+        {
+            get
+            {
+                if (this.monsterWave == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                return this.monsterWave;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                this.monsterWave = value;
+            }
+        }
+
+        private HighscoreProvider highscoreProvider;
         public HighscoreProvider HighscoreProvider
         {
-            get;
-            private set;
+            get
+            {
+                if (this.highscoreProvider == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                return this.highscoreProvider;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                this.highscoreProvider = value;
+            }
         }
 
         private ApplicationContext()
         {
-            this.Player = new Player();
-            this.HighscoreProvider = new HighscoreProvider(GameConstants.HIGHSCORE_FILE_NAME);
         }
     }
 }

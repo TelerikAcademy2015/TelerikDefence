@@ -1,5 +1,7 @@
 ﻿namespace TowerDefense.Interfaces
 {
+    using System;
+
     public interface IMovable
     {
         int Speed
@@ -7,11 +9,6 @@
             get;
         }
 
-        IRoute Route
-        {
-            get;
-        }
-
-        void Move();
+        void Move(TimeSpan timeElapsed);
     }
 }

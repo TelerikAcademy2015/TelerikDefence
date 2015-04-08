@@ -11,5 +11,15 @@
         {
             get;
         }
+
+        int ScoreValue
+        {
+            get;
+        }
+
+        bool ReachedEnd
+        {
+            get;
+        }
     }
 }

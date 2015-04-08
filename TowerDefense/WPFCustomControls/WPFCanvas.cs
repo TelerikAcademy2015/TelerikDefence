@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using TowerDefense.Interfaces;
-
-namespace TowerDefense.WPFCustomControls
+﻿namespace TowerDefense.WPFCustomControls
 {
+    using System.Collections.Generic;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+    using TowerDefense.Interfaces;
+
     public class WPFCanvas : Canvas, ICanvas
     {
         private IDictionary<IDrawable, Rectangle> gameToUIObjects;
@@ -25,36 +25,28 @@ namespace TowerDefense.WPFCustomControls
 
         public void UpdateObject(IDrawable drawableObject)
         {
-            if (!this.gameToUIObjects.ContainsKey(drawableObject))
-            {
-                this.AddObject(drawableObject);
-            }
-
-            if (drawableObject.IsDestroyed)
-            {
-                this.RemoveObject(drawableObject);
-                return;
-            }
-
             Rectangle rectangle = this.gameToUIObjects[drawableObject];
-            rectangle.Width = drawableObject.ImageSource.Width;
-            rectangle.Height = drawableObject.ImageSource.Height;
-            rectangle.Fill = new ImageBrush(drawableObject.ImageSource);
+            rectangle.Width = drawableObject.BitmapSource.Width;
+            rectangle.Height = drawableObject.BitmapSource.Height;
+            rectangle.Fill = new ImageBrush(drawableObject.BitmapSource);
             Canvas.SetLeft(rectangle, drawableObject.Position.X);
             Canvas.SetTop(rectangle, drawableObject.Position.Y);
         }
 
-        private void AddObject(IDrawable drawableObject)
+        public void AddObject(IDrawable drawableObject)
         {
             Rectangle rectangle = new Rectangle();
             this.Children.Add(rectangle);
             this.gameToUIObjects.Add(drawableObject, rectangle);
         }
 
-        private void RemoveObject(IDrawable drawableObject)
+        public void RemoveObject(IDrawable drawableObject)
         {
-            this.Children.Remove(gameToUIObjects[drawableObject]);
-            this.gameToUIObjects.Remove(drawableObject);
+            if (this.gameToUIObjects.ContainsKey(drawableObject))
+            {
+                this.Children.Remove(gameToUIObjects[drawableObject]);
+                this.gameToUIObjects.Remove(drawableObject);
+            }
         }
     }
 }

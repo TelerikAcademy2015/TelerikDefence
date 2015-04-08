@@ -52,61 +52,66 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Pages\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationContext.cs" />
-    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Commands\PlaceTowerCommand.cs" />
+    <Compile Include="Converters\ScoreToGameOverTextConverter.cs" />
     <Compile Include="Engine.cs" />
-    <Compile Include="FastTower.cs" />
-    <Compile Include="GameField.xaml.cs">
+    <Compile Include="Monsters\Bat.cs" />
+    <Compile Include="Monsters\Bird.cs" />
+    <Compile Include="Monsters\Deamon.cs" />
+    <Compile Include="Monsters\MonsterFactory.cs" />
+    <Compile Include="Monsters\Waves\MonsterGroup.cs" />
+    <Compile Include="Monsters\Waves\InitialMonsterWave.cs" />
+    <Compile Include="Monsters\Waves\MonsterWave.cs" />
+    <Compile Include="Monsters\Witch.cs" />
+    <Compile Include="Towers\FastTower.cs" />
+    <Compile Include="Pages\GameField.xaml.cs">
       <DependentUpon>GameField.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameObject.cs" />
     <Compile Include="HighscoreProvider.cs" />
-    <Compile Include="Highscore.xaml.cs">
+    <Compile Include="Pages\Highscore.xaml.cs">
       <DependentUpon>Highscore.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InvalidNameException.cs" />
-    <Compile Include="MainMenu.xaml.cs">
+    <Compile Include="Exceptions\InvalidNameException.cs" />
+    <Compile Include="Pages\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MegaTower.cs" />
-    <Compile Include="Monster.cs" />
-    <Compile Include="MonsterBabySkeleton.cs" />
-    <Compile Include="MonsterBlueHarvester.cs" />
-    <Compile Include="MonsterDarkGhost.cs" />
-    <Compile Include="MonsterGirl.cs" />
-    <Compile Include="MonsterGreen.cs" />
-    <Compile Include="MonsterRedDemon.cs" />
-    <Compile Include="MonsterSweety.cs" />
-    <Compile Include="MonsterYellow.cs" />
-    <Compile Include="Ninja.cs" />
+    <Compile Include="Towers\MegaTower.cs" />
+    <Compile Include="Monsters\Monster.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Projectile.cs" />
+    <Compile Include="Towers\Projectiles\FastTowerProjectile.cs" />
+    <Compile Include="Towers\Projectiles\MegaTowerProjectile.cs" />
+    <Compile Include="Towers\Projectiles\NormalTowerProjectile.cs" />
+    <Compile Include="Towers\Projectiles\Projectile.cs" />
     <Compile Include="PropertyChangedAwaredObject.cs" />
     <Compile Include="Route.cs" />
-    <Compile Include="SlowTower.cs" />
-    <Compile Include="Tower.cs" />
-    <Compile Include="ScoreToLabelConverter.cs" />
-    <Compile Include="NormalTower.cs" />
-    <Page Include="GameField.xaml">
+    <Compile Include="Towers\Projectiles\SlowTowerProjectile.cs" />
+    <Compile Include="Towers\SlowTower.cs" />
+    <Compile Include="Towers\Tower.cs" />
+    <Compile Include="Converters\ScoreToLabelConverter.cs" />
+    <Compile Include="Towers\NormalTower.cs" />
+    <Page Include="Pages\GameField.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Highscore.xaml">
+    <Page Include="Pages\Highscore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu.xaml">
+    <Page Include="Pages\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Pages\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -159,7 +164,6 @@
   <ItemGroup>
     <Resource Include="images\endscreen.png" />
     <Resource Include="images\grey-texture.jpg" />
-    <Resource Include="images\MonsterGreen.png" />
     <Resource Include="images\startscreenninja.png" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +173,7 @@
     <Resource Include="images\pause.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\grass.png" />
+    <Resource Include="images\grass-texture.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\money.png" />
@@ -191,10 +195,28 @@
     <Resource Include="images\ball2.png" />
     <Resource Include="images\ball3.png" />
     <Resource Include="images\ball4.png" />
-    <Resource Include="images\Tower1.png" />
+    <Resource Include="images\tower1.png" />
     <Resource Include="images\tower2.png" />
     <Resource Include="images\tower3.png" />
     <Resource Include="images\tower4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\deamon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bird.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\vampire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\devil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\witch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

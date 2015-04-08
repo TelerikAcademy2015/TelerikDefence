@@ -1,0 +1,113 @@
+﻿<Custom:NavigationPage x:Class="TowerDefense.Main.GameField"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:c="clr-namespace:TowerDefense.Main.Converters"
+    xmlns:t="clr-namespace:TowerDefense.Main.Towers"
+    xmlns:Custom="clr-namespace:TowerDefense.WPFCustomControls;assembly=WPFCustomControls"
+    mc:Ignorable="d" Title="Tower Defense">
+    <Custom:NavigationPage.Resources>
+        <c:ScoreToLabelConverter x:Key="ScoreToLabelConverter" />
+        <c:ScoreToGameOverTextConverter x:Key="ScoreToGameOverTextConverter" />
+    </Custom:NavigationPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="..\images\grey-texture.jpg" />
+        </Grid.Background>
+        <Popup Placement="Center" IsOpen="{Binding IsGameOver}">
+            <Grid Background="Green" Width="600">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Text="Game Over" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" Text="{Binding Player.Score, Converter={StaticResource ScoreToGameOverTextConverter}}" HorizontalAlignment="Center" Margin="0,50,0,0" FontSize="40" FontWeight="Bold"/>
+                <Button Grid.Row="2" Content="OK" Margin="0,30,0,30" Width="300" FontSize="50" Cursor="Hand" Command="{Binding GameOverOKCommand}" BorderBrush="Black"/>
+            </Grid>
+        </Popup>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Width="60" Grid.Column="0" Command="{Binding StartCommand}">
+                <Image Source="..\images\play.png"/>
+            </Button>
+            <Button Width="60" Grid.Column="1" Command="{Binding StopCommand}">
+                <Image Source="..\images\pause.png"/>
+            </Button>
+            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Center" >
+                <Image Source="..\images\money.png"/>
+                <TextBlock Text="{Binding Player.Money}" TextAlignment="Center" FontSize="45" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="3" HorizontalAlignment="Center" >
+                <Image Source="..\images\heart.png"/>
+                <TextBlock  Text="{Binding Player.Lives}" TextAlignment="Center" FontSize="45" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Center" >
+                <Image Source="..\images\target.png"/>
+                <TextBlock Text="{Binding MonsterWave.Level}" TextAlignment="Center" FontSize="45"/>
+            </StackPanel>
+            <TextBlock Grid.Column="5" Text="{Binding Player.Score, Converter={StaticResource ScoreToLabelConverter}}" TextAlignment="Center" FontSize="45" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Command="{Binding PlaceTowerCommand}" CommandParameter="{x:Type t:SlowTower}">
+                <Image Source="..\images\tower1.png"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="1" Command="{Binding PlaceTowerCommand}" CommandParameter="{x:Type t:MegaTower}">
+                <Image Source="..\images\tower2.png"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="0" Command="{Binding PlaceTowerCommand}" CommandParameter="{x:Type t:NormalTower}">
+                <Image Source="..\images\tower3.png"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" Command="{Binding PlaceTowerCommand}" CommandParameter="{x:Type t:FastTower}">
+                <Image Source="..\images\tower4.png"/>
+            </Button>
+        </Grid>
+        <Custom:WPFCanvas Name="canvas" Grid.Row="1" Grid.Column="1">
+            <Custom:WPFCanvas.Background>
+                <ImageBrush ImageSource="..\images\grass-texture.png" TileMode="Tile" 
+            Viewport="0,0,20,20" ViewportUnits="Absolute" />
+            </Custom:WPFCanvas.Background>
+            <Polyline Name="path" Grid.Row="1" StrokeThickness="40" StrokeLineJoin="Round" HorizontalAlignment="Center" Width="800" Height="800">
+                <Polyline.Stroke>
+                    <ImageBrush ImageSource="..\images\ground-texture.jpg"/>
+                </Polyline.Stroke>
+                <Polyline.Points>
+                    <Point X="12" Y="120"/>
+                    <Point X="150" Y="20"/>
+                    <Point X="650" Y="420"/>
+                    <Point X="400" Y="620"/>
+                    <Point X="150" Y="420"/>
+                    <Point X="650" Y="20"/>
+                    <Point X="788" Y="120"/>
+                </Polyline.Points>
+            </Polyline>
+        </Custom:WPFCanvas>
+    </Grid>
+</Custom:NavigationPage>

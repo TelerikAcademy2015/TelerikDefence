@@ -51,6 +51,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="NavigationPage.cs" />
     <Compile Include="PropertyChangedAwaredPage.cs" />
     <Compile Include="WPFCanvas.cs">
       <SubType>Code</SubType>

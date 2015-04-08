@@ -1,7 +1,14 @@
 ﻿namespace TowerDefense.Interfaces
 {
+    using System;
+
     public interface IGameObject : IDrawable
     {
-        void Update();
+        Point Center
+        {
+            get;
+        }
+
+        void Update(TimeSpan elapsedTime);
     }
 }

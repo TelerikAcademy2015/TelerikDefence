@@ -1,7 +1,7 @@
-﻿using System.Windows.Media;
-
-namespace TowerDefense.Interfaces
+﻿namespace TowerDefense.Interfaces
 {
+    using System.Windows.Media.Imaging;
+
     public interface IDrawable
     {
         int Id
@@ -18,7 +18,7 @@ namespace TowerDefense.Interfaces
             get;
         }
 
-        ImageSource ImageSource
+        BitmapSource BitmapSource
         {
             get;
         }

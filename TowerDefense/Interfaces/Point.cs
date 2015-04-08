@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace TowerDefense.Interfaces
+﻿namespace TowerDefense.Interfaces
 {
+    using System;
+
     public struct Point
     {
         public readonly double X;
@@ -24,6 +24,11 @@ namespace TowerDefense.Interfaces
         public static Point operator +(Point a, Point b)
         {
             return new Point(a.X + b.X, a.Y + b.Y);
+        }
+
+        public static Point operator -(Point a, Point b)
+        {
+            return new Point(a.X - b.X, a.Y - b.Y);
         }
     }
 }
